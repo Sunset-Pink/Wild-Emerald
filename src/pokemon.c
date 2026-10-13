@@ -3212,42 +3212,58 @@ u32 GetSpeciesWeight(enum Species species)
 
 enum Type GetSpeciesType(enum Species species, u8 slot)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].types[slot];
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedTypes[0] == TYPE_NONE)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].types[slot];
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedTypes[slot];
 }
 
 enum Ability GetSpeciesAbility(enum Species species, u8 slot)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].abilities[slot];
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedAbilities[0] == ABILITY_NONE)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].abilities[slot];
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedAbilities[slot];
 }
 
 u32 GetSpeciesBaseHP(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseHP;
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedHP == 0)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].baseHP;
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedHP;
 }
 
 u32 GetSpeciesBaseAttack(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseAttack;
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedAttack == 0)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].baseAttack;
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedAttack;
 }
 
 u32 GetSpeciesBaseDefense(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseDefense;
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedDefense == 0)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].baseDefense;
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedDefense;
 }
 
 u32 GetSpeciesBaseSpAttack(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpAttack;
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedSpAttack == 0)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpAttack;
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedSpAttack;
 }
 
 u32 GetSpeciesBaseSpDefense(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpDefense;
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedSpDefense == 0)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpDefense;
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedSpDefense;
 }
 
 u32 GetSpeciesBaseSpeed(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpeed;
+    if(IsVanillaMode() || gSpeciesInfo[SanitizeSpeciesId(species)].updatedSpeed == 0)
+        return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpeed;
+    return gSpeciesInfo[SanitizeSpeciesId(species)].updatedSpeed;
 }
 
 u32 GetSpeciesBaseStat(enum Species species, u32 statIndex)
@@ -5239,24 +5255,18 @@ const u16 *GetMonSpritePalFromSpeciesIsEgg(enum Species species, bool32 isShiny,
     }
     else if (isShiny)
     {
-    #if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].shinyPaletteFemale != NULL && isFemale)
             return gSpeciesInfo[species].shinyPaletteFemale;
-        else
-    #endif
-        if (gSpeciesInfo[species].shinyPalette != NULL)
+        else if (gSpeciesInfo[species].shinyPalette != NULL)
             return gSpeciesInfo[species].shinyPalette;
         else
             return gSpeciesInfo[SPECIES_NONE].shinyPalette;
     }
     else
     {
-    #if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].paletteFemale != NULL && isFemale)
             return gSpeciesInfo[species].paletteFemale;
-        else
-    #endif
-        if (gSpeciesInfo[species].palette != NULL)
+        else if (gSpeciesInfo[species].palette != NULL)
             return gSpeciesInfo[species].palette;
         else
             return gSpeciesInfo[SPECIES_NONE].palette;

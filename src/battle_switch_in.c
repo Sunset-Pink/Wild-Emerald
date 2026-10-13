@@ -315,10 +315,12 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
     case HAZARDS_NONE:
         break;
     case HAZARDS_SPIKES:
-        if (!IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
-         && IsBattlerAffectedByHazards(battler, holdEffect, FALSE)
-         && IsBattlerGrounded(battler, ability, holdEffect))
-        {
+        if (
+            !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+            && !IsAbilityAndRecord(battler, ability, ABILITY_SHIELD_DUST)
+            && IsBattlerAffectedByHazards(battler, holdEffect, FALSE)
+            && IsBattlerGrounded(battler, ability, holdEffect)
+        ) {
             s32 spikesDmg = GetNonDynamaxMaxHP(battler) / ((5 - gSideTimers[side].spikesAmount) * 2);
             SetPassiveDamageAmount(battler, spikesDmg);
             SetDmgHazardsBattlescript(battler, B_MSG_PKMNHURTBYSPIKES);
@@ -326,8 +328,11 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
         }
         break;
     case HAZARDS_STICKY_WEB:
-        if (IsBattlerAffectedByHazards(battler, holdEffect, FALSE) && IsBattlerGrounded(battler, ability, holdEffect))
-        {
+        if (
+            IsBattlerAffectedByHazards(battler, holdEffect, FALSE) 
+            && IsBattlerGrounded(battler, ability, holdEffect)
+            && !IsAbilityAndRecord(battler, ability, ABILITY_SHIELD_DUST)
+        ) {
             gEffectBattler = battler;
             SetStatChange(battler, STAT_SPEED, -1);
             BattleScriptCall(BattleScript_StickyWebOnSwitchIn);
@@ -348,9 +353,11 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
             clearedToxicSpikes = TRUE;
             effect = TRUE;
         }
-        else if (IsBattlerAffectedByHazards(battler, holdEffect, TRUE)
-              && CanBePoisoned(battler, battler, ABILITY_NONE, ability))
-        {
+        else if (
+            IsBattlerAffectedByHazards(battler, holdEffect, TRUE)
+            && CanBePoisoned(battler, battler, ABILITY_NONE, ability)
+            && !IsAbilityAndRecord(battler, ability, ABILITY_SHIELD_DUST)
+        ){
             gBattleScripting.battler = battler;
             BattleScriptPushCursor();
             if (gSideTimers[GetBattlerSide(battler)].toxicSpikesAmount >= 2)
@@ -370,8 +377,12 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
         }
         break;
     case HAZARDS_STEALTH_ROCK:
-        if (IsBattlerAffectedByHazards(battler, holdEffect, FALSE) && ability != ABILITY_MAGIC_GUARD)
-        {
+        if (
+            IsBattlerAffectedByHazards(battler, holdEffect, FALSE) 
+            && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+            && !IsAbilityAndRecord(battler, ability, ABILITY_SHIELD_DUST)
+            && !IsAbilityAndRecord(battler, ability, ABILITY_MOUNTAINEER)
+        ) {
             gBattleStruct->passiveHpUpdate[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_POINTED_STONES, battler);
             if (gBattleStruct->passiveHpUpdate[battler] != 0)
             {
@@ -381,8 +392,11 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
         }
         break;
     case HAZARDS_STEELSURGE:
-        if (IsBattlerAffectedByHazards(battler, holdEffect, FALSE) && ability != ABILITY_MAGIC_GUARD)
-        {
+        if (
+            IsBattlerAffectedByHazards(battler, holdEffect, FALSE) 
+            && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+            && !IsAbilityAndRecord(battler, ability, ABILITY_SHIELD_DUST)
+        ) {
             gBattleStruct->passiveHpUpdate[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_SHARP_STEEL, battler);
             if (gBattleStruct->passiveHpUpdate[battler] != 0)
             {

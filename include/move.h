@@ -126,6 +126,7 @@ struct MoveInfo
     bool32 snatchAffected:1;
     bool32 ignoresKingsRock:1;
     bool32 punchingMove:1;
+    bool32 kickingMove:1;
     bool32 bitingMove:1;
     bool32 pulseMove:1;
     bool32 soundMove:1;
@@ -136,6 +137,7 @@ struct MoveInfo
     bool32 slicingMove:1;
     bool32 healingMove:1;
     bool32 minimizeDoubleDamage:1;
+    bool32 boneMove:1;
     // end of word
     bool32 ignoresTargetAbility:1;
     bool32 ignoresTargetDefenseEvasionStages:1;
@@ -149,6 +151,8 @@ struct MoveInfo
     bool32 forcePressure:1;
     bool32 cantUseTwice:1;
     bool32 alwaysHitsInRain:1;
+    bool32 alwaysHitsInWind:1;
+    bool32 accuracy50InWind:1;
     bool32 accuracy50InSun:1;
     bool32 alwaysHitsInHailSnow:1;
     bool32 alwaysHitsOnSameType:1; // Always hits if user is of same type as move
@@ -169,6 +173,8 @@ struct MoveInfo
     bool32 instructBanned:1;
     bool32 encoreBanned:1;
     bool32 parentalBondBanned:1;
+    bool32 ragingBoxerBanned:1;
+    bool32 wistfulEchoBanned:1;
     bool32 skyBattleBanned:1;
     bool32 sketchBanned:1;
     bool32 dampBanned:1;
@@ -376,9 +382,17 @@ static inline bool32 MoveIgnoresKingsRock(enum Move moveId)
     return gMovesInfo[SanitizeMoveId(moveId)].ignoresKingsRock;
 }
 
+static inline bool32 IsBoneMove(enum Move moveId) {
+    return gMovesInfo[SanitizeMoveId(moveId)].boneMove;
+}
+
 static inline bool32 IsPunchingMove(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].punchingMove;
+}
+
+static inline bool32 IsKickingMove(enum Move moveId) {
+    return gMovesInfo[SanitizeMoveId(moveId)].kickingMove;
 }
 
 static inline bool32 IsBitingMove(enum Move moveId)
@@ -491,6 +505,16 @@ static inline bool32 MoveAlwaysHitsInRain(enum Move moveId)
     return gMovesInfo[SanitizeMoveId(moveId)].alwaysHitsInRain;
 }
 
+static inline bool32 MoveAlwaysHitsInWind(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].alwaysHitsInWind;
+}
+
+static inline bool32 MoveHas50AccuracyInWind(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].accuracy50InWind;
+}
+
 static inline bool32 MoveHas50AccuracyInSun(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].accuracy50InSun;
@@ -577,6 +601,14 @@ static inline bool32 IsMoveEncoreBanned(enum Move moveId)
 static inline bool32 IsMoveParentalBondBanned(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].parentalBondBanned;
+}
+
+static inline bool32 IsMoveRagingBoxerBanned(enum Move moveId) {
+    return gMovesInfo[SanitizeMoveId(moveId)].ragingBoxerBanned;
+}
+
+static inline bool32 IsMoveWistfulEchoBanned(enum Move moveId) {
+    return gMovesInfo[SanitizeMoveId(moveId)].wistfulEchoBanned;
 }
 
 static inline bool32 IsMoveSkyBattleBanned(enum Move moveId)

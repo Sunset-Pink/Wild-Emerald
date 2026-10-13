@@ -4381,18 +4381,42 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
 
     u32 weather = GetWeather();
     // weather abilities
-    if (ability == ABILITY_SWIFT_SWIM       && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && weather  & B_WEATHER_RAIN)
+    if (
+        ability == ABILITY_SWIFT_SWIM       
+        && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA 
+        && weather  & B_WEATHER_RAIN
+    )
         speed *= 2;
-    else if (ability == ABILITY_CHLOROPHYLL && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && weather  & B_WEATHER_SUN)
+    else if (
+        ability == ABILITY_CHLOROPHYLL 
+        && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA 
+        && weather  & B_WEATHER_SUN
+    )
         speed *= 2;
-    else if (ability == ABILITY_SAND_RUSH   && weather & B_WEATHER_SANDSTORM)
+    else if (
+        ability == ABILITY_SAND_RUSH   
+        && weather & B_WEATHER_SANDSTORM
+    )
         speed *= 2;
-    else if (ability == ABILITY_SLUSH_RUSH  && weather & B_WEATHER_ICY_ANY)
+    else if (
+        ability == ABILITY_SLUSH_RUSH  
+        && weather & B_WEATHER_ICY_ANY
+    )
         speed *= 2;
+    else if (
+        ability == ABILITY_JET_STREAM
+        && weather & B_WEATHER_WINDY
+    )
+        speed *= 2;
+    else if (
+        ability == ABILITY_FLOWER_GIFT 
+        && weather & B_WEATHER_SUN
+    )
+        speed = (speed * 150) / 100;
 
     // other abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY)
-        speed = (speed * 150) / 100;
+        speed *= 2;
     else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
         speed *= 2;
     else if (ability == ABILITY_SLOW_START && gBattleMons[battler].volatiles.slowStartTimer != 0)
@@ -4403,6 +4427,12 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed = (GetParadoxBoostedStatId(battler) == STAT_SPEED) ? (speed * 150) / 100 : speed;
     else if (ability == ABILITY_UNBURDEN && gBattleMons[battler].volatiles.unburdenActive)
         speed *= 2;
+    else if (
+        (ability == ABILITY_BULL_RUSH || ability == ABILITY_QUILL_RUSH)
+         && IsBattlersFirstTurn(battler) 
+    ) {
+        speed = (speed * 150) / 100;
+    }
 
     // player's badge boost
     if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK | BATTLE_TYPE_FRONTIER))
@@ -4428,7 +4458,7 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
 
     // paralysis drop
     if (gBattleMons[battler].status1 & STATUS1_PARALYSIS && ability != ABILITY_QUICK_FEET)
-        speed /= GetConfig(B_PARALYSIS_SPEED) >= GEN_7 ? 2 : 4;
+        speed /=  2;
 
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SWAMP)
         speed /= 4;
@@ -4471,10 +4501,18 @@ s32 GetBattleMovePriority(enum BattlerId battler, enum Ability ability, enum Mov
     {
         priority = -8;
     }
-    else if (ability == ABILITY_GALE_WINGS
-          && (GetConfig(B_GALE_WINGS) < GEN_7 || IsBattlerAtMaxHp(battler))
+    else if (
+        ability == ABILITY_GALE_WINGS
+          && IsBattlerAtMaxHp(battler)
           && GetMoveType(move) == TYPE_FLYING)
     {
+        priority++;
+    }
+    else if (
+        ability == ABILITY_BLAZING_SOUL
+        && IsBattlerAtMaxHp(battler)
+        && GetMoveType(move) == TYPE_FIRE
+    ) {
         priority++;
     }
     else if (IsBattleMoveStatus(move) && IsAbilityAndRecord(battler, ability, ABILITY_PRANKSTER))
@@ -4772,7 +4810,7 @@ static void TurnValuesCleanUp(bool32 endTurn)
         if (gBattleMons[i].volatiles.semiInvulnerable != STATE_COMMANDER)
             gBattleStruct->battlerState[i].commandingDondozo = FALSE;
 
-        gSpecialStatuses[i].parentalBondState = PARENTAL_BOND_OFF;
+        gSpecialStatuses[i].echoHitAbilityState = ECHO_HIT_ABILITY_OFF;
         gBattleStruct->battlerState[i].usedEjectItem = FALSE;
         gProtectStructs[i].lashOutAffected = FALSE;
         gBattleMons[i].volatiles.endured = FALSE;
@@ -5509,6 +5547,42 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
     case ABILITY_DRAGONIZE:
         ateType = TYPE_DRAGON;
         break;
+    case ABILITY_TERRORIZE:
+        ateType = TYPE_DARK;
+        break;
+    case ABILITY_PROPHESIZE:
+        ateType = TYPE_PSYCHIC;
+        break;
+    case ABILITY_POLLINATE:
+        ateType = TYPE_GRASS;
+        break;
+    case ABILITY_IRRIGATE:
+        ateType = TYPE_WATER;
+        break;
+    case ABILITY_EMOLATE:
+        ateType = TYPE_FIRE;
+        break;
+    case ABILITY_METALLICIZE:
+        ateType = TYPE_STEEL;
+        break;
+    case ABILITY_ENERVATE:
+        ateType = TYPE_GHOST;
+        break;
+    case ABILITY_PUPATE:
+        ateType = TYPE_BUG;
+        break;
+    case ABILITY_MINERALIZE:
+        ateType = TYPE_ROCK;
+        break;
+    case ABILITY_ESCAVATE:
+        ateType = TYPE_GROUND;
+        break;
+    case ABILITY_CONTAMINATE:
+        ateType = TYPE_POISON;
+        break;
+    case ABILITY_PULVERIZE:
+        ateType = TYPE_FIGHTING;
+        break;
     default:
         ateType = TYPE_NONE;
         break;
@@ -5518,8 +5592,14 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
 }
 
 // Returns TYPE_NONE if type doesn't change.
-enum Type GetDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId battler, enum Ability ability, enum HoldEffect holdEffect, enum MonState state)
-{
+enum Type GetDynamicMoveType(
+    struct Pokemon *mon, 
+    enum Move move, 
+    enum BattlerId battler, 
+    enum Ability ability, 
+    enum HoldEffect holdEffect, 
+    enum MonState state
+) {
     enum Type moveType = GetMoveType(move);
     enum BattleMoveEffects moveEffect = GetMoveEffect(move);
     enum Species species;
@@ -5555,6 +5635,19 @@ enum Type GetDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId
         if (state == MON_IN_BATTLE)
         {
             u32 weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
+
+            if(ability == ABILITY_FORECAST) {
+                if(holdEffect == HOLD_EFFECT_ICY_ROCK && !(weather & B_WEATHER_SNOW)) {
+                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
+                } else if(holdEffect == HOLD_EFFECT_SMOOTH_ROCK && !(weather & B_WEATHER_SANDSTORM)) {
+                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
+                } else if(holdEffect == HOLD_EFFECT_HEAT_ROCK && !(weather & B_WEATHER_SUN)) {
+                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
+                } else if(holdEffect == HOLD_EFFECT_DAMP_ROCK && !(weather & B_WEATHER_RAIN)) {
+                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
+                }
+                weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
+            }
             if (weather & B_WEATHER_SUN)
                 return TYPE_FIRE;
             else if (weather & B_WEATHER_RAIN)
@@ -5563,6 +5656,8 @@ enum Type GetDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId
                 return TYPE_ROCK;
             else if (weather & B_WEATHER_ICY_ANY)
                 return TYPE_ICE;
+            else if (weather & B_WEATHER_WINDY)
+                return TYPE_FLYING;
             else
                 return moveType;
         }

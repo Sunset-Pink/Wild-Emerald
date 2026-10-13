@@ -2186,7 +2186,6 @@ static u32 LoadDynamicFollowerPalette(enum Species species, bool32 shiny, bool32
         if ((paletteNum = IndexOfSpritePaletteTag(palTag)) < 16)
             return paletteNum;
         spritePalette.tag = palTag;
-    #if P_GENDER_DIFFERENCES
         if (female && gSpeciesInfo[species].overworldPaletteFemale != NULL)
         {
             if (shiny)
@@ -2195,7 +2194,6 @@ static u32 LoadDynamicFollowerPalette(enum Species species, bool32 shiny, bool32
                 spritePalette.data = gSpeciesInfo[species].overworldPaletteFemale;
         }
         else
-    #endif
         {
             if (shiny)
                 spritePalette.data = gSpeciesInfo[species].overworldShinyPalette;

@@ -1211,8 +1211,8 @@
 	.byte \battler
 	.endm
 
-	.macro checkparentalbondcounter counter:req, ptr:req
-	callnative BS_CheckParentalBondCounter
+	.macro checkEchoHitAbilityCounter counter:req, ptr:req
+	callnative BS_CheckEchoHitAbilityCounter
 	.byte \counter
 	.4byte \ptr
 	.endm

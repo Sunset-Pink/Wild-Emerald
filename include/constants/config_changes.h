@@ -35,7 +35,6 @@
     F(B_KNOCK_OFF_DMG,             knockOffDmg,             (u32, GEN_COUNT - 1)) /* TODO: use in tests */ \
     F(B_SPORT_DMG_REDUCTION,       sportDmgReduction,       (u32, GEN_COUNT - 1)) \
     F(B_EXPLOSION_DEFENSE,         explosionDefense,        (u32, GEN_COUNT - 1)) /* TODO: use in tests */ \
-    F(B_PARENTAL_BOND_DMG,         parentalBondDmg,         (u32, GEN_COUNT - 1)) /* TODO: use in tests */ \
     F(B_MULTIPLE_TARGETS_DMG,      multipleTargetsDmg,      (u32, GEN_COUNT - 1)) /* TODO: use in tests */ \
     F(B_STRUGGLE_RECOIL,           struggleRecoil,          (u32, GEN_COUNT - 1)) \
     F(B_RETURN_FRUSTRATION_DMG,    returnFrustrationDmg,    (u32, GEN_COUNT - 1)) \

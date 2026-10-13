@@ -599,8 +599,11 @@ bool32 IsDamageMoveUnusable(struct DamageContext *ctx)
         return TRUE;
 
     // Limited to Lighning Rod and Storm Drain because otherwise the AI would consider Water Absorb, etc...
-    if (partnerDefAbility == ABILITY_LIGHTNING_ROD || partnerDefAbility == ABILITY_STORM_DRAIN)
-    {
+    if (
+        partnerDefAbility == ABILITY_LIGHTNING_ROD 
+        || partnerDefAbility == ABILITY_STORM_DRAIN
+        || partnerDefAbility == ABILITY_FLY_TRAP
+    ) {
         u32 originalTarget = ctx->battlerDef; // Need to preserve origin target;
         ctx->battlerDef = GetPartnerBattler(ctx->battlerDef);
         bool32 canAbilityAbsorbMove = CanAbilityAbsorbMove(ctx);
@@ -612,6 +615,10 @@ bool32 IsDamageMoveUnusable(struct DamageContext *ctx)
     if (ctx->weather & B_WEATHER_SUN_PRIMAL && ctx->moveType == TYPE_WATER)
         return TRUE;
     if (ctx->weather & B_WEATHER_RAIN_PRIMAL && ctx->moveType == TYPE_FIRE)
+        return TRUE;
+    if (ctx->weather & B_WEATHER_SNOW_PRIMAL && ctx->moveType == TYPE_FIRE)
+        return TRUE;
+    if (ctx->weather & B_WEATHER_SANDSTORM_PRIMAL && ctx->moveType == TYPE_FLYING)
         return TRUE;
 
     if (IsMoveDampBanned(ctx->move) && (battlerDefAbility == ABILITY_DAMP || partnerDefAbility == ABILITY_DAMP))
@@ -781,14 +788,19 @@ static inline void CalcDynamicMoveDamage(struct DamageContext *ctx, struct Simul
             random *= RandomUniform(RNG_AI_DMG_ROLL_RANDOM, 2, 5);
         }
     }
-    else if (ctx->abilities[ctx->battlerAtk] == ABILITY_PARENTAL_BOND
+    else if (
+          (
+            ctx->abilities[ctx->battlerAtk] == ABILITY_PARENTAL_BOND
+            || ctx->abilities[ctx->battlerAtk] == ABILITY_RAGING_BOXER
+            || ctx->abilities[ctx->battlerAtk] == ABILITY_WISTFUL_ECHO
+          )
           && strikeCount == 0
           && !AI_IsDoubleSpreadMove(ctx->battlerAtk, ctx->move))
     {
-        median  += median  / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
-        minimum += minimum / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
-        maximum += maximum / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
-        random  += random  / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
+        median  += median  / 2;
+        minimum += minimum /  2;
+        maximum += maximum / 2;
+        random  += random  / 2;
     }
 
     if (median == 0)
@@ -1018,7 +1030,11 @@ struct SimulatedDamage AI_CalcDamage(struct AiCalcValues *aiCalc, enum BattlerId
 bool32 AI_IsDamagedByRecoil(enum BattlerId battler)
 {
     enum Ability ability = gAiLogicData->abilities[battler];
-    if (ability == ABILITY_MAGIC_GUARD || ability == ABILITY_ROCK_HEAD)
+    if (
+        ability == ABILITY_MAGIC_GUARD 
+        || ability == ABILITY_ROCK_HEAD
+        || ability == ABILITY_BAD_COMPANY
+    )
         return FALSE;
     return TRUE;
 }
@@ -1077,7 +1093,10 @@ static bool32 AI_IsMoveEffectInPlus(enum BattlerId battlerAtk, enum BattlerId ba
                     if (stage == 0)
                         continue;
 
-                    if (additionalEffect->moveEffect == MOVE_EFFECT_STAT_MINUS)
+                    if (
+                        additionalEffect->moveEffect == MOVE_EFFECT_STAT_MINUS
+                        && abilityAtk != ABILITY_BAD_COMPANY
+                    )
                         stage = -1 * stage;
 
                     if (abilityAtk == ABILITY_CONTRARY)
@@ -1452,7 +1471,14 @@ bool32 CanEndureHit(enum BattlerId battler, enum BattlerId battlerTarget, enum M
     if (!AI_BattlerAtMaxHp(battlerTarget) || IsMultiHitMove(move))
         return FALSE;
 
-    if (gAiLogicData->abilities[battler] == ABILITY_PARENTAL_BOND && AI_IsDoubleSpreadMove(battler, move))
+    if (
+        (
+            gAiLogicData->abilities[battler] == ABILITY_PARENTAL_BOND 
+            || gAiLogicData->abilities[battler] == ABILITY_RAGING_BOXER
+            || gAiLogicData->abilities[battler] == ABILITY_WISTFUL_ECHO
+        )
+        && AI_IsDoubleSpreadMove(battler, move)
+    )
         return FALSE;
 
     if (GetMoveStrikeCount(move) > 1 && !DragonDartsHitsBothTargets(battler, battlerTarget, move))
@@ -1888,6 +1914,20 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
     // Switchin will introduce new weather
     switch (ability)
     {
+    case ABILITY_FORECAST:
+        enum HoldEffect effect = gAiLogicData->holdEffects[battler];
+        if(effect == HOLD_EFFECT_SMOOTH_ROCK)
+            return B_WEATHER_SANDSTORM;
+        else if (effect == HOLD_EFFECT_DAMP_ROCK)
+            return B_WEATHER_RAIN;
+        else if (effect == HOLD_EFFECT_HEAT_ROCK)
+            return B_WEATHER_SUN;
+        else if (effect == HOLD_EFFECT_ICY_ROCK)
+            return B_WEATHER_SNOW;
+        else if (effect == HOLD_EFFECT_BREEZY_ROCK)
+            return B_WEATHER_WINDS;
+        return gBattleWeather;
+    case ABILITY_DELUGE:
     case ABILITY_DRIZZLE:
         return B_WEATHER_RAIN_NORMAL;
     case ABILITY_DROUGHT:
@@ -1896,7 +1936,10 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
     case ABILITY_SAND_STREAM:
         return B_WEATHER_SANDSTORM;
     case ABILITY_SNOW_WARNING:
-        return GetConfig(B_SNOW_WARNING) >= GEN_9 ? B_WEATHER_SNOW : B_WEATHER_HAIL;
+        return B_WEATHER_SNOW;
+    case ABILITY_SUMMON_WIND:
+    case ABILITY_WIND_PLUS:
+        return B_WEATHER_WINDS;
     default:
         return gBattleWeather;
     }
@@ -3372,10 +3415,12 @@ static bool32 DoesBattlerTakeHailDamage(enum BattlerId battlerId, enum Ability a
         return FALSE;
 
     if (!IS_BATTLER_OF_TYPE(battlerId, TYPE_ICE)
-      && ability != ABILITY_SNOW_CLOAK
-      && ability != ABILITY_ICE_BODY
-      && ability != ABILITY_MAGIC_GUARD
-      && ability != ABILITY_OVERCOAT)
+        && ability != ABILITY_SNOW_CLOAK
+        && ability != ABILITY_ICE_BODY
+        && ability != ABILITY_MAGIC_GUARD
+        && ability != ABILITY_OVERCOAT
+        && ability != ABILITY_WHITEOUT
+    )
         return TRUE;
     return FALSE;
 }
@@ -3873,8 +3918,11 @@ bool32 IsWakeupTurn(enum BattlerId battler)
     // Early Bird reduces the sleep timer twice as fast.
     if (gAiLogicData->abilities[battler] == ABILITY_EARLY_BIRD)
         toSub = 2;
-    else
+    else if (gAiLogicData->abilities[battler] != ABILITY_SWEET_DREAMS)
         toSub = 1;
+    else {
+        toSub = 0.5;
+    }
 
     return sleepTurns <= toSub;
 }
@@ -5738,12 +5786,12 @@ bool32 ShouldTriggerAbility(enum BattlerId battlerAtk, enum BattlerId battlerDef
     {
         switch (ability)
         {
+        case ABILITY_FLY_TRAP:
+            return (BattlerStatCanRise(battlerDef, ability, STAT_SPEED));
+        
         case ABILITY_LIGHTNING_ROD:
         case ABILITY_STORM_DRAIN:
-            if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) < GEN_5)
-                return FALSE;
-            else
-                return (BattlerStatCanRise(battlerDef, ability, STAT_SPATK) && HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL));
+            return (BattlerStatCanRise(battlerDef, ability, STAT_SPATK) && HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL));
 
         case ABILITY_DEFIANT:
         case ABILITY_JUSTIFIED:
@@ -5993,8 +6041,11 @@ void AbilityChangeScore(enum BattlerId battlerAtk, enum BattlerId battlerDef, en
     }
 }
 
-enum AIScore BattlerBenefitsFromAbilityScore(enum BattlerId battler, enum Ability ability, struct AiLogicData *aiData)
-{
+enum AIScore BattlerBenefitsFromAbilityScore(
+    enum BattlerId battler,
+    enum Ability ability,
+    struct AiLogicData *aiData
+) {
     if (gAbilitiesInfo[ability].aiRating < 0)
         return WORST_EFFECT;
 
@@ -6013,6 +6064,11 @@ enum AIScore BattlerBenefitsFromAbilityScore(enum BattlerId battler, enum Abilit
     case ABILITY_COMPOUND_EYES:
         if (HasMoveWithLowAccuracy(battler, GetBattlerLeftFoe(battler), 90, FALSE)
          || HasMoveWithLowAccuracy(battler, GetBattlerRightFoe(battler), 90, FALSE))
+            return GOOD_EFFECT;
+        break;
+
+    case ABILITY_BAD_COMPANY:
+        if(HasMoveThatLowersOwnStats(battler))
             return GOOD_EFFECT;
         break;
     case ABILITY_CONTRARY:
@@ -6035,6 +6091,17 @@ enum AIScore BattlerBenefitsFromAbilityScore(enum BattlerId battler, enum Abilit
     case ABILITY_PURE_POWER:
         if (HasMoveWithCategory(battler, DAMAGE_CATEGORY_PHYSICAL))
             return BEST_EFFECT;
+        break;
+    case ABILITY_FELINE_PROWESS:
+        if (HasMoveWithCategory(battler, DAMAGE_CATEGORY_SPECIAL))
+            return BEST_EFFECT;
+        break;
+
+    case ABILITY_QUILL_RUSH:
+    case ABILITY_BULL_RUSH:
+        if(IsBattlersFirstTurn(battler)) {
+            return BEST_EFFECT;
+        }
         break;
     // Also used to Worry Seed WORRY_SEED
     case ABILITY_INSOMNIA:

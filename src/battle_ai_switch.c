@@ -607,22 +607,36 @@ static bool32 FindMonThatAbsorbsOpponentsMove(struct SwitchAiContext *switchCont
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_WATER_ABSORB;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_DRY_SKIN;
-        if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) >= GEN_5)
-            absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_STORM_DRAIN;
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_STORM_DRAIN;
+    }
+    if(incomingType == TYPE_BUG) {
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_FLY_TRAP;
     }
     if (incomingType == TYPE_ELECTRIC)
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_VOLT_ABSORB;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_MOTOR_DRIVE;
-        if (GetConfig(B_REDIRECT_ABILITY_IMMUNITY) >= GEN_5)
-            absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LIGHTNING_ROD;
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LIGHTNING_ROD;
     }
     if (incomingType == TYPE_GRASS)
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_SAP_SIPPER;
     }
-    if (incomingType == TYPE_GROUND)
-    {
+
+    if(incomingType == TYPE_ICE) {
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_ICE_EATER;
+    }
+    if (
+        // Incoming move is ground or charging move is ground.
+        incomingType == TYPE_GROUND
+        && (
+            // Bonezone goes through immunity,
+            (gBattleMons[switchContext->opposingBattler].ability != ABILITY_BONE_ZONE) 
+            // but incoming move is not bone move, so bone zone wouldn't trigger.
+            || (gBattleMons[switchContext->opposingBattler].ability == ABILITY_BONE_ZONE && ! IsBoneMove(switchContext->incomingMove))
+        )
+    
+    ) {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_EARTH_EATER;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LEVITATE;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_EELEVATE;
@@ -641,8 +655,10 @@ static bool32 FindMonThatAbsorbsOpponentsMove(struct SwitchAiContext *switchCont
     }
     if (IsPowderMove(switchContext->incomingMove))
     {
-        if (GetConfig(B_POWDER_OVERCOAT) >= GEN_6)
-            absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_OVERCOAT;
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_OVERCOAT;
+    }
+    if (incomingType == TYPE_ROCK) {
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_MOUNTAINEER;
     }
     if (numAbsorbingAbilities == 0)
     {
@@ -746,7 +762,9 @@ static bool32 ShouldSwitchIfBadlyStatused(struct SwitchAiContext *switchContext)
     if (gAiThinkingStruct->aiFlags[switchContext->battler] & AI_FLAG_SMART_SWITCHING)
     {
         //Yawn
-        if (gBattleMons[switchContext->battler].volatiles.yawn
+        if (
+            gBattleMons[switchContext->battler].volatiles.yawn
+            && monAbility != ABILITY_SWEET_DREAMS
             && CanBeSlept(switchContext->battler, switchContext->battler, monAbility, BLOCKED_BY_SLEEP_CLAUSE)
             && gBattleMons[switchContext->battler].hp > gBattleMons[switchContext->battler].maxHP / 3
             && RandomPercentage(RNG_AI_SWITCH_YAWN, GetSwitchChance(SHOULD_SWITCH_YAWN)))
@@ -847,10 +865,14 @@ static bool32 CanPalafinZeroSafelyUseHitEscape(enum BattlerId battlerAtk, enum M
         return FALSE;
 
     moveType = GetBattleMoveType(move);
-    if ((moveType == TYPE_WATER && (AI_GetWeather() & B_WEATHER_SUN_PRIMAL))
-     || (moveType == TYPE_FIRE && (AI_GetWeather() & B_WEATHER_RAIN_PRIMAL)))
+    if (
+        (moveType == TYPE_WATER && (AI_GetWeather() & B_WEATHER_SUN_PRIMAL))
+        || (moveType == TYPE_FIRE && (AI_GetWeather() & B_WEATHER_RAIN_PRIMAL))
+        || (moveType == TYPE_FLYING && (AI_GetWeather() & B_WEATHER_SANDSTORM_PRIMAL))
+        || (moveType == TYPE_FIRE && (AI_GetWeather() & B_WEATHER_SNOW_PRIMAL))
+    ) {
         return FALSE;
-
+    }
     struct DamageContext ctx = {0};
     ctx.aiCalc = TRUE;
     ctx.battlerAtk = battlerAtk;
@@ -881,8 +903,11 @@ static bool32 CanPalafinZeroSafelyUseHitEscape(enum BattlerId battlerAtk, enum M
 
         if (AI_CanMoveBeBlockedByTarget(&ctx))
         {
-            if ((moveType == TYPE_WATER && abilityDef == ABILITY_STORM_DRAIN)
-             || (moveType == TYPE_ELECTRIC && abilityDef == ABILITY_LIGHTNING_ROD))
+            if (
+                (moveType == TYPE_WATER && abilityDef == ABILITY_STORM_DRAIN)
+                || (moveType == TYPE_ELECTRIC && abilityDef == ABILITY_LIGHTNING_ROD)
+                || (moveType == TYPE_BUG && abilityDef == ABILITY_FLY_TRAP)
+            )
                 absorberOnField = TRUE;
             gAiLogicData->effectiveness[battlerAtk][battlerDef][moveIndex] = UQ_4_12(0.0);
             continue;
@@ -949,18 +974,15 @@ static bool32 CanIntimidateLowerOpponentAtk(enum BattlerId battler, enum Battler
         break;
     }
 
-    if (GetConfig(B_UPDATED_INTIMIDATE) >= GEN_8)
+    switch (abilityDef)
     {
-        switch (abilityDef)
-        {
-        case ABILITY_INNER_FOCUS:
-        case ABILITY_SCRAPPY:
-        case ABILITY_OWN_TEMPO:
-        case ABILITY_OBLIVIOUS:
-            return FALSE;
-        default:
-            break;
-        }
+    case ABILITY_INNER_FOCUS:
+    case ABILITY_SCRAPPY:
+    case ABILITY_OWN_TEMPO:
+    case ABILITY_OBLIVIOUS:
+        return FALSE;
+    default:
+        break;
     }
 
     return TRUE;
@@ -1642,8 +1664,13 @@ static u32 GetSwitchinHazardsDamage(enum BattlerId battler)
         !((gFieldStatuses & STATUS_FIELD_MAGIC_ROOM) || ability == ABILITY_KLUTZ)))
     {
         // Stealth Rock
-        if (IsHazardOnSide(side, HAZARDS_STEALTH_ROCK) && heldItemEffect != HOLD_EFFECT_HEAVY_DUTY_BOOTS)
+        if (
+            IsHazardOnSide(side, HAZARDS_STEALTH_ROCK) 
+            && heldItemEffect != HOLD_EFFECT_HEAVY_DUTY_BOOTS
+            && ability != ABILITY_MOUNTAINEER
+        ) {
             hazardDamage += GetStealthHazardDamage(TYPE_SIDE_HAZARD_POINTED_STONES, battler);
+        }
         // G-Max Steelsurge
         if (IsHazardOnSide(side, HAZARDS_STEELSURGE) && heldItemEffect != HOLD_EFFECT_HEAVY_DUTY_BOOTS)
             hazardDamage += GetStealthHazardDamage(TYPE_SIDE_HAZARD_SHARP_STEEL, battler);
@@ -1698,7 +1725,7 @@ static s32 GetSwitchinWeatherImpact(enum BattlerId battler)
     {
         if ((weather  & B_WEATHER_HAIL)
          && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
-         && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_ICE_BODY)
+         && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_ICE_BODY && ability != ABILITY_WHITEOUT)
         {
             weatherImpact = maxHP / 16;
             if (weatherImpact == 0)
@@ -1713,9 +1740,14 @@ static s32 GetSwitchinWeatherImpact(enum BattlerId battler)
                 weatherImpact = 1;
         }
     }
-    if ((weather  & B_WEATHER_SUN) && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
-     && (ability == ABILITY_SOLAR_POWER || ability == ABILITY_DRY_SKIN))
-    {
+    if (
+        (weather  & B_WEATHER_SUN) 
+        && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
+        && (
+            (IsVanillaMode() && ability == ABILITY_SOLAR_POWER )
+            || ability == ABILITY_DRY_SKIN
+        )
+    ){
         weatherImpact = maxHP / 8;
         if (weatherImpact == 0)
             weatherImpact = 1;

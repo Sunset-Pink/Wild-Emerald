@@ -95,8 +95,7 @@
 #define FLIP    0
 #define NO_FLIP 1
 
-const struct SpeciesInfo gSpeciesInfo[] =
-{
+const struct SpeciesInfo gSpeciesInfo[] = {
     [SPECIES_NONE] =
     {
         .speciesName = _("??????????"),
@@ -150,15 +149,15 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggMoveLearnset = sNoneEggMoveLearnset,
     },
 
-    #include "species_info/gen_1_families.h"
-    #include "species_info/gen_2_families.h"
-    #include "species_info/gen_3_families.h"
-    #include "species_info/gen_4_families.h"
-    #include "species_info/gen_5_families.h"
-    #include "species_info/gen_6_families.h"
-    #include "species_info/gen_7_families.h"
-    #include "species_info/gen_8_families.h"
-    #include "species_info/gen_9_families.h"
+    #include "species_info/gen1_families.h"
+    #include "species_info/gen2_families.h"
+    #include "species_info/gen3_families.h"
+    #include "species_info/gen4_families.h"
+    #include "species_info/gen5_families.h"
+    #include "species_info/gen6_families.h"
+    #include "species_info/gen7_families.h"
+    #include "species_info/gen8_families.h"
+    #include "species_info/gen9_families.h"
 
     [SPECIES_EGG] =
     {

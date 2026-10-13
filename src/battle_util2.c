@@ -191,6 +191,8 @@ u32 BattlePalace_TryEscapeStatus(enum BattlerId battler)
 
                     if (GetBattlerAbility(battler) == ABILITY_EARLY_BIRD)
                         toSub = 2;
+                    else if (GetBattlerAbility(battler) == ABILITY_SWEET_DREAMS)
+                        toSub = 0.5;
                     else
                         toSub = 1;
 

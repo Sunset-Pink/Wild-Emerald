@@ -872,37 +872,30 @@ static const struct SpriteTemplate sSpriteTemplate_MonIconOnLvlUpBanner =
 #define _ 0
 
 static const struct PickupItem sPickupTable[] =
-{//   Item                      1+  11+  21+  31+  41+  51+  61+  71+  81+  91+   Levels
-    { ITEM_POTION,          {  35,   _,   _,   _,   _,   _,   _,   _,   _,   _, } },
-    { ITEM_TINY_MUSHROOM,   {  25,  10,   _,   _,   _,   _,   _,   _,   _,   _, } },
-    { ITEM_REPEL,           {   8,  30,   _,   _,   _,   _,   _,   _,   _,   _, } },
-    { ITEM_SUPER_POTION,    {   8,  10,  30,   _,   _,   _,   _,   _,   _,   _, } },
-    { ITEM_POKE_DOLL,       {   8,  10,   9,  30,   _,   _,   _,   _,   _,   _, } },
-    { ITEM_BIG_MUSHROOM,    {   3,  10,   9,   _,   _,   _,   _,   _,   _,   _, } },
-    { ITEM_SUPER_REPEL,     {   3,  10,   9,   9,  30,   _,   _,   _,   _,   _, } },
-    { ITEM_FULL_HEAL,       {   3,   3,   9,   8,   9,  30,   _,   _,   _,   _, } },
-    { ITEM_REVIVE,          {   3,   3,   3,   8,   8,   9,  30,   _,   _,   _, } },
-    { ITEM_HYPER_POTION,    {   3,   3,   3,   4,   8,   9,   8,  30,   _,   _, } },
-    { ITEM_ETHER,           {   1,   1,   3,   4,   4,   _,   _,   _,   _,   _, } },
-    { ITEM_MAX_REPEL,       {   _,   3,   3,   4,   4,   9,   8,   8,  30,   _, } },
-    { ITEM_MOON_STONE,      {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
-    { ITEM_SUN_STONE,       {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
-    { ITEM_RARE_CANDY,      {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
-    { ITEM_NUGGET,          {   _,   _,   3,   4,   4,   4,   4,   5,   4,   5, } },
-    { ITEM_MAX_POTION,      {   _,   _,   3,   4,   4,   4,   8,   8,   9,  30, } },
-    { ITEM_MAX_ETHER,       {   _,   _,   1,   1,   4,   4,   4,   _,   _,   _, } },
-    { ITEM_PP_UP,           {   _,   _,   1,   1,   1,   4,   4,   5,   4,   5, } },
-    { ITEM_BIG_NUGGET,      {   _,   _,   1,   1,   1,   1,   4,   5,   4,   5, } },
-    { ITEM_DESTINY_KNOT,    {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
-    { ITEM_LEFTOVERS,       {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
-    { ITEM_MENTAL_HERB,     {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
-    { ITEM_POWER_HERB,      {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
-    { ITEM_WHITE_HERB,      {   _,   _,   1,   1,   1,   1,   1,   1,   1,   1, } },
-    { ITEM_BALM_MUSHROOM,   {   _,   _,   1,   4,   4,   4,   4,   5,   4,   5, } },
-    { ITEM_MAX_REVIVE,      {   _,   _,   _,   4,   4,   4,   4,   7,   9,   9, } },
-    { ITEM_ELIXIR,          {   _,   _,   _,   _,   1,   1,   4,   5,   4,   5, } },
-    { ITEM_MAX_ELIXIR,      {   _,   _,   _,   _,   _,   _,   1,   1,   4,   5, } },
-    { ITEM_BOTTLE_CAP,      {   _,   _,   _,   _,   _,   _,   _,   1,   1,   1, } },
+{//   Item                      1+    11+  21+  31+  41+  51+  61+  71+  81+  91+   Levels
+    { ITEM_POTION,          {  30,    _,    _,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_ANTIDOTE,        {  10,   30,    _,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_SUPER_POTION,    {  10,   10,   30,   _,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_GREAT_BALL,      {  10,   10,   10,  10,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_REPEL,           {  10,   10,   10,  10,  30,   _,   _,   _,   _,   _, } },
+    { ITEM_WISHING_PIECE,   {  15,   20,   20,  20,  20,  44,  14,  40,  10,  10, } },
+    { ITEM_FULL_HEAL,       {  10,   10,   10,  10,  10,  10,  30,   _,   _,   _, } },
+    { ITEM_ULTRA_BALL,      {   4,    4,   10,  10,  10,  10,  10,  10,  30,   _, } },
+    { ITEM_NUGGET,          {   1,    1,    4,  10,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_DREAM_BALL,      {   _,    1,    1,   _,   _,   _,   4,   4,  10,  10, } },
+    { ITEM_ABILITY_PATCH,   {   _,    _,    4,   4,  10,  10,  10,  10,  10,  10, } },
+    { ITEM_FULL_RESTORE,    {   _,    _,    1,   1,   _,   _,   _,   _,   _,   _, } },
+    { ITEM_SUN_STONE,       {   _,    _,    _,   4,   4,  10,  10,  10,  10,  10, } },
+    { ITEM_MOON_STONE,      {   _,    _,    _,   _,   4,   4,  10,  10,  10,  10, } },
+    { ITEM_ETHER,           {   _,    _,    _,   1,   1,   _,   _,   _,   _,   _, } },
+    { ITEM_REVIVE,          {   _,    4,    4,  10,  10,  10,  10,  10,  10,  30, } },
+    { ITEM_IRON_BALL,       {   _,    _,    _,   4,   1,   1,   _,   _,   _,   _, } },
+    { ITEM_DESTINY_KNOT,    {   _,    _,    _,   4,   _,   1,   1,   1,   1,   1, } },
+    { ITEM_MAX_REVIVE,     {   _,    _,    _,   _,   _,   _,   _,   4,   4,  10, } },
+    { ITEM_ELIXER,          {   _,    _,    _,   _,   _,   _,   1,   1,   _,   _, } },
+    { ITEM_PP_UP,           {   _,    _,    _,   _,   _,   _,   _,   _,   4,   4, } },
+    { ITEM_MAX_ELIXER,      {   _,    _,    _,   _,   _,   _,   _,   _,   _,   4, } },
+    { ITEM_LEFTOVERS,       {   _,    _,    _,   _,   _,   _,   _,   _,   1,   1, } },
 };
 
 #undef _
@@ -4871,6 +4864,8 @@ static void RemoveAllWeather(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_RAIN;
     else if (gBattleWeather & B_WEATHER_SANDSTORM)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_SANDSTORM;
+    else if (gBattleWeather & B_WEATHER_SANDSTORM)
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_HARSH_SANDSTORM;
     else if (gBattleWeather & B_WEATHER_SUN_PRIMAL)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_EXTREMELY_HARSH_SUNLIGHT;
     else if (gBattleWeather & B_WEATHER_SUN)
@@ -4881,6 +4876,8 @@ static void RemoveAllWeather(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_STRONG_WINDS;
     else if (gBattleWeather & B_WEATHER_SNOW)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_SNOW;
+    else if (gBattleWeather & B_WEATHER_SNOW_PRIMAL)
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_ENDLESS_SNOW;
     else if (gBattleWeather & B_WEATHER_FOG)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_FOG;
     else
@@ -9181,15 +9178,19 @@ bool32 CanFireMoveThawTarget(enum Move move, enum Type moveType)
     return GetConfig(B_HIT_THAW) >= GEN_3 && moveType == TYPE_FIRE && GetMovePower(move) != 0;
 }
 
-void BS_CheckParentalBondCounter(void)
+void BS_CheckEchoHitAbilityCounter(void)
 {
     NATIVE_ARGS(u8 counter, const u8 *jumpInstr);
     // Some effects should only happen on the first or second strike of Parental Bond,
     // so a way to check this in battle scripts is useful
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == cmd->counter && IsBattlerAlive(gBattlerTarget))
+    if (
+        gSpecialStatuses[gBattlerAttacker].echoHitAbilityState == cmd->counter 
+        && IsBattlerAlive(gBattlerTarget)
+    ) {
         gBattlescriptCurrInstr = cmd->jumpInstr;
-    else
+    } else {
         gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
 
 void BS_JumpIfCantLoseItem(void)
@@ -11802,10 +11803,16 @@ void BS_TryToClearPrimalWeather(void)
     for (enum BattlerId i = 0; i < gBattlersCount; i++)
     {
         enum Ability ability = GetBattlerAbility(i);
-        if (((ability == ABILITY_DESOLATE_LAND && gBattleWeather & B_WEATHER_SUN_PRIMAL)
-             || (ability == ABILITY_PRIMORDIAL_SEA && gBattleWeather & B_WEATHER_RAIN_PRIMAL)
-             || (ability == ABILITY_DELTA_STREAM && gBattleWeather & B_WEATHER_STRONG_WINDS))
-            && IsBattlerAlive(i))
+        if (
+            (
+                (ability == ABILITY_DESOLATE_LAND && gBattleWeather & B_WEATHER_SUN_PRIMAL)
+                || (ability == ABILITY_PRIMORDIAL_SEA && gBattleWeather & B_WEATHER_RAIN_PRIMAL)
+                || (ability == ABILITY_DELTA_STREAM && gBattleWeather & B_WEATHER_STRONG_WINDS)
+                || (ability == ABILITY_FIMBULWINTER && gBattleWeather & B_WEATHER_SNOW_PRIMAL)
+                || (ability == ABILITY_PREHISTORIC_DUST && gBattleWeather & B_WEATHER_SANDSTORM_PRIMAL)
+            )
+            && IsBattlerAlive(i)
+        )
             shouldNotClear = TRUE;
     }
     if (gBattleWeather & B_WEATHER_SUN_PRIMAL && !shouldNotClear)
@@ -11822,6 +11829,15 @@ void BS_TryToClearPrimalWeather(void)
     {
         gBattleWeather &= ~B_WEATHER_STRONG_WINDS;
         PrepareStringBattleWithWait(STRINGID_STRONGWINDSDISSIPATED, gBattlerAttacker);
+    }
+    else if (gBattleWeather & B_WEATHER_SNOW_PRIMAL && !shouldNotClear)
+    {
+        gBattleWeather &= ~B_WEATHER_SNOW_PRIMAL;
+        PrepareStringBattleWithWait(STRINGID_PRIMALSNOWDISSIPATED, gBattlerAttacker);
+    } else if (gBattleWeather & B_WEATHER_SANDSTORM_PRIMAL && !shouldNotClear)
+    {
+        gBattleWeather &=!B_WEATHER_SANDSTORM_PRIMAL;
+        PrepareStringBattleWithWait(STRINGID_PRIMALSANDDISSIPATED, gBattlerAttacker);
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

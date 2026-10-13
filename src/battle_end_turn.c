@@ -121,7 +121,6 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
     switch (currBattleWeather)
     {
     case BATTLE_WEATHER_FOG:
-    case BATTLE_WEATHER_STRONG_WINDS:
         break;
     case BATTLE_WEATHER_RAIN:
     case BATTLE_WEATHER_RAIN_PRIMAL:
@@ -140,6 +139,7 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
                 effect = TRUE;
         }
         break;
+    case BATTLE_WEATHER_SANDSTORM_PRIMAL:
     case BATTLE_WEATHER_SANDSTORM:
         if (ability != ABILITY_SAND_VEIL
          && ability != ABILITY_SAND_FORCE
@@ -157,6 +157,7 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
             effect = TRUE;
         }
         break;
+    case BATTLE_WEATHER_SNOW_PRIMAL:
     case BATTLE_WEATHER_HAIL:
     case BATTLE_WEATHER_SNOW:
         if (ability == ABILITY_ICE_BODY)
@@ -167,13 +168,14 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
         else if (currBattleWeather == BATTLE_WEATHER_HAIL)
         {
             if (ability != ABILITY_SNOW_CLOAK
-             && ability != ABILITY_OVERCOAT
-             && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
-             && gBattleMons[battler].volatiles.semiInvulnerable != STATE_UNDERGROUND
-             && gBattleMons[battler].volatiles.semiInvulnerable != STATE_UNDERWATER
-             && GetBattlerHoldEffect(battler) != HOLD_EFFECT_SAFETY_GOGGLES
-             && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD))
-            {
+                && ability != ABILITY_OVERCOAT
+                && ability != ABILITY_WHITEOUT
+                && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
+                && gBattleMons[battler].volatiles.semiInvulnerable != STATE_UNDERGROUND
+                && gBattleMons[battler].volatiles.semiInvulnerable != STATE_UNDERWATER
+                && GetBattlerHoldEffect(battler) != HOLD_EFFECT_SAFETY_GOGGLES
+                && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+            ) {
                 SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 16);
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_HAIL;
                 BattleScriptCall(BattleScript_DamagingWeather);
@@ -181,6 +183,8 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
             }
         }
         break;
+    case BATTLE_WEATHER_STRONG_WINDS:
+    case BATTLE_WEATHER_WINDS:
     case BATTLE_WEATHER_NONE:
     case BATTLE_WEATHER_COUNT:
         break;
@@ -533,12 +537,18 @@ static bool32 HandleEndTurnPoison(enum BattlerId battler)
     enum Ability ability = GetBattlerAbility(battler);
     bool32 isToxicPoison = gBattleMons[battler].status1 & STATUS1_TOXIC_POISON;
 
+
+
     gBattleStruct->eventState.endTurnBattler++;
 
-    if (IsBattlerPresent(battler) && (gBattleMons[battler].status1 & STATUS1_POISON || isToxicPoison))
-    {
-        if (IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD))
-        {
+    if (
+        IsBattlerPresent(battler) 
+        && (gBattleMons[battler].status1 & STATUS1_POISON || isToxicPoison)
+    ) {
+        if (
+            IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+            || IsAbilityAndRecord(battler, ability, ABILITY_TOXIC_BOOST)
+        ) {
             if (isToxicPoison && (gBattleMons[battler].status1 & STATUS1_TOXIC_COUNTER) != STATUS1_TOXIC_TURN(15)) // not 16 turns
                 gBattleMons[battler].status1 += STATUS1_TOXIC_TURN(1);
         }
@@ -583,9 +593,10 @@ static bool32 HandleEndTurnBurn(enum BattlerId battler)
     gBattleStruct->eventState.endTurnBattler++;
 
     if (gBattleMons[battler].status1 & STATUS1_BURN
-     && IsBattlerPresent(battler)
-     && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD))
-    {
+        && IsBattlerPresent(battler)
+        && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD)
+        && !IsAbilityAndRecord(battler, ability, ABILITY_FLARE_BOOST)
+    ) {
         s32 burnDamage = GetNonDynamaxMaxHP(battler) / ((GetConfig(B_BURN_DAMAGE) >= GEN_7 || GetConfig(B_BURN_DAMAGE) == GEN_1) ? 16 : 8);
         if (ability == ABILITY_HEATPROOF)
         {

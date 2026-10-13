@@ -81,15 +81,25 @@ static bool32 SetCorrectAbilityNum(struct Pokemon *mon, enum Species species, en
     const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
     u32 abilityNum;
     u32 maxAbilityNum = ARRAY_COUNT(speciesInfo->abilities);
-    for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
+    u32 maxUpdatedAbilityNum = ARRAY_COUNT(speciesInfo->updatedAbilities);
+    if(maxUpdatedAbilityNum != 0)
     {
-        if (speciesInfo->abilities[abilityNum] == ability)
-            break;
+        for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
+        {
+            if (speciesInfo->updatedAbilities[abilityNum] == ability)
+                break;
+        }
+    } else {
+        for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
+        {
+            if (speciesInfo->abilities[abilityNum] == ability)
+                break;
+        }
     }
     assertf(abilityNum < maxAbilityNum, "illegal ability %S for %S", gAbilitiesInfo[ability].name, speciesInfo->speciesName)
     {
-        return FALSE;
-    }
+            return FALSE;
+        }
     SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
     return TRUE;
 }

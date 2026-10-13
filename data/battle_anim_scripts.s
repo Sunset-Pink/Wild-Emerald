@@ -1996,6 +1996,49 @@ gBattleAnimMove_FireFang::
 	delay 1
 	end
 
+gBattleAnimMove_AquaFang::
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 10, 10, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 20, 10, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -10, 15, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 25, 20, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -20, 20, 25, 0
+	delay 4
+	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 12, 0, 25, 0
+	waitforvisualfinish
+	call CreateBite
+	delay 10
+	waitforvisualfinish
+	create_basic_hitsplat_sprite ANIM_ATTACKER, 2, x=0, y=0, relative_to=ANIM_TARGET, animation=2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 4, 7, 1
+	call FireSpreadEffect
+	delay 4
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 0, 9, 0, RGB_RED
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	delay 1
+	end
+
 gBattleAnimMove_ShadowSneak::
 	monbg ANIM_ATTACKER
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 7, RGB_BLACK
@@ -11125,6 +11168,109 @@ SpectralThiefSteal:
 	blendoff
 	end
 SpectralThiefBuffUp:
+
+
+gBattleAnimMove_SoulRobbery::
+	choosetwoturnanim SoulRobberyUnleash SoulRobberySteal
+SoulRobberyUnleash:
+	fadetobg BG_PSYCHIC
+	waitbgfadein
+	delay 5
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, 8, 8, 0, 0
+	invisible ANIM_ATTACKER
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, -8, -8, 0, 0
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, 8, -8, 0, 0
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, -8, 8, 0, 0
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, 8, 8, 0, 0
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, -8, -8, 0, 0
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, 8, -8, 0, 0
+	delay 2
+	createsprite gSpectralThiefBlackSmokeTemplate, ANIM_TARGET, 2, -8, 8, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createvisualtask AnimTask_DestinyBondWhiteShadow, 5, 0, 48
+	delay 48
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 24, 1
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 2, 6, 1, 0, 12, RGB(29, 29, 29)
+	delay 24
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 2, 6, 1, 12, 0, RGB(29, 29, 29)
+	waitforvisualfinish
+	setalpha 0, 16
+	delay 1
+	monbg_static ANIM_TARGET
+	createvisualtask AnimTask_MoveTargetMementoShadow, 5
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg_static ANIM_TARGET
+	delay 1
+	blendoff
+	delay 1
+	setalpha 12, 8
+	monbg ANIM_TARGET
+	delay 1
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, -10, -10, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	delay 4
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, 10, 20, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	delay 4
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, -5, 10, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	delay 4
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, 17, -12, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	delay 4
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, -15, 15, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	delay 4
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	delay 4
+	createsprite gSpectralThiefThiefImpactTemplate, ANIM_TARGET, 2, 20, 2, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	waitforvisualfinish
+	visible ANIM_ATTACKER
+	delay 2
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+SoulRobberySteal:
+	setalpha 11, 5
+	splitbgprio_all
+	panse SE_M_MINIMIZE, SOUND_PAN_TARGET, SOUND_PAN_ATTACKER, 253, 0
+	delay 15
+	createsprite gSpectralThiefBlackOrbsTemplate, ANIM_TARGET, 2, -12, 24
+	delay 11
+	setarg 7, -1
+	waitforvisualfinish
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	call SoulRobberyBuffUp
+	delay 8
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 32, 1
+	call SoulRobberyBuffUp
+	delay 8
+	call SoulRobberyBuffUp
+	waitforvisualfinish
+	blendoff
+	end
+SoulRobberyBuffUp:
 	createsprite gSpectralThiefBlackBuffTemplate, ANIM_ATTACKER, 2, 0, -24, 26, 2
 	delay 4
 	createsprite gSpectralThiefBlackBuffTemplate, ANIM_ATTACKER, 2, 0, 14, 28, 1
@@ -29640,6 +29786,73 @@ gBattleAnimMove_AllOutPummeling::
 	createvisualtask AnimTask_AllBattlersVisible, 10
 	waitforvisualfinish
 	call UnsetBackground
+	end
+
+gBattleAnimMove_SonicSlash::
+	createvisualtask AnimTask_AllBattlersInvisibleExceptAttackerAndTarget, 10
+	waitforvisualfinish
+	monbg ANIM_DEF_PARTNER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 8, 0, RGB_BLACK
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_ATTACKER, 2, 16
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 15, 0, RGB_WHITE
+	clearmonbg ANIM_DEF_PARTNER
+	call EndureEffect
+	delay 8
+	call EndureEffect
+	delay 32
+	delay 10
+	playsewithpan SE_M_FLY, SOUND_PAN_ATTACKER
+	createsprite gFlyBallUpSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
+	delay 2
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0, 12, 4, -16, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0, 16, 4, -10, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 1, 14, 4, -18, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 1, 12, 4, -16, 18
+	delay 48
+	createvisualtask AnimTask_DoomDesireLightBeam, 5
+	delay 9
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER
+	delay 9
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_MIDDLE
+	delay 9
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_TARGET
+	delay 25
+	fadetobg BG_SKY
+	waitbgfadeout
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpargeq 7 1 SonicStrikeOnPlayer
+SonicStrikeOnOpponent:
+	createvisualtask AnimTask_StartSlidingBg, 5, -2048, 2048, 0, -1
+	goto FinishSonicStrike
+SonicStrikeOnPlayer:
+	createvisualtask AnimTask_StartSlidingBg, 5, 2048, -2048, 0, -1
+FinishSonicStrike:
+	waitbgfadein
+	waitforvisualfinish
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gSupersonicSkystrikeFlySpriteTemplate, ANIM_ATTACKER, 2, 20
+	delay 16
+	create_basic_hitsplat_sprite ANIM_ATTACKER, 2, x=0, y=0, relative_to=ANIM_TARGET, animation=0
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, -256, 21, 0, 4
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 12, -24, -16, 24 	@ 12, -48, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 16, -38, -10, 24 	@ 16, -16, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 14, -20, -18, 24 	@ 14, -52, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 12, -36, -16, 24 	@ 12, -32, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 12, -48, -16, 24 	@ 12, -24, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 16, -16, -10, 24 	@ 16, -38, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 14, -52, -18, 24 	@ 14, -20, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 1, 12, -32, -16, 24 	@ 12, -36, -16, 24
+	delay 48
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	createvisualtask AnimTask_AllBattlersVisible, 10
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
+	call UnsetBackground
+	waitforvisualfinish
 	end
 
 

@@ -1141,28 +1141,22 @@ void LoadSpecialPokePicIsEgg(void *dest, enum Species species, u32 personality, 
         if (gSpeciesInfo[species].eggId != EGG_ID_NONE)
             DecompressDataWithHeaderWram(gEggDatas[gSpeciesInfo[species].eggId].eggSprite, dest);
         else
-            DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_EGG].frontPic, dest);
+            DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_EGG-1].frontPic, dest);
     }
     else if (isFrontPic)
     {
-    #if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].frontPicFemale != NULL && IsPersonalityFemale(species, personality))
             DecompressDataWithHeaderWram(gSpeciesInfo[species].frontPicFemale, dest);
-        else
-    #endif
-        if (gSpeciesInfo[species].frontPic != NULL)
+        else if (gSpeciesInfo[species].frontPic != NULL)
             DecompressDataWithHeaderWram(gSpeciesInfo[species].frontPic, dest);
         else
             DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_NONE].frontPic, dest);
     }
     else
     {
-    #if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].backPicFemale != NULL && IsPersonalityFemale(species, personality))
             DecompressDataWithHeaderWram(gSpeciesInfo[species].backPicFemale, dest);
-        else
-    #endif
-        if (gSpeciesInfo[species].backPic != NULL)
+        else if (gSpeciesInfo[species].backPic != NULL)
             DecompressDataWithHeaderWram(gSpeciesInfo[species].backPic, dest);
         else
             DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_NONE].backPic, dest);

@@ -1204,7 +1204,27 @@ static void CreateStatBars(struct PokedexListItem *dexMon)
         memcpy(gfx, sStatBarsGfx, sizeof(sStatBarsGfx));
         for (i = 0; i < NUM_STATS; i++)
         {
-            statValue = *((u8*)(&gSpeciesInfo[species]) + sBaseStatOffsets[i]);
+            switch(i) {
+                case 0: 
+                    statValue = GetSpeciesBaseHP(species) + sBaseStatOffsets[i];
+                    break;
+                case 1: 
+                    statValue = GetSpeciesBaseAttack(species) + sBaseStatOffsets[i];
+                    break;
+                case 2: 
+                    statValue = GetSpeciesBaseDefense(species) + sBaseStatOffsets[i];
+                    break;
+                case 3: 
+                    statValue = GetSpeciesBaseSpeed(species) + sBaseStatOffsets[i];
+                    break;
+                case 4: 
+                    statValue = GetSpeciesBaseSpAttack(species) + sBaseStatOffsets[i];
+                    break;
+                case 5: 
+                    statValue = GetSpeciesBaseSpDefense(species) + sBaseStatOffsets[i];
+                    break;
+            }
+
             if (statValue <= 100)
             {
                 width = statValue / 3;
@@ -2938,20 +2958,29 @@ static void PrintStatsScreen_Abilities(u8 taskId)
     {
         ability0 = sPokedexView->sPokemonStats.ability0;
         PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].name, abilities_x, abilities_y);
-        PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].description, abilities_x, abilities_y + 14);
+        if(IsVanillaMode() || gAbilitiesInfo[ability0].updatedDescription == NULL)
+            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].description, abilities_x, abilities_y + 14);
+        else
+            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].updatedDescription, abilities_x, abilities_y + 14);
 
         ability1 = sPokedexView->sPokemonStats.ability1;
         if (ability1 != ABILITY_NONE && ability1 != ability0)
         {
             PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].name, abilities_x, abilities_y + 30);
-            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].description, abilities_x, abilities_y + 44);
+            if(IsVanillaMode() || gAbilitiesInfo[ability1].updatedDescription == NULL)
+                PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].description, abilities_x, abilities_y + 44);
+            else
+                PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].updatedDescription, abilities_x, abilities_y + 44);
         }
     }
     else //Hidden abilities
     {
         abilityHidden = sPokedexView->sPokemonStats.abilityHidden;
         PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].name, abilities_x, abilities_y);
-        PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].description, abilities_x, abilities_y + 14);
+        if(IsVanillaMode() || gAbilitiesInfo[abilityHidden].updatedDescription == NULL)
+            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].description, abilities_x, abilities_y + 14);
+        else
+            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].description, abilities_x, abilities_y + 14);
     }
 }
 

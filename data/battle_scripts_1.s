@@ -2288,6 +2288,8 @@ BattleScript_FailOnPrimalWeather::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SNOW_PRIMAL, BattleScript_EndlessWinterContinued
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SANDSTORM_PRIMAL, BattleScript_AncientSandsBlowsOn
 	return
 
 BattleScript_ExtremelyHarshSunlightWasNotLessened:
@@ -2308,11 +2310,25 @@ BattleScript_MysteriousAirCurrentBlowsOn:
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_AncientSandsBlowsOn::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ANCHEINTSANDSDONOTABATE
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_EndlessWinterContinued:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ENDLESSSNOWDONOTEND
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_BlockedByPrimalWeather::
 	call BattleScript_AbilityPopUp
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SNOW_PRIMAL, BattleScript_EndlessWinterContinued
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SANDSTORM_PRIMAL, BattleScript_AncientSandsBlowsOn
 	return
 
 BattleScript_BlockedByOverworldWeather::
@@ -3162,6 +3178,86 @@ BattleScript_OrichalcumPulseActivatesInSun::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_DelugeActivates::
+	pause B_WAIT_TIME_SHORT
+	copybyte sSAVED_BATTLER, sBATTLER
+	call BattleScript_AbilityPopUp
+	printfromtable gAbilityWeatherChangeStringId
+	waitstate
+	playanimation_var BS_BATTLER_0, sB_ANIM_ARG1
+	call BattleScript_ActivateWeatherAbilities
+	copybyte sBATTLER, sSAVED_BATTLER
+	printstring STRINGID_DELUGEACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_DelugeActivatesInRain::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_DELUGEACTIVATESINRAIN
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_WindPlusActivates::
+	pause B_WAIT_TIME_SHORT
+	copybyte sSAVED_BATTLER, sBATTLER
+	call BattleScript_AbilityPopUp
+	printfromtable gAbilityWeatherChangeStringId
+	waitstate
+	playanimation_var BS_BATTLER_0, sB_ANIM_ARG1
+	call BattleScript_ActivateWeatherAbilities
+	copybyte sBATTLER, sSAVED_BATTLER
+	printstring STRINGID_WINDPLUSACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_WindPlusActivatesInWind::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_WINDPLUSACTIVATESINWIND
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_DustDevilActivates::
+	pause B_WAIT_TIME_SHORT
+	copybyte sSAVED_BATTLER, sBATTLER
+	call BattleScript_AbilityPopUp
+	printfromtable gAbilityWeatherChangeStringId
+	waitstate
+	playanimation_var BS_BATTLER_0, sB_ANIM_ARG1
+	call BattleScript_ActivateWeatherAbilities
+	copybyte sBATTLER, sSAVED_BATTLER
+	printstring STRINGID_DUSTDEVILACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_DustDevilActivatesInSand::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_DUSTDEVILACTIVATESINSAND
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_WhiteoutActivates::
+	pause B_WAIT_TIME_SHORT
+	copybyte sSAVED_BATTLER, sBATTLER
+	call BattleScript_AbilityPopUp
+	printfromtable gAbilityWeatherChangeStringId
+	waitstate
+	playanimation_var BS_BATTLER_0, sB_ANIM_ARG1
+	call BattleScript_ActivateWeatherAbilities
+	copybyte sBATTLER, sSAVED_BATTLER
+	printstring STRINGID_WHITEOUTACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_WhiteoutActivatesInSnow::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_WHITEOUTACTIVATESINSNOW
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_WeatherContinues::
 	printfromtable gWeatherTurnStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -3541,6 +3637,33 @@ BattleScript_GulpMissileNoDmgGulping:
 BattleScript_GulpMissileNoSecondEffectGulping:
 	return
 
+BattleScript_VoltageDropActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TERRAINBECOMESELECTRIC
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
+	call BattleScript_ActivateTerrainEffects
+	return
+
+BattleScript_MemoryLapseActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TERRAINBECOMESPSYCHIC
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
+	call BattleScript_ActivateTerrainEffects
+	return
+
+BattleScript_SprinkledDustActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TERRAINBECOMESMISTY
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
+	call BattleScript_ActivateTerrainEffects
+	return
+
 BattleScript_SeedSowerActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
@@ -3549,6 +3672,7 @@ BattleScript_SeedSowerActivates::
 	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	call BattleScript_ActivateTerrainEffects
 	return
+	
 
 BattleScript_WindPowerActivates::
 	call BattleScript_AbilityPopUp
@@ -5077,6 +5201,13 @@ BattleScript_FriskActivates::
 	tryfriskmessage
 	return
 
+BattleScript_GripperActivates::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_GRIPPERACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_ImposterActivates::
 	call BattleScript_AbilityPopUp
 	transformdataexecution
@@ -5437,11 +5568,11 @@ BattleScript_SelectingNotAllowedMoveChoiceItemInPalace::
 	printstring STRINGID_ITEMALLOWSONLYYMOVE
 	goto BattleScript_SelectingUnusableMoveInPalace
 
-BattleScript_SelectingNotAllowedMoveGorillaTactics::
+BattleScript_SelectingNotAllowedMoveAbility::
 	printselectionstring STRINGID_ABILITYALLOWSONLYMOVE
 	endselectionscript
 
-BattleScript_SelectingNotAllowedMoveGorillaTacticsInPalace::
+BattleScript_SelectingNotAllowedMoveAbilityInPalace::
 	printstring STRINGID_ABILITYALLOWSONLYMOVE
 	goto BattleScript_SelectingUnusableMoveInPalace
 

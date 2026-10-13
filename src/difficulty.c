@@ -103,3 +103,19 @@ void Script_SetDifficulty(struct ScriptContext *ctx)
 
     SetCurrentDifficultyLevel(desiredDifficulty);
 }
+
+bool32 IsVanillaMode() {
+    return GetCurrentDifficultyLevel() == DIFFICULTY_VANILLA; 
+}
+
+bool32 IsEasyMode() {
+    return GetCurrentDifficultyLevel() >= DIFFICULTY_EASY;
+}
+
+bool32 IsNormalMode() {
+    return GetCurrentDifficultyLevel() >= DIFFICULTY_NORMAL;
+}
+
+bool32 IsHardMode() {
+    return GetCurrentDifficultyLevel() >= DIFFICULTY_HARD;
+}

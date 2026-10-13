@@ -164,12 +164,10 @@ u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s
     {
         iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG;
     }
-#if P_GENDER_DIFFERENCES
     else if (gSpeciesInfo[species].iconSpriteFemale != NULL && IsPersonalityFemale(species, personality))
     {
         iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + gSpeciesInfo[species].iconPalIndexFemale;
     }
-#endif
 
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
 
@@ -292,11 +290,9 @@ void LoadMonIconPalettePersonality(enum Species species, u32 personality)
 {
     u8 palIndex;
     species = SanitizeSpeciesId(species);
-#if P_GENDER_DIFFERENCES
     if (gSpeciesInfo[species].iconSpriteFemale != NULL && IsPersonalityFemale(species, personality))
         palIndex = gSpeciesInfo[species].iconPalIndexFemale;
     else
-#endif
         palIndex = gSpeciesInfo[species].iconPalIndex;
     if (IndexOfSpritePaletteTag(gMonIconPaletteTable[palIndex].tag) == 0xFF)
         LoadSpritePalette(&gMonIconPaletteTable[palIndex]);
@@ -350,12 +346,9 @@ const u8 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isE
     }
     else
     {
-#if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].iconSpriteFemale != NULL && IsPersonalityFemale(species, personality))
             iconSprite = gSpeciesInfo[species].iconSpriteFemale;
-        else
-#endif
-        if (gSpeciesInfo[species].iconSprite != NULL)
+        else if (gSpeciesInfo[species].iconSprite != NULL)
             iconSprite = gSpeciesInfo[species].iconSprite;
         else
             iconSprite = gSpeciesInfo[SPECIES_NONE].iconSprite;

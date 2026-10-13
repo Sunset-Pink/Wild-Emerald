@@ -945,6 +945,10 @@ static void HandleSetEffectWeather(struct BattleCalcValues *cv, struct SetEffect
             msg = B_MSG_STARTED_HAIL;
         }
         break;
+    case MOVE_EFFECT_WIND:
+        weather = BATTLE_WEATHER_WINDS;
+        msg = B_MSG_STARTED_WIND;
+        break;
     default:
         break;
     }
@@ -1425,7 +1429,7 @@ void SetMoveEffect(struct BattleCalcValues *cv, struct SetEffect *se)
 {
     bool32 affectsUser = (cv->battlerAtk == se->effectBattler);
 
-    if (gSpecialStatuses[cv->battlerAtk].parentalBondState == PARENTAL_BOND_1ST_HIT
+    if (gSpecialStatuses[cv->battlerAtk].echoHitAbilityState == ECHO_HIT_ABILITY_1ST_HIT
      && IsBattlerAlive(se->effectBattler)
      && IsFinalStrikeEffect(se->moveEffect))
     {
@@ -1447,7 +1451,9 @@ void SetMoveEffect(struct BattleCalcValues *cv, struct SetEffect *se)
         se->moveEffect = MOVE_EFFECT_NONE;
     else if (DoesSubstituteBlockMoveEffectOnTarget(cv->battlerAtk, se->effectBattler, se->moveEffect))
         se->moveEffect = MOVE_EFFECT_NONE;
-
+    else if (CanTriggerParasiticWaste(cv->battlerAtk, cv->move)){
+        se->moveEffect = MOVE_EFFECT_ABSORB;
+    }
     sSetEffectHandlers[se->moveEffect](cv, se);
 
     gBattleScripting.moveEffect = MOVE_EFFECT_NONE;

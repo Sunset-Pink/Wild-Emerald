@@ -14,4 +14,9 @@ void Script_DecreaseDifficulty(void);
 void Script_GetDifficulty(void);
 void Script_SetDifficulty(struct ScriptContext *);
 
+bool32 IsVanillaMode();
+bool32 IsEasyMode();
+bool32 IsNormalMode();
+bool32 IsHardMode();
+
 #endif // GUARD_DIFFICULTY_H

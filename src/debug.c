@@ -3258,7 +3258,7 @@ static void DebugSelectionStep_UpdateAbility(u8 taskId, u8 digits, u32 min, u32 
     enum Species species = DebugSelection_GetData(taskId, 0);
     abilities[0] = gSpeciesInfo[species].abilities[0];
     u32 i = 1;
-    if (gSpeciesInfo[species].abilities[1] != abilities[0] && gSpeciesInfo[species].abilities[1] != ABILITY_NONE)
+    if (GetSpeciesAbility(species, 0) != abilities[0] && GetSpeciesAbility(species, 1) != ABILITY_NONE)
     {
         abilities[1] = gSpeciesInfo[species].abilities[1];
         i++;

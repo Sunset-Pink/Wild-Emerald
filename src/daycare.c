@@ -1101,29 +1101,14 @@ void IncrementDaycareSteps(void)
 
 static inline u32 GetEggCycleLength(void)
 {
-    switch (P_EGG_CYCLE_LENGTH)
-    {
-    case GEN_1:
-    case GEN_2:
-    case GEN_3:
-    case GEN_7:
-        return 256;
-    case GEN_4:
-        return 255;
-    case GEN_5:
-    case GEN_6:
-        return 257;
-    case GEN_8:
-    default:
-        return 128;
-    }
+    return 128;
 }
 
 static u32 GetEggCyclesToSubtract(void)
 {
     u32 result = 1;
     if (DoesPartyHaveIncubatorMon())
-        result += 1;
+        result += 4;
     return result;
 }
 

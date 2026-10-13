@@ -284,6 +284,9 @@ enum  BattleMoveEffects
     EFFECT_SPECIES_POWER_OVERRIDE, // Uses argument field to for the species, power and (number of hits, used only for multi hit moves)
     EFFECT_SCALE_SHOT,
     EFFECT_SECRET_POWER,
+    EFFECT_FORBIDDEN_SPELL,
+    EFFECT_SONIC_SLASH,
+    EFFECT_MYSTICAL_POWER,
     NUM_BATTLE_MOVE_EFFECTS,
 };
 

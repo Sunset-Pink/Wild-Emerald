@@ -16,37 +16,10 @@ static UNUSED bool32 IsTrueIfUndiscoveredEggGroup(enum Species species);
 
 static const bool32 (*const sSynchronizeModes[])(enum Species) = 
 {
-#if OW_SYNCHRONIZE_NATURE == GEN_3
-    [WILDMON_ORIGIN] = HasHalfChance,
-    [STATIC_WILDMON_ORIGIN] = IsFalse,
-    [ROAMER_ORIGIN] = IsFalse,
-    [GIFTMON_ORIGIN] = IsFalse,
-#elif OW_SYNCHRONIZE_NATURE <= GEN_5
-    [WILDMON_ORIGIN] = HasHalfChance,
-    [STATIC_WILDMON_ORIGIN] = HasHalfChance,
-    [ROAMER_ORIGIN] = IsFalse,
-    [GIFTMON_ORIGIN] = IsFalse,
-#elif OW_SYNCHRONIZE_NATURE == GEN_6
-    [WILDMON_ORIGIN] = HasHalfChance,
-    [STATIC_WILDMON_ORIGIN] = HasHalfChance,
-    [ROAMER_ORIGIN] = IsFalse,
-    [GIFTMON_ORIGIN] = IsTrueIfUndiscoveredEggGroup,
-#elif OW_SYNCHRONIZE_NATURE == GEN_7
-    [WILDMON_ORIGIN] = HasHalfChance,
-    [STATIC_WILDMON_ORIGIN] = HasHalfChance,
-    [ROAMER_ORIGIN] = IsFalse,
-    [GIFTMON_ORIGIN] = IsTrue,
-#elif OW_SYNCHRONIZE_NATURE == GEN_8
-    [WILDMON_ORIGIN] = IsTrue,
-    [STATIC_WILDMON_ORIGIN] = IsFalse,
-    [ROAMER_ORIGIN] = IsTrue,
-    [GIFTMON_ORIGIN] = IsFalse,
-#else
     [WILDMON_ORIGIN] = IsFalse,
     [STATIC_WILDMON_ORIGIN] = IsFalse,
     [ROAMER_ORIGIN] = IsFalse,
     [GIFTMON_ORIGIN] = IsFalse,
-#endif
 };
 
 static const bool32 (*const sCuteCharmModes[])(enum Species) = 

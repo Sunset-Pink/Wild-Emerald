@@ -58,6 +58,7 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_RAINBOW,
     MOVE_EFFECT_SEA_OF_FIRE,
     MOVE_EFFECT_SWAMP,
+    MOVE_EFFECT_MYSTICAL_POWER,
 
     // Max move effects happen earlier in the execution chain.
     // For example stealth rock from G-Max Stonesurge is set up before abilities but from Stone Axe after.
@@ -65,6 +66,7 @@ enum __attribute__((packed)) MoveEffect
     // This means we need to be careful if we want to re-use those effects for (new) vanilla moves
     MOVE_EFFECT_SUN,
     MOVE_EFFECT_RAIN,
+    MOVE_EFFECT_WIND,
     MOVE_EFFECT_SANDSTORM,
     MOVE_EFFECT_HAIL,
     MOVE_EFFECT_MISTY_TERRAIN,

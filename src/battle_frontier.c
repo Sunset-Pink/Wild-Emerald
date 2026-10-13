@@ -345,11 +345,21 @@ void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32
     if (fmon->ability != ABILITY_NONE)
     {
         const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[fmon->species];
+
         u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
-        for (ability = 0; ability < maxAbilities; ++ability)
-        {
-            if (speciesInfo->abilities[ability] == fmon->ability)
-                break;
+        u32 maxUpdatedAbilities = ARRAY_COUNT(speciesInfo->updatedAbilities);
+
+        if(maxUpdatedAbilities != 0) {
+            for (ability = 0; ability < maxAbilities; ++ability)
+            {
+                if (speciesInfo->updatedAbilities[ability] == fmon->ability)
+                    break;
+            }
+        } else {
+            for (ability = 0; ability < maxAbilities; ++ability) {
+                if(speciesInfo->abilities[ability] == fmon->ability)
+                    break;
+            }
         }
         if (ability >= maxAbilities)
             ability = 0;

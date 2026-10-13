@@ -393,13 +393,51 @@ struct Evolution
 
 struct SpeciesInfo /*0xC4*/
 {
+
+    // Mode Specefic Data
     u8 baseHP;
     u8 baseAttack;
     u8 baseDefense;
     u8 baseSpeed;
     u8 baseSpAttack;
     u8 baseSpDefense;
+
+    u8 updatedHP;
+    u8 updatedAttack;
+    u8 updatedDefense;
+    u8 updatedSpeed;
+    u8 updatedSpAttack;
+    u8 updatedSpDefense;
+
     enum Type types[2];
+    enum Type updatedTypes[2];
+
+    enum Item itemCommon;
+    enum Item updatedItemCommon;
+
+    enum Item itemRare;
+    enum Item updatedItemRare;
+
+    enum Ability abilities[NUM_ABILITY_SLOTS]; // 3 abilities, no longer u8 because we have over 255 abilities now.
+    enum Ability updatedAbilities[NUM_ABILITY_SLOTS];
+    enum Ability hardModeAbilities[NUM_ABILITY_SLOTS];
+
+    const struct LevelUpMove *levelUpLearnset;
+    const struct LevelUpMove *updatedLevelUpLearnset;
+    const struct LevelUpMove *hardModeLevelUpLearnset;
+
+    const u16 *teachableLearnset;
+    const u16 *updatedTeachableLearnset;
+    const u16 *hardModeTeachableLearnset;
+
+    const u16 *eggMoveLearnset;
+    const u16 *updatedEggMoveLearnset;
+    const u16 *hardModeEggMoveLearnset;
+
+    const struct Evolution *evolutions;
+    const struct Evolution *updatedEvolutions;
+    const struct Evolution *hardModeEvolutions;
+
     u8 catchRate;
     u8 forceTeraType;
     u16 expYield; // expYield was changed from u8 to u16 for the new Exp System.
@@ -410,14 +448,12 @@ struct SpeciesInfo /*0xC4*/
     u16 evYield_SpAttack:2;
     u16 evYield_SpDefense:2;
     u16 padding2:4;
-    enum Item itemCommon;
-    enum Item itemRare;
+
     u8 genderRatio;
     u8 eggCycles;
     u8 friendship;
     u8 growthRate;
     enum EggGroup eggGroups[EGG_GROUPS_PER_MON];
-    enum Ability abilities[NUM_ABILITY_SLOTS]; // 3 abilities, no longer u8 because we have over 255 abilities now.
     u8 safariZoneFleeRate;
 
     // Pokédex data
@@ -444,31 +480,22 @@ struct SpeciesInfo /*0xC4*/
     const u16 *palette;
     const u16 *shinyPalette;
     const u8 *iconSprite;
-#if P_GENDER_DIFFERENCES
     const u32 *frontPicFemale;
     const u32 *backPicFemale;
     const u16 *paletteFemale;
     const u16 *shinyPaletteFemale;
     const u8 *iconSpriteFemale;
-#endif //P_GENDER_DIFFERENCES
-#if P_FOOTPRINTS
     const u8 *footprint;
-#endif
     // All Pokémon pics are 64x64, but this data table defines where in this 64x64 frame the sprite's non-transparent pixels actually are.
     u8 frontPicSize; // The dimensions of this drawn pixel area.
     u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
     u8 backPicSize; // The dimensions of this drawn pixel area.
     u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
-#if P_GENDER_DIFFERENCES
     u8 frontPicSizeFemale; // The dimensions of this drawn pixel area.
     u8 backPicSizeFemale; // The dimensions of this drawn pixel area.
-#endif //P_GENDER_DIFFERENCES
     u8 iconPalIndex:3;
-#if P_GENDER_DIFFERENCES
     u8 iconPalIndexFemale:3;
-#else
     u8 paddingF:3;
-#endif //P_GENDER_DIFFERENCES
     u8 pokemonJumpType:2; // According to the clerk, the Pokémon allowed in Pokémon Jump are all <= 28 inches/71 cm, and do not only swim, burrow, or fly.
     u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
     // Flags
@@ -502,24 +529,17 @@ struct SpeciesInfo /*0xC4*/
     u16 suppressEnemyShadow:1; // If set to true, then a shadow will not be drawn beneath an enemy Pokémon's front sprite during battle.
     enum EggIds eggId:12;
     // Move Data
-    const struct LevelUpMove *levelUpLearnset;
-    const u16 *teachableLearnset;
-    const u16 *eggMoveLearnset;
-    const struct Evolution *evolutions;
+
     const u16 *formSpeciesIdTable;
     const struct FormChange *formChangeTable;
 #if OW_POKEMON_OBJECT_EVENTS
     struct ObjectEventGraphicsInfo overworldData;
-#if P_GENDER_DIFFERENCES
     struct ObjectEventGraphicsInfo overworldDataFemale;
-#endif //P_GENDER_DIFFERENCES
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const void *overworldPalette;
     const void *overworldShinyPalette;
-#if P_GENDER_DIFFERENCES
     const void *overworldPaletteFemale;
     const void *overworldShinyPaletteFemale;
-#endif //P_GENDER_DIFFERENCES
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
     enum OverworldWildEncounterBehaviors overworldEncounterBehavior;
@@ -568,6 +588,7 @@ struct AbilityInfo
 {
     u8 name[ABILITY_NAME_LENGTH + 1];
     const u8 *description;
+    const u8 *updatedDescription;
     s8 aiRating;
     u8 cantBeCopied:1; // cannot be copied by Role Play or Doodle
     u8 cantBeSwapped:1; // cannot be swapped with Skill Swap or Wandering Spirit
