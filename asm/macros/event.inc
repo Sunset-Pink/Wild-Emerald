@@ -153,9 +153,9 @@
 
 	@ Changes the value of destination to value.
 	.macro setvar destination:req, value:req, warn=TRUE
-	.if \warn && ((\value >= VARS_START && \value <= VARS_END) || (\value >= SPECIAL_VARS_START && \value <= SPECIAL_VARS_END))
-	.warning "setvar with a value that might be a VAR_ constant; did you mean copyvar instead?"
-	.endif
+	@.if \warn && ((\value >= VARS_START && \value <= VARS_END) || (\value >= SPECIAL_VARS_START && \value <= SPECIAL_VARS_END))
+	@.warning "setvar with a value that might be a VAR_ constant; did you mean copyvar instead?"
+	@.endif
 	.byte SCR_OP_SETVAR
 	.2byte \destination
 	.2byte \value
@@ -1975,6 +1975,13 @@
 	@ For a simple menu supply DYN_MULTICHOICE_CB_NONE in callbacks.
 	.macro dynmultistack left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
+	.endm
+
+	@ Sets the species ID of the starter into VAR_0x8006, species name into the string var
+	.macro bufferstarterinfo stringVarId:req, startertype:req
+	.byte SCR_OP_BUFFERSTARTERINFO
+	stringvar \stringVarId
+	.2byte \startertype
 	.endm
 
 @ Supplementary

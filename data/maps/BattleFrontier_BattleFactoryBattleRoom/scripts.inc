@@ -493,7 +493,7 @@ BattleFrontier_BattleFactoryBattleRoom_Text_GetAMoveOn:
 # 247 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 BattleFrontier_BattleFactoryBattleRoom_Text_NolandImFactoryHead:
 # 248 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "Hey, my name's NOLAND!\n"
+	.string "Hey, my name's Noland!\n"
 # 249 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 	.string "I'm basically in charge of this place,\l"
 # 250 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
@@ -521,7 +521,7 @@ BattleFrontier_BattleFactoryBattleRoom_Text_NolandImFactoryHead:
 # 261 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 	.string "conditions as you.\p"
 # 262 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "I'll be using rental POKéMON, too!$"
+	.string "I'll be using rental Pokémon, too!$"
 # 263 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 
 # 264 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
@@ -535,9 +535,9 @@ BattleFrontier_BattleFactoryBattleRoom_Text_ShakeOutKnowledgeBringItOn:
 # 268 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 BattleFrontier_BattleFactoryBattleRoom_Text_NolandLetsSeeFrontierPass:
 # 269 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "NOLAND: Smart going!\n"
+	.string "Noland: Smart going!\n"
 # 270 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "Let's see your FRONTIER PASS.$"
+	.string "Let's see your Frontier Pass.$"
 # 271 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 
 # 272 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
@@ -545,7 +545,7 @@ BattleFrontier_BattleFactoryBattleRoom_Text_ReceivedKnowledgeSymbol:
 # 273 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 	.string "The Knowledge Symbol was embossed\n"
 # 274 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "on the FRONTIER PASS!$"
+	.string "on the Frontier Pass!$"
 # 275 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 
 # 276 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
@@ -565,7 +565,7 @@ BattleFrontier_BattleFactoryBattleRoom_Text_NextTimeNoHoldsBarred:
 # 283 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 BattleFrontier_BattleFactoryBattleRoom_Text_HarderLookThanLastTime:
 # 284 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "NOLAND: Hey, hey! How's it going?\n"
+	.string "Nolnad: Hey, hey! How's it going?\n"
 # 285 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 	.string "You keeping up with your studies?\p"
 # 286 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
@@ -591,13 +591,13 @@ BattleFrontier_BattleFactoryBattleRoom_Text_AllRightBringItOn:
 # 296 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 BattleFrontier_BattleFactoryBattleRoom_Text_OutOfMyLeagueLetsSeePass:
 # 297 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "NOLAND: What the…\n"
+	.string "Noland: What the…\n"
 # 298 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 	.string "You're getting out of my league!\p"
 # 299 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 	.string "Sheesh!\n"
 # 300 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
-	.string "Let's see that FRONTIER PASS!$"
+	.string "Let's see that Frontier Pass!$"
 # 301 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"
 
 # 302 "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.pory"

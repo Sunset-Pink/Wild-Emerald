@@ -109,9 +109,9 @@ MossdeepCity_House2_Movement_WingullExitEast:
 # 55 "data/maps/MossdeepCity_House2/scripts.pory"
 MossdeepCity_House2_Text_SisterMailsBoyfriendInFortree:
 # 56 "data/maps/MossdeepCity_House2/scripts.pory"
-	.string "My little sister exchanges MAIL with\n"
+	.string "My little sister exchanges Mail with\n"
 # 57 "data/maps/MossdeepCity_House2/scripts.pory"
-	.string "her boyfriend in FORTREE.\p"
+	.string "her boyfriend in Fortree.\p"
 # 58 "data/maps/MossdeepCity_House2/scripts.pory"
 	.string "I don't envy her one bit at all.$"
 # 59 "data/maps/MossdeepCity_House2/scripts.pory"
@@ -121,7 +121,7 @@ MossdeepCity_House2_Text_PokemonCarriesMailBackAndForth:
 # 61 "data/maps/MossdeepCity_House2/scripts.pory"
 	.string "Even though I can't see my friend in\n"
 # 62 "data/maps/MossdeepCity_House2/scripts.pory"
-	.string "FORTREE, my POKéMON carries MAIL\l"
+	.string "Fortree, my Pokémon carries Mail\l"
 # 63 "data/maps/MossdeepCity_House2/scripts.pory"
 	.string "back and forth for us.\p"
 # 64 "data/maps/MossdeepCity_House2/scripts.pory"
@@ -133,4 +133,4 @@ MossdeepCity_House2_Text_PokemonCarriesMailBackAndForth:
 # 67 "data/maps/MossdeepCity_House2/scripts.pory"
 MossdeepCity_House2_Text_Wingull:
 # 68 "data/maps/MossdeepCity_House2/scripts.pory"
-	.string "WINGULL: Pihyoh!$"
+	.string "Wingull: Pihyoh!$"

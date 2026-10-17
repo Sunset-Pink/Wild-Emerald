@@ -37,9 +37,9 @@ Route119_House_EventScript_Wingull::
 # 19 "data/maps/Route119_House/scripts.pory"
 Route119_House_Text_RumorAboutCaveOfOrigin:
 # 20 "data/maps/Route119_House/scripts.pory"
-	.string "I heard about a cave called the CAVE\n"
+	.string "I heard about a cave called the Cave\n"
 # 21 "data/maps/Route119_House/scripts.pory"
-	.string "OF ORIGIN.\p"
+	.string "Of Origin.\p"
 # 22 "data/maps/Route119_House/scripts.pory"
 	.string "People rumor that the spirits of\n"
 # 23 "data/maps/Route119_House/scripts.pory"
@@ -51,4 +51,4 @@ Route119_House_Text_RumorAboutCaveOfOrigin:
 # 26 "data/maps/Route119_House/scripts.pory"
 Route119_House_Text_Wingull:
 # 27 "data/maps/Route119_House/scripts.pory"
-	.string "WINGULL: Pihyoh!$"
+	.string "Wingull: Pihyoh!$"

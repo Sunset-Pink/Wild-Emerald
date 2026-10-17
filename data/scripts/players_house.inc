@@ -1,16 +1,16 @@
 PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet::
-	setvar VAR_LITTLEROOT_INTRO_STATE, 5
+	setvar VAR_LITTLEROOT_INTRO_STATE, 4
 	return
 
 PlayersHouse_1F_EventScript_EnterHouseMovingIn::
-	msgbox PlayersHouse_1F_Text_IsntItNiceInHere, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_ItsNice, MSGBOX_DEFAULT
 	applymovement VAR_0x8004, Common_Movement_FacePlayer
 	waitmovement 0
 	call_if_eq VAR_0x8005, MALE, PlayersHouse_1F_EventScript_MomFacePlayerMovingInMale
 	call_if_eq VAR_0x8005, FEMALE, PlayersHouse_1F_EventScript_MomFacePlayerMovingInFemale
-	msgbox PlayersHouse_1F_Text_MoversPokemonGoSetClock, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_MoversMonAndSetClock, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_LITTLEROOT_INTRO_STATE, 4
+	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerWalkIn
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
@@ -32,7 +32,7 @@ PlayersHouse_1F_Movement_PlayerWalkIn:
 	step_end
 
 PlayersHouse_1F_EventScript_MomGoSeeRoom::
-	msgbox PlayersHouse_1F_Text_ArentYouInterestedInRoom, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_InterestedInSeeingYourRoom, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MovePlayerAwayFromDoor
@@ -57,7 +57,7 @@ PlayersHouse_2F_EventScript_WallClock::
 	msgbox PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT
 	call PlayersHouse_2F_EventScript_SetWallClock
 	delay 30
-	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+	setvar VAR_LITTLEROOT_INTRO_STATE, 5
 	setflag FLAG_SET_WALL_CLOCK
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTH_1
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_PLAYERS_HOUSE_VIGOROTH_2
@@ -138,7 +138,7 @@ PlayersHouse_2F_Movement_MomExitsFemale:
 	step_end
 
 PlayersHouse_1F_EventScript_SetWatchedBroadcast::
-	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_LITTLEROOT_INTRO_STATE, 6
 	releaseall
 	end
 
@@ -149,7 +149,7 @@ PlayersHouse_1F_EventScript_PetalburgGymReportMale::
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachTVForGymMale
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_INTERVIEWER, FALSE
-	msgbox PlayersHouse_1F_Text_MaybeDadWillBeOn, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_MaybeDadWillBeOn, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomMakeRoomToSeeTVMale
 	waitmovement 0
@@ -158,8 +158,8 @@ PlayersHouse_1F_EventScript_PetalburgGymReportMale::
 	call PlayersHouse_1F_EventScript_WatchGymBroadcast
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	msgbox PlayersHouse_1F_Text_ItsOverWeMissedHim, MSGBOX_DEFAULT
-	msgbox PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_ItsOver, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_InterestedInSeeingYourRoom, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_TEMP_1, 1
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomReturnToSeatMale
@@ -174,7 +174,7 @@ PlayersHouse_1F_EventScript_PetalburgGymReportFemale::
 	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_PlayerApproachTVForGymFemale
 	waitmovement 0
 	playbgm MUS_ENCOUNTER_INTERVIEWER, FALSE
-	msgbox PlayersHouse_1F_Text_MaybeDadWillBeOn, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_MaybeDadWillBeOn, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomMakeRoomToSeeTVFemale
 	waitmovement 0
@@ -183,8 +183,8 @@ PlayersHouse_1F_EventScript_PetalburgGymReportFemale::
 	call PlayersHouse_1F_EventScript_WatchGymBroadcast
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
-	msgbox PlayersHouse_1F_Text_ItsOverWeMissedHim, MSGBOX_DEFAULT
-	msgbox PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_ItsOver, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_InterestedInSeeingYourRoom, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_TEMP_1, 1
 	applymovement VAR_0x8005, PlayersHouse_1F_Movement_MomReturnToSeatFemale
@@ -198,14 +198,14 @@ PlayersHouse_1F_EventScript_MomNoticeGymBroadcast::
 	waitmovement 0
 	applymovement VAR_0x8005, Common_Movement_Delay48
 	waitmovement 0
-	msgbox PlayersHouse_1F_Text_OhComeQuickly, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_ComeQuickly, MSGBOX_DEFAULT
 	closemessage
 	return
 
 PlayersHouse_1F_EventScript_WatchGymBroadcast::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	msgbox PlayersHouse_1F_Text_ReportFromPetalburgGym, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_TV_ReportFromPetalburg, MSGBOX_DEFAULT
 	fadedefaultbgm
 	special TurnOffTVScreen
 	setflag FLAG_SYS_TV_HOME
@@ -304,23 +304,23 @@ PlayersHouse_1F_EventScript_Mom::
 	goto_if_set FLAG_HAS_MATCH_CALL, PlayersHouse_1F_EventScript_TryRegisterMom
 	goto_if_set FLAG_RESCUED_BIRCH, PlayersHouse_1F_EventScript_MomHealsParty
 	goto_if_eq VAR_TEMP_1, 1, PlayersHouse_1F_EventScript_SeeYouHoney
-	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 7, PlayersHouse_1F_EventScript_DidYouMeetProfBirch
-	msgbox PlayersHouse_1F_Text_IsntItNiceInHere, MSGBOX_DEFAULT
+	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 6, PlayersHouse_1F_EventScript_DidYouMeetProfBirch
+	msgbox Text_PlayersHouse_1F_Mom_ItsNice, MSGBOX_DEFAULT
 	release
 	end
 
 PlayersHouse_1F_EventScript_DontPushYourselfTooHard::
-	msgbox PlayersHouse_1F_Text_DontPushYourselfTooHard, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_DontPushYourself, MSGBOX_DEFAULT
 	release
 	end
 
 PlayersHouse_1F_EventScript_TryRegisterMom::
 	goto_if_set FLAG_ENABLE_MOM_MATCH_CALL, PlayersHouse_1F_EventScript_CheckGiveAmuletCoin
-	msgbox PlayersHouse_1F_Text_IsThatAPokenav, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_IsThatPokenav, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox PlayersHouse_1F_Text_RegisteredMom, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_DexNav_RegisterMom, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
 	delay 30
@@ -334,21 +334,21 @@ PlayersHouse_1F_EventScript_CheckGiveAmuletCoin::
 
 PlayersHouse_1F_EventScript_TryGiveAmuletCoin::
 	goto_if_set FLAG_RECEIVED_AMULET_COIN, PlayersHouse_1F_EventScript_MomHealsParty
-	msgbox PlayersHouse_1F_Text_GotDadsBadgeHeresSomethingFromMom, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_GotDadsBadge, MSGBOX_DEFAULT
 	giveitem ITEM_AMULET_COIN
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	msgbox PlayersHouse_1F_Text_DontPushYourselfTooHard, MSGBOX_DEFAULT
+	msgbox  Text_PlayersHouse_1F_Mom_DontPushYourself, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_AMULET_COIN
 	release
 	end
 
 PlayersHouse_1F_EventScript_MomHealsParty::
-	msgbox PlayersHouse_1F_Text_YouShouldRestABit, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_YouShouldRest, MSGBOX_DEFAULT
 	goto PlayersHouse_1F_EventScript_HealParty
 	end
 
 PlayersHouse_1F_EventScript_SeeYouHoney::
-	msgbox PlayersHouse_1F_Text_SeeYouHoney, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_SeeYou, MSGBOX_DEFAULT
 	release
 	end
 
@@ -356,12 +356,12 @@ PlayersHouse_1F_EventScript_HealParty::
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
 	incrementgamestat GAME_STAT_RESTED_AT_HOME
-	msgbox PlayersHouse_1F_Text_TakeCareHoney, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_TakeCareHoney, MSGBOX_DEFAULT
 	release
 	end
 
 PlayersHouse_1F_EventScript_DidYouMeetProfBirch::
-	msgbox PlayersHouse_1F_Text_DidYouMeetProfBirch, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_DidYouMeetProfBirch, MSGBOX_DEFAULT
 	release
 	end
 
@@ -370,7 +370,7 @@ PlayersHouse_1F_EventScript_Vigoroth1::
 	faceplayer
 	waitse
 	playmoncry SPECIES_VIGOROTH, CRY_MODE_NORMAL
-	msgbox PlayersHouse_1F_Text_Vigoroth1, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Vigoroth_Fugi, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -380,7 +380,7 @@ PlayersHouse_1F_EventScript_Vigoroth2::
 	faceplayer
 	waitse
 	playmoncry SPECIES_VIGOROTH, CRY_MODE_NORMAL
-	msgbox PlayersHouse_1F_Text_Vigoroth2, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Vigoroth_Huggoh, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -430,14 +430,14 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	delay 20
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_DadApproachPlayerMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_DadApproachPlayerFemale
-	msgbox PlayersHouse_1F_Text_TicketFromBrineyCameForYou, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Dad_BrineyTicket_TicketFrom, MSGBOX_DEFAULT
 	giveitem ITEM_SS_TICKET
-	msgbox PlayersHouse_1F_Text_PortsInSlateportLilycove, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Dad_BrineyTicket_Ports, MSGBOX_DEFAULT
 	closemessage
 	delay 20
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_MomApproachDadMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_MomApproachDadFemale
-	msgbox PlayersHouse_1F_Text_BetterGetBackToGym, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Dad_BetterGetBackToGym, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_DadExitsMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_DadExitsFemale
@@ -448,30 +448,30 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_MomApproachPlayerMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_MomApproachPlayerFemale
 	delay 20
-	msgbox PlayersHouse_1F_Text_DadShouldStayLonger, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_DadShouldStayLonger, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_SYS_TV_LATIAS_LATIOS
 	special TurnOnTVScreen
 	delay 60
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_MomNoticesLatiBroadcastMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_MomNoticesLatiBroadcastFemale
-	msgbox PlayersHouse_1F_Text_IsThatABreakingStory, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_LatiEvent_BreakingStory, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_PlayerApproachTVForLatiMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_PlayerApproachTVForLatiFemale
-	msgbox PlayersHouse_1F_Text_LatiEmergencyNewsFlash, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_TV_LatiEvent_News, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_SYS_TV_LATIAS_LATIOS
 	setflag FLAG_LATIOS_OR_LATIAS_ROAMING
 	special TurnOffTVScreen
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_MomApproachPlayerAfterTVMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_MomApproachPlayerAfterTVFemale
-	msgbox PlayersHouse_1F_Text_WhatColorDidTheySay, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_LatiEvent_WhatColor, MSGBOX_DEFAULT
 	multichoice 22, 8, MULTI_TV_LATI, TRUE
 	copyvar VAR_0x8004, VAR_RESULT
 	special InitRoamer
 	copyvar VAR_ROAMER_POKEMON, VAR_RESULT
-	msgbox PlayersHouse_1F_Text_StillUnknownPokemon, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mon_LatiEvent_UnknownPokemon, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 4
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4
@@ -669,5 +669,5 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 	step_end
 
 EventScript_RunningShoesManual::
-	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
+	msgbox Text_PlayersHouse_1F_RunningShoesManual, MSGBOX_SIGN
 	end

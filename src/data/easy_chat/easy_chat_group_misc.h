@@ -43,13 +43,13 @@ const struct EasyChatWordInfo gEasyChatGroup_Misc[] = {
     },
     [EC_INDEX(EC_WORD_ABOVE)] =
     {
-        .text = COMPOUND_STRING("ABOVE"),
+        .text = COMPOUND_STRING("Above"),
         .alphabeticalOrder = EC_INDEX(EC_WORD_CONFUSED),
         .enabled = TRUE,
     },
     [EC_INDEX(EC_WORD_BACK)] =
     {
-        .text = COMPOUND_STRING("BACK"),
+        .text = COMPOUND_STRING("Back"),
         .alphabeticalOrder = EC_INDEX(EC_WORD_DEEP),
         .enabled = TRUE,
     },

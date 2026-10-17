@@ -37,7 +37,7 @@ LilycoveCity_House1_EventScript_Kecleon::
 # 19 "data/maps/LilycoveCity_House1/scripts.pory"
 LilycoveCity_House1_Text_PokemonPartnersNotTools:
 # 20 "data/maps/LilycoveCity_House1/scripts.pory"
-	.string "POKéMON are partners to people.\n"
+	.string "Pokémon are partners to people.\n"
 # 21 "data/maps/LilycoveCity_House1/scripts.pory"
 	.string "They aren't our tools.\p"
 # 22 "data/maps/LilycoveCity_House1/scripts.pory"
@@ -49,4 +49,4 @@ LilycoveCity_House1_Text_PokemonPartnersNotTools:
 # 25 "data/maps/LilycoveCity_House1/scripts.pory"
 LilycoveCity_House1_Text_Kecleon:
 # 26 "data/maps/LilycoveCity_House1/scripts.pory"
-	.string "KECLEON: Ruroro?$"
+	.string "Kecleon: Ruroro?$"

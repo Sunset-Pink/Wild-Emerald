@@ -543,13 +543,13 @@ BattleFrontier_BattlePyramidTop_Text_BringCourageToOurBattle:
 # 272 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 BattleFrontier_BattlePyramidTop_Text_BrandonFrontierPassPlease:
 # 273 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
-	.string "BRANDON: Hahahah! Grand it was!\n"
+	.string "Brandon: Hahahah! Grand it was!\n"
 # 274 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 	.string "Grand, yes, indeed!\p"
 # 275 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 	.string "Well done! You've earned recognition!\n"
 # 276 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
-	.string "Your FRONTIER PASS, please!$"
+	.string "Your Frontier Pass, please!$"
 # 277 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 
 # 278 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
@@ -557,7 +557,7 @@ BattleFrontier_BattlePyramidTop_Text_ReceivedBraveSymbol:
 # 279 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 	.string "The Brave Symbol was embossed on\n"
 # 280 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
-	.string "the FRONTIER PASS!$"
+	.string "the Frontier Pass!$"
 # 281 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 
 # 282 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
@@ -571,7 +571,7 @@ BattleFrontier_BattlePyramidTop_Text_LookForwardToNextMeeting:
 # 286 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 BattleFrontier_BattlePyramidTop_Text_BrandonYouveReturned:
 # 287 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
-	.string "BRANDON: …You've finally returned,\n"
+	.string "Brandon: …You've finally returned,\n"
 # 288 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 	.string "young explorer…\p"
 # 289 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
@@ -617,7 +617,7 @@ BattleFrontier_BattlePyramidTop_Text_EverythingYouHave:
 # 309 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 BattleFrontier_BattlePyramidTop_Text_BrandonRemarkableHaveThis:
 # 310 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
-	.string "BRANDON: Hahahah!\n"
+	.string "Brandon: Hahahah!\n"
 # 311 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"
 	.string "Remarkable!\l"
 # 312 "data/maps/BattleFrontier_BattlePyramidTop/scripts.pory"

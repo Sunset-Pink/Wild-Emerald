@@ -91,7 +91,7 @@ MtPyre_2F_EventScript_Zander::
 # 46 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_MemoriesOfSkitty:
 # 47 "data/maps/MtPyre_2F/scripts.pory"
-	.string "Memories of my darling SKITTY…\n"
+	.string "Memories of my darling Skitty…\n"
 # 48 "data/maps/MtPyre_2F/scripts.pory"
 	.string "My eyes overflow thinking about it.$"
 # 49 "data/maps/MtPyre_2F/scripts.pory"
@@ -111,7 +111,7 @@ MtPyre_2F_Text_TumbledFromFloorAbove:
 # 56 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_MarkIntro:
 # 57 "data/maps/MtPyre_2F/scripts.pory"
-	.string "Hey! Are you searching for POKéMON?\n"
+	.string "Hey! Are you searching for Pokémon?\n"
 # 58 "data/maps/MtPyre_2F/scripts.pory"
 	.string "You came along after me! You're rude!$"
 # 59 "data/maps/MtPyre_2F/scripts.pory"
@@ -129,13 +129,13 @@ MtPyre_2F_Text_MarkPostBattle:
 # 65 "data/maps/MtPyre_2F/scripts.pory"
 	.string "People don't come here often, so\n"
 # 66 "data/maps/MtPyre_2F/scripts.pory"
-	.string "I thought there'd be rare POKéMON.$"
+	.string "I thought there'd be rare Pokémon.$"
 # 67 "data/maps/MtPyre_2F/scripts.pory"
 
 # 68 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_LukeIntro:
 # 69 "data/maps/MtPyre_2F/scripts.pory"
-	.string "LUKE: We're here on a dare.\p"
+	.string "Luke: We're here on a dare.\p"
 # 70 "data/maps/MtPyre_2F/scripts.pory"
 	.string "Heheh, if I show her how cool I am,\n"
 # 71 "data/maps/MtPyre_2F/scripts.pory"
@@ -149,13 +149,13 @@ MtPyre_2F_Text_LukeIntro:
 # 75 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_LukeDefeat:
 # 76 "data/maps/MtPyre_2F/scripts.pory"
-	.string "LUKE: Whoopsie!$"
+	.string "Luke: Whoopsie!$"
 # 77 "data/maps/MtPyre_2F/scripts.pory"
 
 # 78 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_LukePostBattle:
 # 79 "data/maps/MtPyre_2F/scripts.pory"
-	.string "LUKE: Well, we lost but that's okay!\n"
+	.string "Luke: Well, we lost but that's okay!\n"
 # 80 "data/maps/MtPyre_2F/scripts.pory"
 	.string "I'm right here by your side.\l"
 # 81 "data/maps/MtPyre_2F/scripts.pory"
@@ -165,9 +165,9 @@ MtPyre_2F_Text_LukePostBattle:
 # 83 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_LukeNotEnoughMons:
 # 84 "data/maps/MtPyre_2F/scripts.pory"
-	.string "LUKE: If you want to take me on,\n"
+	.string "Luke: If you want to take me on,\n"
 # 85 "data/maps/MtPyre_2F/scripts.pory"
-	.string "bring some more POKéMON.\p"
+	.string "bring some more Pokémon.\p"
 # 86 "data/maps/MtPyre_2F/scripts.pory"
 	.string "If you don't, I won't be able to show\n"
 # 87 "data/maps/MtPyre_2F/scripts.pory"
@@ -177,7 +177,7 @@ MtPyre_2F_Text_LukeNotEnoughMons:
 # 89 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_DezIntro:
 # 90 "data/maps/MtPyre_2F/scripts.pory"
-	.string "DEZ: I came here on a dare with my\n"
+	.string "Dez: I came here on a dare with my\n"
 # 91 "data/maps/MtPyre_2F/scripts.pory"
 	.string "boyfriend.\p"
 # 92 "data/maps/MtPyre_2F/scripts.pory"
@@ -193,13 +193,13 @@ MtPyre_2F_Text_DezIntro:
 # 97 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_DezDefeat:
 # 98 "data/maps/MtPyre_2F/scripts.pory"
-	.string "DEZ: Waaaah! I'm scared!$"
+	.string "Dez: Waaaah! I'm scared!$"
 # 99 "data/maps/MtPyre_2F/scripts.pory"
 
 # 100 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_DezPostBattle:
 # 101 "data/maps/MtPyre_2F/scripts.pory"
-	.string "DEZ: We're lovey-dovey, so we don't\n"
+	.string "Dez: We're lovey-dovey, so we don't\n"
 # 102 "data/maps/MtPyre_2F/scripts.pory"
 	.string "care if we lose!$"
 # 103 "data/maps/MtPyre_2F/scripts.pory"
@@ -207,13 +207,13 @@ MtPyre_2F_Text_DezPostBattle:
 # 104 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_DezNotEnoughMons:
 # 105 "data/maps/MtPyre_2F/scripts.pory"
-	.string "DEZ: If you want to challenge us, you\n"
+	.string "Dez: If you want to challenge us, you\n"
 # 106 "data/maps/MtPyre_2F/scripts.pory"
-	.string "should bring at least two POKéMON.\p"
+	.string "should bring at least two Pokémon.\p"
 # 107 "data/maps/MtPyre_2F/scripts.pory"
 	.string "My boyfriend's strong.\n"
 # 108 "data/maps/MtPyre_2F/scripts.pory"
-	.string "Just one POKéMON won't do at all.$"
+	.string "Just one Pokémon won't do at all.$"
 # 109 "data/maps/MtPyre_2F/scripts.pory"
 
 # 110 "data/maps/MtPyre_2F/scripts.pory"
@@ -235,7 +235,7 @@ MtPyre_2F_Text_LeahDefeat:
 # 118 "data/maps/MtPyre_2F/scripts.pory"
 MtPyre_2F_Text_LeahPostBattle:
 # 119 "data/maps/MtPyre_2F/scripts.pory"
-	.string "Our family has been TRAINERS here\n"
+	.string "Our family has been Trainers here\n"
 # 120 "data/maps/MtPyre_2F/scripts.pory"
 	.string "since my great-grandmother's time…\p"
 # 121 "data/maps/MtPyre_2F/scripts.pory"

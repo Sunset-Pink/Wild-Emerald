@@ -973,7 +973,7 @@ BattleFrontier_BattleArenaBattleRoom_Movement_GretaWalkBackToCenter:
 # 487 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_PlayerStepForward:
 # 488 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "REFEREE: TRAINER {PLAYER}!\n"
+	.string "Referee: Trainer {PLAYER}!\n"
 # 489 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Step forward, please!$"
 # 490 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -981,7 +981,7 @@ BattleFrontier_BattleArenaBattleRoom_Text_PlayerStepForward:
 # 491 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_OpponentStepForward:
 # 492 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "REFEREE: TRAINER {STR_VAR_1}!\n"
+	.string "Referee: Trainer {STR_VAR_1}!\n"
 # 493 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Step forward, please!$"
 # 494 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -989,7 +989,7 @@ BattleFrontier_BattleArenaBattleRoom_Text_OpponentStepForward:
 # 495 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_SetKOTourneyBegin:
 # 496 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "REFEREE: Set KO Tourney!\n"
+	.string "Referee: Set KO Tourney!\n"
 # 497 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Begin!$"
 # 498 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -997,19 +997,19 @@ BattleFrontier_BattleArenaBattleRoom_Text_SetKOTourneyBegin:
 # 499 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_WinnerIsPlayer:
 # 500 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "REFEREE: The winner is {PLAYER}!$"
+	.string "Referee: The winner is {PLAYER}!$"
 # 501 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 502 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_WinnerIsOpponent:
 # 503 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "REFEREE: The winner is {STR_VAR_1}!$"
+	.string "Referee: The winner is {STR_VAR_1}!$"
 # 504 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 505 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_MonsWillBeRestored:
 # 506 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "Your POKéMON will be restored to\n"
+	.string "Your Pokémon will be restored to\n"
 # 507 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "full health.$"
 # 508 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1091,7 +1091,7 @@ BattleFrontier_BattleArenaBattleRoom_Text_RecordLastBattle:
 # 546 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Would you like to record your last\n"
 # 547 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "battle on your FRONTIER PASS?$"
+	.string "battle on your Frontier Pass?$"
 # 548 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 549 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1103,13 +1103,13 @@ BattleFrontier_BattleArenaBattleRoom_Text_NowFaceTycoon:
 # 552 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "We now would like you to face our\n"
 # 553 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "leader, the ARENA TYCOON!$"
+	.string "leader, the Arena Tycoon!$"
 # 554 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 555 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_PreparedForTycoon:
 # 556 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "A battle with the ARENA TYCOON!\n"
+	.string "A battle with the Arena Tycoon!\n"
 # 557 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Are you prepared?$"
 # 558 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1117,15 +1117,15 @@ BattleFrontier_BattleArenaBattleRoom_Text_PreparedForTycoon:
 # 559 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_MakeWayForGreta:
 # 560 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "REFEREE: The ARENA TYCOON!\n"
+	.string "Referee: The Arena Tycoon!\n"
 # 561 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "Make way for GRETA!$"
+	.string "Make way for Greta!$"
 # 562 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 563 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_GretaYoureChallenger:
 # 564 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "GRETA: Hey!\n"
+	.string "Greta: Hey!\n"
 # 565 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Howdy!\p"
 # 566 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1167,13 +1167,13 @@ BattleFrontier_BattleArenaBattleRoom_Text_IgniteMyPassionForBattle:
 # 584 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_GretaYoureToughAfterAll:
 # 585 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "GRETA: Ow, wait a second!\n"
+	.string "Greta: Ow, wait a second!\n"
 # 586 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "You are tough after all!\p"
 # 587 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "I like you!\n"
 # 588 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "Let's see your FRONTIER PASS.$"
+	.string "Let's see your Frontier Pass.$"
 # 589 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 590 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1181,7 +1181,7 @@ BattleFrontier_BattleArenaBattleRoom_Text_ReceivedGutsSymbol:
 # 591 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "The Guts Symbol was embossed on\n"
 # 592 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "the FRONTIER PASS!$"
+	.string "the Frontier Pass!$"
 # 593 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 594 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1197,7 +1197,7 @@ BattleFrontier_BattleArenaBattleRoom_Text_GoingToBeFunNextTime:
 # 599 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_GretaLookingForwardToSeeingAgain:
 # 600 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "GRETA: Hey! Howdy!\n"
+	.string "Greta: Hey! Howdy!\n"
 # 601 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "You finally won your way up to me!\p"
 # 602 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1227,7 +1227,7 @@ BattleFrontier_BattleArenaBattleRoom_Text_WontAllowHalfheartedEffort:
 # 614 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_LetsGetThisStarted:
 # 615 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "Come on, REFEREE!\n"
+	.string "Come on, Referee!\n"
 # 616 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 	.string "Let's get this started!$"
 # 617 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
@@ -1235,9 +1235,9 @@ BattleFrontier_BattleArenaBattleRoom_Text_LetsGetThisStarted:
 # 618 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 BattleFrontier_BattleArenaBattleRoom_Text_GretaBlownAway:
 # 619 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "GRETA: Gaaah! Blown away!\n"
+	.string "Greta: Gaaah! Blown away!\n"
 # 620 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
-	.string "Let's see your FRONTIER PASS!$"
+	.string "Let's see your Frontier Pass!$"
 # 621 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"
 
 # 622 "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.pory"

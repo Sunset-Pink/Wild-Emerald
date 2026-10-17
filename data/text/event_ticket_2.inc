@@ -8,7 +8,7 @@ EventTicket_Text_OldSeaMapTooFar:
 	.string "I'm afraid I can't help you…$"
 
 EventTicket_Text_BrineyHoldOnASecond:
-	.string "BRINEY: Hold on a second!\p"
+	.string "Briney: Hold on a second!\p"
 	.string "What's the idea of turning down\n"
 	.string "someone that I owe so much to?$"
 
@@ -19,7 +19,7 @@ EventTicket_Text_BrineyLetsSail:
 	.string "Well, let me make things right.\p"
 	.string "We'll sail right away, of course!\p"
 	.string "Let's find this island on\n"
-	.string "this OLD SEA MAP!$"
+	.string "this Old Sea Map!$"
 
 EventTicket_Text_OddTicketGetOnBoard:
 	.string "Is it you who brought that odd\n"
@@ -34,11 +34,11 @@ EventTicket_Text_OddTicketGetOnBoard:
 FarawayIsland_Entrance_Text_SailorReturn:
 	.string "CAPT. BRINEY can be so maddeningly\n"
 	.string "fickle…\p"
-	.string "Do you want to return to LILYCOVE?$"
+	.string "Do you want to return to Lilycove?$"
 
 BirthIsland_Harbor_Text_SailorReturn:
 	.string "What an oddly shaped island, eh?\n"
-	.string "Do you want to return to LILYCOVE?$"
+	.string "Do you want to return to Lilycove?$"
 
 EventTicket_Text_OddTicketsWhereTo:
 	.string "Is it you who brought those\n"

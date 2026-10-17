@@ -17,7 +17,7 @@ LittlerootTown_BrendansHouse_2F_OnTransition:
 # 9 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call_if_ge VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_BrendansHouse_2F_EventScript_CheckShouldUpdateBrendanPos
 # 10 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 4, PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
+	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
 # 11 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	call SecretBase_EventScript_SetDecorationFlags
 # 12 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -553,7 +553,7 @@ PlayersHouse_2F_Text_ClockIsStopped:
 # 277 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 # 278 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "MOM: {PLAYER}, how do you like your\n"
+	.string "Mom: {PLAYER}, how do you like your\n"
 # 279 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "new room?\p"
 # 280 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -563,7 +563,7 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 # 282 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "downstairs, too.\p"
 # 283 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "POKéMON movers are so convenient!\p"
+	.string "Pokémon movers are so convenient!\p"
 # 284 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "Oh, you should make sure that\n"
 # 285 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
@@ -575,13 +575,13 @@ PlayersHouse_2F_Text_Notebook:
 # 288 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "{PLAYER} flipped open the notebook.\p"
 # 289 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "ADVENTURE RULE NO. 1\n"
+	.string "Adventure Rule No. 1\n"
 # 290 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "Open the MENU with START.\p"
+	.string "Open the Menu with Start.\p"
 # 291 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "ADVENTURE RULE NO. 2\n"
+	.string "Adventure Rule No. 2\n"
 # 292 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
-	.string "Record your progress with SAVE.\p"
+	.string "Record your progress with Save.\p"
 # 293 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"
 	.string "The remaining pages are blank…$"
 # 294 "data/maps/LittlerootTown_BrendansHouse_2F/scripts.pory"

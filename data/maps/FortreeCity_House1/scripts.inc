@@ -133,17 +133,17 @@ FortreeCity_House1_Text_YouWontTradeMe:
 # 67 "data/maps/FortreeCity_House1/scripts.pory"
 FortreeCity_House1_Text_GoingToMakeVolbeatStrong:
 # 68 "data/maps/FortreeCity_House1/scripts.pory"
-	.string "I'm going to make VOLBEAT super\n"
+	.string "I'm going to make Volbeat super\n"
 # 69 "data/maps/FortreeCity_House1/scripts.pory"
 	.string "strong from this moment on!\p"
 # 70 "data/maps/FortreeCity_House1/scripts.pory"
-	.string "I hope you do the same with PLUSLE!$"
+	.string "I hope you do the same with Plusle!$"
 # 71 "data/maps/FortreeCity_House1/scripts.pory"
 
 # 72 "data/maps/FortreeCity_House1/scripts.pory"
 FortreeCity_House1_Text_TradingMemoriesWithOthers:
 # 73 "data/maps/FortreeCity_House1/scripts.pory"
-	.string "Trading POKéMON with others…\p"
+	.string "Trading Pokémon with others…\p"
 # 74 "data/maps/FortreeCity_House1/scripts.pory"
 	.string "It's as if you're trading your own\n"
 # 75 "data/maps/FortreeCity_House1/scripts.pory"
@@ -153,4 +153,4 @@ FortreeCity_House1_Text_TradingMemoriesWithOthers:
 # 77 "data/maps/FortreeCity_House1/scripts.pory"
 FortreeCity_House1_Text_Zigzagoon:
 # 78 "data/maps/FortreeCity_House1/scripts.pory"
-	.string "ZIGZAGOON: Gumomoh?$"
+	.string "Zigzagoon: Gumomoh?$"

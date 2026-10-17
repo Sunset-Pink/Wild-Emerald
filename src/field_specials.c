@@ -79,6 +79,7 @@
 #include "battle_util.h"
 #include "naming_screen.h"
 #include "chooseboxmon.h"
+#include "money.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -4574,11 +4575,113 @@ void EnterCode(void)
 
 void GetCodeFeedback(void)
 {
-    static const u8 sText_SampleCode[] = _("SampleCode");
-    if (!StringCompare(gStringVar2, sText_SampleCode))
+    static const u8 sText_CheatCodeDexAll[]           = _("DexAll");
+    static const u8 sText_CheatCodeDexAllShort[]      = _("Dxa");
+
+    static const u8 sText_CheatCodeCaughtEmAll[]      = _("CaughtAll");
+    static const u8 sText_CheatCodeCaughtEmAllShort[] = _("Cal");
+
+    static const u8 sText_CheatCodeBestBall[]         = _("EZCatch");
+    static const u8 sText_CheatCodeBestBallShort[]    = _("Ezc");
+
+    static const u8 sText_CheatCodeMega[]             = _("Mega");
+
+    static const u8 sText_CheatCodeShinyStarters[]        = _("ShinyS");
+    static const u8 sText_CheatCodeShinyStartersShort[]   = _("Shs");
+
+    static const u8 sText_CheatCodeMaxMoney[]         = _("MaxMoney");
+    static const u8 sText_CheatCodeMaxMoneyShort[]    = _("Mmy");
+
+    static const u8 sText_CheatCodeShinyRoamers[]         = _("ShinyR");
+    static const u8 sText_CheatCodeShinyRoamersShort[]    = _("Shr");
+
+    static const u8 sText_CheatCodeMono[]             = _("Mono");
+
+    if (
+        !StringCompare(gStringVar2, sText_CheatCodeDexAll) ||
+        !StringCompare(gStringVar2, sText_CheatCodeDexAllShort))
+    {
+        if (FlagGet(FLAG_DEXALL))
+            FlagClear(FLAG_DEXALL);
+        else
+            FlagSet(FLAG_DEXALL);
         gSpecialVar_Result = 1;
+    }
+
+        /* 2: CaughtAll / CAL – mark all species seen & caught */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeCaughtEmAll) ||
+             !StringCompare(gStringVar2, sText_CheatCodeCaughtEmAllShort))
+    {
+        for (u32 i = 0; i < NATIONAL_DEX_COUNT; i++)
+        {
+            GetSetPokedexFlag(i + 1, FLAG_SET_SEEN);
+            GetSetPokedexFlag(i + 1, FLAG_SET_CAUGHT);
+        }
+        gSpecialVar_Result = 2;
+    }
+
+    /* 3: EZCatch / EZC – toggle 100 % catch rate */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeBestBall) ||
+             !StringCompare(gStringVar2, sText_CheatCodeBestBallShort))
+    {
+        if (FlagGet(FLAG_EZ_CATCH))
+            FlagClear(FLAG_EZ_CATCH);
+        else
+            FlagSet(FLAG_EZ_CATCH);
+        gSpecialVar_Result = 3;
+    }
+
+    /* 4: Mega – handled in script */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeMega))
+    {
+        gSpecialVar_Result = 4;
+    }
+
+    /* 5: ShinyS / SHS – toggle shiny starters */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeShinyStarters) ||
+             !StringCompare(gStringVar2, sText_CheatCodeShinyStartersShort))
+    {
+        if (FlagGet(FLAG_SHINY_STARTERS))
+            FlagClear(FLAG_SHINY_STARTERS);
+        else
+            FlagSet(FLAG_SHINY_STARTERS);
+        gSpecialVar_Result = 5;
+    }
+
+    /* 6: MaxMoney / MMY – set money to max */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeMaxMoney) ||
+             !StringCompare(gStringVar2, sText_CheatCodeMaxMoneyShort))
+    {
+        SetMoney(&gSaveBlock1Ptr->money, MAX_MONEY);
+        gSpecialVar_Result = 6;
+    }
+
+    /* 7: ShinyR / SHR – toggle shiny roamers */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeShinyRoamers) ||
+             !StringCompare(gStringVar2, sText_CheatCodeShinyRoamersShort))
+    {
+        if (FlagGet(FLAG_SHINY_ROAMERS))
+            FlagClear(FLAG_SHINY_ROAMERS);
+        else
+            FlagSet(FLAG_SHINY_ROAMERS);
+        gSpecialVar_Result = 7;
+    }
+
+    /* 8: Mono – enable monotype starter selection in Birch's lab */
+    else if (!StringCompare(gStringVar2, sText_CheatCodeMono))
+    {
+        if (FlagGet(FLAG_USE_MONOTYPE_STARTERS))
+            FlagClear(FLAG_USE_MONOTYPE_STARTERS);
+        else
+            FlagSet(FLAG_USE_MONOTYPE_STARTERS);
+        gSpecialVar_Result = 8;
+    }
+
+    /* 0: invalid code */
     else
+    {
         gSpecialVar_Result = 0;
+    }
 }
 
 void SetHiddenNature(void)

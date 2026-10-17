@@ -65,13 +65,13 @@ ViridianCity_House_Text_NicknamingIsFun::
 # 33 "data/maps/ViridianCity_House_Frlg/scripts.pory"
 ViridianCity_House_Text_MyDaddyLovesMonsToo::
 # 34 "data/maps/ViridianCity_House_Frlg/scripts.pory"
-	.string "My daddy loves POKéMON, too.$"
+	.string "My daddy loves Pokémon, too.$"
 # 35 "data/maps/ViridianCity_House_Frlg/scripts.pory"
 
 # 36 "data/maps/ViridianCity_House_Frlg/scripts.pory"
 ViridianCity_House_Text_Speary::
 # 37 "data/maps/ViridianCity_House_Frlg/scripts.pory"
-	.string "SPEARY: Tetweet!$"
+	.string "Speary: Tetweet!$"
 # 38 "data/maps/ViridianCity_House_Frlg/scripts.pory"
 
 # 39 "data/maps/ViridianCity_House_Frlg/scripts.pory"
@@ -79,4 +79,4 @@ ViridianCity_House_Text_SpearowNameSpeary::
 # 40 "data/maps/ViridianCity_House_Frlg/scripts.pory"
 	.string "SPEAROW\n"
 # 41 "data/maps/ViridianCity_House_Frlg/scripts.pory"
-	.string "Name: SPEARY$"
+	.string "Name: Speary$"

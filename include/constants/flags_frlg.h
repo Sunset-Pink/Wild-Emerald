@@ -149,16 +149,16 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_0x0AF               0x0AF
-#define FLAG_0x0B0               0x0B0
-#define FLAG_0x0B1               0x0B1
-#define FLAG_0x0B2               0x0B2
-#define FLAG_0x0B3               0x0B3
-#define FLAG_0x0B4               0x0B4
-#define FLAG_0x0B5               0x0B5
-#define FLAG_0x0B6               0x0B6
-#define FLAG_0x0B7               0x0B7
-#define FLAG_0x0B8               0x0B8
+#define FLAG_DEXALL                        0x0AF
+#define FLAG_EZ_CATCH                      0x0B0
+#define FLAG_SHINY_STARTERS                0x0B1
+#define FLAG_SHINY_ROAMERS                 0x0B2
+#define FLAG_USE_MONOTYPE_STARTERS         0x0B3
+#define FLAG_MINIMAL_GRIDING_MODE          0x0B4
+#define FLAG_RANDOMIZER_ENABLED            0x0B5
+#define FLAG_RANDOMIZER_ABILITIES_ENABLED  0x0B6
+#define FLAG_RANDOMIZER_LEARNSETS_ENABLED  0x0B7
+#define FLAG_RECIEVED_STARTER              0x0B8
 #define FLAG_0x0B9               0x0B9
 #define FLAG_0x0BA               0x0BA
 #define FLAG_0x0BB               0x0BB

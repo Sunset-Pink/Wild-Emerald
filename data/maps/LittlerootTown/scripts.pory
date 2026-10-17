@@ -1,10 +1,4 @@
 raw `
-LittlerootTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_OnWarp
-	.byte 0
-
 	@ State descriptions for VAR_LITTLEROOT_TOWN_STATE
 	@ 1: Met Rival
 	@ 2: Saving Birch
@@ -12,13 +6,12 @@ LittlerootTown_MapScripts::
 	@ 4: Received Running Shoes
 
 	@ State descriptions for VAR_LITTLEROOT_INTRO_STATE
-	@ 1: In truck male
-	@ 2: In truck female
-	@ 3: Entered house
-	@ 4: Told to go set clock
-	@ 5: Entered 2F to set clock
-	@ 6: Set clock
-	@ 7: Told to go meet rival
+	@ 1: In truck 
+	@ 2: Entered house
+	@ 3: Told to go set clock
+	@ 4: Entered 2F to set clock
+	@ 5: Set clock
+	@ 6: Told to go meet rival
 
 	@ State descriptions for VAR_LITTLEROOT_HOUSES_STATE_MAY
 	@                    and VAR_LITTLEROOT_HOUSES_STATE_BRENDAN
@@ -33,21 +26,6 @@ LittlerootTown_MapScripts::
 	@ 2: Entered Rival's bedroom
 	@ 3: Met Rival
 	@ 4: Received Pokedex
-
-
-LittlerootTown_OnTransition:
-	setflag FLAG_VISITED_LITTLEROOT_TOWN
-	call Common_EventScript_SetupRivalGfxId
-	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
-	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
-	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
-	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
-	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
-	call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
-	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
-	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
@@ -102,100 +80,6 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 	setobjectxyperm LOCALID_LITTLEROOT_MOM, 14, 9
 	return
 
-LittlerootTown_OnFrame:
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
-	.2byte 0
-
-LittlerootTown_EventScript_StepOffTruckMale::
-	lockall
-	setvar VAR_0x8004, 5
-	setvar VAR_0x8005, 8
-	call LittlerootTown_EventScript_GoInsideWithMom
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
-	warpsilent MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 8, 8
-	waitstate
-	releaseall
-	end
-
-LittlerootTown_EventScript_StepOffTruckFemale::
-	lockall
-	setvar VAR_0x8004, 14
-	setvar VAR_0x8005, 8
-	call LittlerootTown_EventScript_GoInsideWithMom
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK
-	warpsilent MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F, 2, 8
-	waitstate
-	releaseall
-	end
-
-LittlerootTown_EventScript_GoInsideWithMom::
-	delay 15
-	playse SE_LEDGE
-	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
-	waitmovement 0
-	opendoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	addobject LOCALID_LITTLEROOT_MOM
-	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_Movement_MomExitHouse
-	waitmovement 0
-	closedoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	delay 10
-	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_Movement_MomApproachPlayerAtTruck
-	waitmovement 0
-	msgbox LittlerootTown_Text_OurNewHomeLetsGoInside, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_Movement_MomApproachDoor
-	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerApproachDoor
-	waitmovement 0
-	opendoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_Movement_MomEnterHouse
-	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerEnterHouse
-	waitmovement 0
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
-	setvar VAR_LITTLEROOT_INTRO_STATE, 3
-	hideplayer
-	closedoor VAR_0x8004, VAR_0x8005
-	waitdooranim
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	return
-
-LittlerootTown_Movement_MomExitHouse:
-	walk_down
-	step_end
-
-LittlerootTown_Movement_MomApproachPlayerAtTruck:
-	walk_down
-	walk_in_place_faster_left
-	step_end
-
-LittlerootTown_Movement_MomApproachDoor:
-	delay_16
-	delay_8
-	walk_up
-	step_end
-
-LittlerootTown_Movement_MomEnterHouse:
-	walk_up
-	set_invisible
-	step_end
-
-LittlerootTown_Movement_PlayerApproachDoor:
-	delay_16
-	delay_8
-	walk_right
-	walk_in_place_faster_up
-	step_end
-
-LittlerootTown_Movement_PlayerEnterHouse:
-	walk_up
-	walk_up
-	step_end
-
 LittlerootTown_Movement_PlayerStepOffTruck:
 	jump_right
 	delay_16
@@ -219,10 +103,6 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 	waitstate
 	releaseall
 	end
-
-LittlerootTown_OnWarp:
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
-	.2byte 0
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade::
 	addobject LOCALID_LITTLEROOT_BIRCH
@@ -387,46 +267,6 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
 	releaseall
 	end
-
-LittlerootTown_EventScript_TownSign::
-	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
-	end
-
-LittlerootTown_EventScript_BirchsLabSign::
-	msgbox LittlerootTown_Text_ProfBirchsLab, MSGBOX_SIGN
-	end
-
-LittlerootTown_EventScript_BrendansHouseSign::
-	lockall
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_PlayersHouseSignMale
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_BirchsHouseSignFemale
-	releaseall
-	end
-
-LittlerootTown_EventScript_PlayersHouseSignMale::
-	msgbox LittlerootTown_Text_PlayersHouse, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_EventScript_BirchsHouseSignFemale::
-	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_EventScript_MaysHouseSign::
-	lockall
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_BirchsHouseSignMale
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_PlayersHouseSignFemale
-	releaseall
-	end
-
-LittlerootTown_EventScript_BirchsHouseSignMale::
-	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
-	return
-
-LittlerootTown_EventScript_PlayersHouseSignFemale::
-	msgbox LittlerootTown_Text_PlayersHouse, MSGBOX_DEFAULT
-	return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger0::
 	lockall
@@ -905,49 +745,37 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	delay 30
 	return
 
-LittlerootTown_Text_OurNewHomeLetsGoInside:
-	.string "MOM: {PLAYER}, we're here, honey!\p"
-	.string "It must be tiring riding with our things\n"
-	.string "in the moving truck.\p"
-	.string "Well, this is LITTLEROOT TOWN.\p"
-	.string "How do you like it?\n"
-	.string "This is our new home!\p"
-	.string "It has a quaint feel, but it seems to be\n"
-	.string "an easy place to live, don't you think?\p"
-	.string "And, you get your own room, {PLAYER}!\n"
-	.string "Let's go inside.$"
-
 LittlerootTown_Text_WaitPlayer:
-	.string "MOM: Wait, {PLAYER}!$"
+	.string "Mom: Wait, {PLAYER}!$"
 
 LittlerootTown_Text_WearTheseRunningShoes:
-	.string "MOM: {PLAYER}! {PLAYER}! Did you\n"
-	.string "introduce yourself to PROF. BIRCH?\p"
-	.string "Oh! What an adorable POKéMON!\n"
-	.string "You got it from PROF. BIRCH. How nice!\p"
+	.string "Mom: {PLAYER}! {PLAYER}! Did you\n"
+	.string "introduce yourself to Prof. Birch?\p"
+	.string "Oh! What an adorable Pokémon!\n"
+	.string "You got it from Prof. Birch. How nice!\p"
 	.string "You're your father's child, all right.\n"
-	.string "You look good together with POKéMON!\p"
+	.string "You look good together with Pokémon!\p"
 	.string "Here, honey! If you're going out on an\n"
-	.string "adventure, wear these RUNNING SHOES.\p"
+	.string "adventure, wear these Running Shoes.\p"
 	.string "They'll put a zip in your step!$"
 
 LittlerootTown_Text_SwitchShoesWithRunningShoes:
 	.string "{PLAYER} switched shoes with the\n"
-	.string "RUNNING SHOES.$"
+	.string "Running Shoes.$"
 
 LittlerootTown_Text_ExplainRunningShoes:
-	.string "MOM: {PLAYER}, those shoes came with\n"
+	.string "Mom: {PLAYER}, those shoes came with\n"
 	.string "instructions.\p"
 	.string "“Press the B Button while wearing these\n"
-	.string "RUNNING SHOES to run extra-fast!\p"
-	.string "“Slip on these RUNNING SHOES and race\n"
+	.string "Running Shoes to run extra-fast!\p"
+	.string "“Slip on these Running Shoes and race\n"
 	.string "in the great outdoors!”$"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
 	.string "To think that you have your very own\n"
-	.string "POKéMON now…\l"
+	.string "Pokémon now…\l"
 	.string "Your father will be overjoyed.\p"
 	.string "…But please be careful.\n"
 	.string "If anything happens, you can come home.\p"
@@ -955,64 +783,270 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 
 LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
+	.string "and Pokémon.\p"
 	.string "The power of science is staggering!$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
-	.string "PROF. BIRCH spends days in his LAB\n"
+	.string "Prof. Birch spends days in his Lab\n"
 	.string "studying, then he'll suddenly go out in\l"
 	.string "the wild to do more research…\p"
-	.string "When does PROF. BIRCH spend time\n"
+	.string "When does Prof. Birch spend time\n"
 	.string "at home?$"
 
 LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
 	.string "Um, um, um!\p"
 	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
+	.string "wild Pokémon will jump out!$"
 
 LittlerootTown_Text_DangerousIfYouDontHavePokemon:
 	.string "It's dangerous if you don't have\n"
-	.string "your own POKéMON.$"
+	.string "your own Pokémon.$"
 
 LittlerootTown_Text_CanYouGoSeeWhatsHappening:
 	.string "Um, hi!\p"
-	.string "There are scary POKéMON outside!\n"
+	.string "There are scary Pokémon outside!\n"
 	.string "I can hear their cries!\p"
 	.string "I want to go see what's going on,\n"
-	.string "but I don't have any POKéMON…\p"
+	.string "but I don't have any Pokémon…\p"
 	.string "Can you go see what's happening\n"
 	.string "for me?$"
 
 LittlerootTown_Text_YouSavedBirch:
-	.string "You saved PROF. BIRCH!\n"
+	.string "You saved Prof. Birch!\n"
 	.string "I'm so glad!$"
 
 LittlerootTown_Text_GoodLuckCatchingPokemon:
-	.string "Are you going to catch POKéMON?\n"
+	.string "Are you going to catch Pokémon?\n"
 	.string "Good luck!$"
 
-LittlerootTown_Text_TownSign:
-	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
-
-LittlerootTown_Text_ProfBirchsLab:
-	.string "PROF. BIRCH'S POKéMON LAB$"
-
-LittlerootTown_Text_PlayersHouse:
-	.string "{PLAYER}'s HOUSE$"
-
-LittlerootTown_Text_ProfBirchsHouse:
-	.string "PROF. BIRCH'S HOUSE$"
-
 LittlerootTown_Text_BirchSomethingToShowYouAtLab:
-	.string "PROF. BIRCH: Well, well, {PLAYER}{KUN}!\n"
+	.string "Prof. Birch: Well, well, {PLAYER}{KUN}!\n"
 	.string "That was good work out there!\p"
 	.string "I knew there was something special\n"
 	.string "about you when I first saw you,\l"
 	.string "but I never expected this.\p"
-	.string "Oh, yes. Do you still have the POKéDEX\n"
+	.string "Oh, yes. Do you still have the Pokédex\n"
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
-	.string "Let's go to my LAB.$"
-
+	.string "Let's go to my Lab.$"
 `
+mapscripts LittlerootTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: MapScript_LittlerootTown_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE: MapScript_LittlerootTown_OnFrame
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+		VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1: LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
+	]
+}
+
+script(local) MapScript_LittlerootTown_OnTransition {
+	setflag(FLAG_VISITED_LITTLEROOT_TOWN)
+	call(Common_EventScript_SetupRivalGfxId)
+	if(var(VAR_LITTLEROOT_INTRO_STATE) == 2) {
+		call(LittlerootTown_EventScript_MoveMomToMaysDoor)
+	}
+	if(flag(FLAG_RESCUED_BIRCH) == FALSE) {
+		call(LittlerootTown_EventScript_SetTwinPos)
+	}
+
+	if(var(VAR_LITTLEROOT_TOWN_STATE) == 3) {
+		call(LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos)
+	}
+
+	if(
+		var(VAR_LITTLEROOT_HOUSES_STATE_MAY) == 4
+		|| var(VAR_LITTLEROOT_HOUSES_STATE_BRENDAN) == 4
+	) {
+		call(LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent)
+	}
+
+	if(var(VAR_OLDALE_RIVAL_STATE) == 1) {
+		call(LittlerootTown_EventScript_MoveRivalFromOldale)
+	}
+
+	if(var(VAR_LITTLEROOT_RIVAL_STATE) == 3) {
+		call(LittlerootTown_EventScript_SetRivalLeftForRoute103)
+	}
+
+	if(var(VAR_DEX_UPGRADE_JOHTO_STARTER_STATE) == 1) {
+		call(LittlerootTown_EventScript_HideMapNamePopup)
+	} elif (var(VAR_DEX_UPGRADE_JOHTO_STARTER_STATE) == 2) {
+		call(LittlerootTown_EventScript_LeftLabAfterDexUpgrade)
+	}
+	end
+}
+
+script(local) MapScript_LittlerootTown_OnFrame {
+	map_script_2(VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruck)
+	map_script_2(VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene)
+}
+
+script LittlerootTown_EventScript_StepOffTruck {
+	lockall
+	if(checkplayergender == MALE) {
+		// Set Brendan's Door Cordinates
+		setvar(VAR_0x8004, 5)
+		setvar(VAR_0x8005, 8)
+	} else {
+		// Set May's Door Cordinates
+		setvar(VAR_0x8004, 14)
+		setvar(VAR_0x8005, 8)
+	}
+	call(Script_LittlerootTown_Event_GoInsideWithMom)
+	if(checkplayergender == MALE) {
+		setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
+		warpsilent(MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 8, 8)
+	} else {
+		setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK)
+		warpsilent(MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F, 2, 8)
+	}
+	waitstate
+	releaseall
+	end
+}
+
+script Script_LittlerootTown_Event_GoInsideWithMom {
+	delay(15)
+	playse(SE_LEDGE)
+	applymovement(
+		LOCALID_PLAYER,
+		moves(	
+			jump_right
+			delay_16 * 3
+		)
+	)
+	waitmovement(0)
+	call(Script_LittlerootTown_Event_OpenDoor)
+	addobject(LOCALID_LITTLEROOT_MOM)
+	applymovement(
+		LOCALID_LITTLEROOT_MOM,
+		moves(walk_down)
+	)
+	waitmovement(0)
+	call(Script_LittlerootTown_Event_CloseDoor)
+	delay(10)
+	applymovement(
+		LOCALID_LITTLEROOT_MOM,
+		moves(
+			walk_down
+			walk_in_place_faster_left
+		)
+	)
+	waitmovement(0)
+	msgbox(Text_LittlerootTown_Intro_Mom_LetsGoInside)
+	closemessage
+	applymovement(
+		LOCALID_LITTLEROOT_MOM,
+		moves(
+			delay_16
+			delay_8
+			walk_up
+		)
+	)
+	applymovement(
+		LOCALID_PLAYER,
+		moves(
+			delay_16
+			delay_8
+			walk_right
+			walk_in_place_faster_up
+		)
+	)
+	waitmovement(0)
+	call(Script_LittlerootTown_Event_OpenDoor)
+	applymovement(
+		LOCALID_LITTLEROOT_MOM,
+		moves(
+			walk_up
+			set_invisible
+			step_end
+		)
+	)
+	applymovement(
+		LOCALID_PLAYER,
+		moves(
+			walk_up * 2
+		)
+	)
+	waitmovement(0)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE)
+	setvar(VAR_LITTLEROOT_INTRO_STATE, 2)
+	hideplayer
+	call(Script_LittlerootTown_Event_CloseDoor)
+	clearflag(FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN)
+	clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+	return
+}
+
+text Text_LittlerootTown_Intro_Mom_LetsGoInside {
+	"Mom: {PLAYER}, we're here, honey!\p"
+	"It must be tiring riding with our things\n"
+	"in the moving truck.\p"
+	"Well, this is Littleroot Town.\p"
+	"How do you like it?\n"
+	"This is our new home!\p"
+	"It has a quaint feel, but it seems to be\n"
+	"an easy place to live, don't you think?\p"
+	"And, you get your own room, {PLAYER}!\n"
+	"Let's go inside.$"
+}
+
+script(local) Script_LittlerootTown_Event_OpenDoor {
+	opendoor(VAR_0x8004, VAR_0x8005)
+	waitdooranim
+	return
+}
+
+script(local) Script_LittlerootTown_Event_CloseDoor {
+	closedoor(VAR_0x8004, VAR_0x8005)
+	waitdooranim
+	return
+}
+
+script Script_LittlerootTown_Event_ExamineTownSign {
+	msgbox(Text_LittlerootTown_TownSign, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_LittlerootTown_TownSign {
+	"Littleroot Town\n"
+	"\qoA town that can't be shaded any hue.\qc"
+}
+
+script Script_LittlerootTown_Event_ExamineSign_MaysHouse {
+	lockall
+	if(checkplayergender == MALE) {
+		msgbox(Text_LittlerootTown_BirchsHouse, MSGBOX_SIGN)
+	} else {
+		msgbox(Text_LittlerootTown_PlayersHouse, MSGBOX_SIGN)
+	}
+	releaseall
+	end
+}
+
+script Script_LittlerootTown_Event_ExamineSign_BrandensHouse {
+	lockall
+	if(checkplayergender == MALE) {
+		msgbox(Text_LittlerootTown_PlayersHouse, MSGBOX_SIGN)
+	} else {
+		msgbox(Text_LittlerootTown_BirchsHouse, MSGBOX_SIGN)
+	}
+	releaseall
+	end
+}
+
+text(local) Text_LittlerootTown_BirchsHouse {
+	"Prof. Birch's House"
+}
+
+text(local) Text_LittlerootTown_PlayersHouse {
+	"{PLAYER}'s House"
+}
+
+script Script_littlerootTown_Event_ExamineLabSign {
+	msgbox(Text_LittlerootTown_LabSign, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_LittlerootTown_LabSign {
+	"Prof. Birch's Pok\emon Lab"
+}

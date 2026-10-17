@@ -57,11 +57,11 @@
 #define VAR_0x402F                         0x402F
 
 #define VAR_ICE_STEP_COUNT_FRLG            0x4030
-#define VAR_STARTER_MON_FRLG               0x4031 // 0: Bulbasaur, 1: Squirtle, 2: Charmander
+#define VAR_STARTER_MON_FRLG               0x4031 // 0: Left/Grass, 1: middle/Water, 2: right/fire
 #define VAR_RESET_RTC_ENABLE_FRLG          0x4032
 #define VAR_ENIGMA_BERRY_AVAILABLE_FRLG    0x4033
 
-#define VAR_0x4034                         0x4034
+#define VAR_MONOTYPE_STARTER               0x4034
 #define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035
 #define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036
 #define VAR_PC_BOX_TO_SEND_MON_FRLG        0x4037
@@ -97,7 +97,7 @@
 #define VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER                                0x4053
 #define VAR_MAP_SCENE_ROUTE22                                                  0x4054
 #define VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB                           0x4055
-#define VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F                             0x4056
+#define VAR_PALLET_TOWN_PLAYER_ROOM_STATE                                      0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
 #define VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 0x4058
 #define VAR_MAP_SCENE_POKEMON_TOWER_6F                                         0x4059
@@ -153,7 +153,7 @@
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 
-#define VAR_0x408C                 0x408C
+#define VAR_STARTER_GEN            0x408C
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F

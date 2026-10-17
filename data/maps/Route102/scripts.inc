@@ -153,9 +153,9 @@ Route102_EventScript_Allen::
 # 77 "data/maps/Route102/scripts.pory"
 Route102_Text_WatchMeCatchPokemon:
 # 78 "data/maps/Route102/scripts.pory"
-	.string "WALLY: {PLAYER}…\n"
+	.string "Wally: {PLAYER}…\n"
 # 79 "data/maps/Route102/scripts.pory"
-	.string "POKéMON hide in tall grass like this,\l"
+	.string "Pokémon hide in tall grass like this,\l"
 # 80 "data/maps/Route102/scripts.pory"
 	.string "don't they?\p"
 # 81 "data/maps/Route102/scripts.pory"
@@ -169,9 +169,9 @@ Route102_Text_WatchMeCatchPokemon:
 # 85 "data/maps/Route102/scripts.pory"
 Route102_Text_WallyIDidIt:
 # 86 "data/maps/Route102/scripts.pory"
-	.string "WALLY: I did it… It's my…\n"
+	.string "Wally: I did it… It's my…\n"
 # 87 "data/maps/Route102/scripts.pory"
-	.string "My POKéMON!$"
+	.string "My Pokémon!$"
 # 88 "data/maps/Route102/scripts.pory"
 
 # 89 "data/maps/Route102/scripts.pory"
@@ -179,7 +179,7 @@ Route102_Text_LetsGoBack:
 # 90 "data/maps/Route102/scripts.pory"
 	.string "{PLAYER}, thank you!\n"
 # 91 "data/maps/Route102/scripts.pory"
-	.string "Let's go back to the GYM!$"
+	.string "Let's go back to the Gym!$"
 # 92 "data/maps/Route102/scripts.pory"
 
 # 93 "data/maps/Route102/scripts.pory"
@@ -201,20 +201,20 @@ Route102_Text_CatchWholeBunchOfPokemon:
 # 101 "data/maps/Route102/scripts.pory"
 	.string "I'm going to catch a whole bunch of\n"
 # 102 "data/maps/Route102/scripts.pory"
-	.string "POKéMON!$"
+	.string "Pokémon!$"
 # 103 "data/maps/Route102/scripts.pory"
 
 # 104 "data/maps/Route102/scripts.pory"
 Route102_Text_RouteSignOldale:
 # 105 "data/maps/Route102/scripts.pory"
-	.string "ROUTE 102\n"
+	.string "Route 102\n"
 # 106 "data/maps/Route102/scripts.pory"
-	.string "{RIGHT_ARROW} OLDALE TOWN$"
+	.string "{RIGHT_ARROW} Oldale Town$"
 # 107 "data/maps/Route102/scripts.pory"
 
 # 108 "data/maps/Route102/scripts.pory"
 Route102_Text_RouteSignPetalburg:
 # 109 "data/maps/Route102/scripts.pory"
-	.string "ROUTE 102\n"
+	.string "Route 102\n"
 # 110 "data/maps/Route102/scripts.pory"
-	.string "{LEFT_ARROW} PETALBURG CITY$"
+	.string "{LEFT_ARROW} Petalburg City$"

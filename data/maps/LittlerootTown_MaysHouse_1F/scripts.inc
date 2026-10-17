@@ -15,7 +15,7 @@ LittlerootTown_MaysHouse_1F_MapScripts::
 # 8 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 LittlerootTown_MaysHouse_1F_OnLoad:
 # 9 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	call_if_lt VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_MaysHouse_1F_EventScript_SetMovingBoxes
+	call_if_lt VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_SetMovingBoxes
 # 10 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	call_if_set FLAG_RECEIVED_RUNNING_SHOES, LittlerootTown_MaysHouse_1F_EventScript_CheckShowShoesManual
 # 11 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
@@ -53,11 +53,11 @@ LittlerootTown_MaysHouse_1F_EventScript_ShowRunningShoesManual::
 # 27 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 LittlerootTown_MaysHouse_1F_OnTransition:
 # 28 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor
+	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor
 # 29 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToStairs
+	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 4, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToStairs
 # 30 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToTV
+	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_MoveMomToTV
 # 31 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	end
 # 32 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
@@ -97,11 +97,11 @@ LittlerootTown_MaysHouse_1F_EventScript_MoveMomToDoor::
 # 49 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 LittlerootTown_MaysHouse_1F_OnFrame:
 # 50 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_MaysHouse_1F_EventScript_EnterHouseMovingIn
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_MaysHouse_1F_EventScript_EnterHouseMovingIn
 # 51 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_GoUpstairsToSetClock
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 4, LittlerootTown_MaysHouse_1F_EventScript_GoUpstairsToSetClock
 # 52 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_MaysHouse_1F_EventScript_PetalburgGymReport
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_MaysHouse_1F_EventScript_PetalburgGymReport
 # 53 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1, LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor
 # 54 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
@@ -115,7 +115,7 @@ LittlerootTown_MaysHouse_1F_EventScript_GoUpstairsToSetClock::
 # 58 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	lockall
 # 59 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	msgbox PlayersHouse_1F_Text_GoSetTheClock, MSGBOX_DEFAULT
+	msgbox Text_PlayersHouse_1F_Mom_GoSetTheClock, MSGBOX_DEFAULT
 # 60 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	closemessage
 # 61 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"

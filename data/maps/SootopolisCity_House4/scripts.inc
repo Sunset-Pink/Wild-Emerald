@@ -69,10 +69,10 @@ SootopolisCity_House4_Text_StrollUnderwaterWithPokemon:
 # 35 "data/maps/SootopolisCity_House4/scripts.pory"
 	.string "beautiful to take an underwater\l"
 # 36 "data/maps/SootopolisCity_House4/scripts.pory"
-	.string "stroll with my POKéMON.$"
+	.string "stroll with my Pokémon.$"
 # 37 "data/maps/SootopolisCity_House4/scripts.pory"
 
 # 38 "data/maps/SootopolisCity_House4/scripts.pory"
 SootopolisCity_House4_Text_Azumarill:
 # 39 "data/maps/SootopolisCity_House4/scripts.pory"
-	.string "AZUMARILL: Marurii.$"
+	.string "Azumarill: Marurii.$"

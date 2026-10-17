@@ -1,60 +1,682 @@
-raw `
-InsideOfTruck_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, InsideOfTruck_OnLoad
-	map_script MAP_SCRIPT_ON_RESUME, InsideOfTruck_OnResume
-	.byte 0
+mapscripts  InsideOfTruck_MapScripts {
+	MAP_SCRIPT_ON_LOAD: Script_InsideOfTruck_OnLoad
+	MAP_SCRIPT_ON_RESUME: Script_InsideOfTruck_OnResume
+}
 
-InsideOfTruck_OnLoad:
-	setmetatile 4, 1, METATILE_InsideOfTruck_ExitLight_Top, FALSE
-	setmetatile 4, 2, METATILE_InsideOfTruck_ExitLight_Mid, FALSE
-	setmetatile 4, 3, METATILE_InsideOfTruck_ExitLight_Bottom, FALSE
-	end
+script Script_InsideOfTruck_OnLoad {
+	setmetatile(4, 1, METATILE_InsideOfTruck_ExitLight_Top, FALSE)
+	setmetatile(4, 2, METATILE_InsideOfTruck_ExitLight_Mid, FALSE)
+	setmetatile(4, 3, METATILE_InsideOfTruck_ExitLight_Bottom, FALSE)
+}
 
-InsideOfTruck_OnResume:
-	setstepcallback STEP_CB_TRUCK
-	end
+script Script_InsideOfTruck_OnResume {
+	setstepcallback(STEP_CB_TRUCK)
+}
 
-InsideOfTruck_EventScript_SetIntroFlags::
+script Trigger_InsideOfTruck_GameInitialization {
 	lockall
-	setflag FLAG_HIDE_MAP_NAME_POPUP
+	setflag(FLAG_HIDE_MAP_NAME_POPUP)
+	setvar(VAR_LITTLEROOT_INTRO_STATE, 1)
 	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, InsideOfTruck_EventScript_SetIntroFlagsMale
-	goto_if_eq VAR_RESULT, FEMALE, InsideOfTruck_EventScript_SetIntroFlagsFemale
-	end
-
-InsideOfTruck_EventScript_SetIntroFlagsMale::
-	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
-	setvar VAR_LITTLEROOT_INTRO_STATE, 1
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL
-	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1
-	setdynamicwarp MAP_LITTLEROOT_TOWN, 3, 10
+	if(var(VAR_RESULT) == MALE) {
+		call(Script_InsideOfTruck_SetIntroFlags_Male)
+	} else {
+		call(Script_InsideOfTruck_SetIntroFlags_Female)
+	}
+	call(Script_InsideOfTruck_SetGameSettings)
 	releaseall
-	end
+}
 
-InsideOfTruck_EventScript_SetIntroFlagsFemale::
-	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F
-	setvar VAR_LITTLEROOT_INTRO_STATE, 2
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 1
-	setdynamicwarp MAP_LITTLEROOT_TOWN, 12, 10
+script Script_InsideOfTruck_SetIntroFlags_Male {
+	setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL)
+	setvar(VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1)
+	setdynamicwarp(MAP_LITTLEROOT_TOWN, 3, 10)
+	return
+}
+
+script Script_InsideOfTruck_SetIntroFlags_Female {
+	setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING)
+	setflag(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL)
+	setvar(VAR_LITTLEROOT_HOUSES_STATE_MAY, 1)
+	setdynamicwarp(MAP_LITTLEROOT_TOWN, 12, 10)
+	return
+}
+
+script Script_InsideOfTruck_SetGameSettings {
+	message(Text_SetGameSettings_ReadCarefully)
+	call(Script_SetGameSettings_InitializeDefaultSettings)
+	waitmessage
+	delay(100)
+	delay(100)
+	msgbox(Text_SetGameSettings_WantToChangeDefaults, MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		call(Script_SetGameSettings_Menu)
+		msgbox(Text_SetGameSettings_CustomSettingsSaved)
+	} else {
+		msgbox(Text_SetGameSettings_DefaultSettingsSaved)
+	}
 	releaseall
-	end
+}
 
-InsideOfTruck_EventScript_MovingBox::
-	msgbox InsideOfTruck_Text_BoxPrintedWithMonLogo, MSGBOX_SIGN
-	end
+script Script_SetGameSettings_InitializeDefaultSettings {
+	setvar(VAR_DIFFICULTY, DIFFICULTY_NORMAL)
+	setflag(FLAG_MINIMAL_GRINDING_MODE)
+	clearflag(FLAG_RANDOMIZER_ENABLED)
+	clearflag(FLAG_RANDOMIZER_ABILITIES_ENABLED)
+	clearflag(FLAG_RANDOMIZER_LEARNSETS_ENABLED)
+	special(ForceBattleStyleSet)
+	setvar(VAR_RANDOMIZER_MODE, NO_RANDOMIZER)
+	return
+}
 
-InsideOfTruck_Text_BoxPrintedWithMonLogo:
-	.string "The box is printed with a POKéMON logo.\p"
-	.string "It's a POKéMON brand moving and\n"
-	.string "delivery service.$"
+script Script_SetGameSettings_SaveCustomSettings {
+	if(var(VAR_DIFFICULTY > 1)) {
+		special(ForceBattleStyleSet)
+		msgbox(Text_SetGameSettings_CustomSettingsSaved)
+	}
+}
 
-`
+script Script_SetGameSettings_Menu {
+	msgbox(Text_SetGameSettings_WhichOption)
+	dynmultipush("Difficulty Options", 0)
+	if(flag(FLAG_MINIMAL_GRINDING_MODE)) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode", 1)
+	} else {
+		dynmultipush("{COLOR RED}{SHADOW LIGHT_RED}Minimal Grinding Mode", 1)
+	}
+	dynmultipush("Randomizer Options", 2)
+	dynmultipush("Done", 3)
+
+	dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
+
+	if(var(VAR_RESULT) == 3) {
+		call(Script_SetGameSettings_SaveCustomSettings)
+		return
+	}
+
+	if(var(VAR_RESULT) == 0) {
+		goto(Script_SetGameSettings_Difficulty_Menu)
+	} elif (var(VAR_RESULT) == 1) {
+		goto(Script_SetGameSettings_MinGridingMode_Menu)
+	} elif (var(VAR_RESULT) == 2) {
+		goto(Script_SetGameSettings_Randomizer_Menu)
+	}
+	return
+}
+
+script Script_SetGameSettings_Difficulty_Menu {
+	msgbox(Text_SetGameSettings_WhichDifficulty)
+	if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla", DIFFICULTY_VANILLA)
+	} else {
+		dynmultipush("Vanilla", DIFFICULTY_VANILLA)
+	}
+	if(var(VAR_DIFFICULTY) == DIFFICULTY_EASY) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy", DIFFICULTY_EASY)
+	} else {
+		dynmultipush("Easy", DIFFICULTY_EASY)
+	}
+	if(var(VAR_DIFFICULTY) == DIFFICULTY_NORMAL) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal", DIFFICULTY_NORMAL)
+	} else {
+		dynmultipush("Normal", DIFFICULTY_NORMAL)
+	}
+	dynmultipush("Done", MULTI_B_PRESSED)
+
+	dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
+
+	// Early exit for Done/Back
+	if(var(VAR_RESULT) == MULTI_B_PRESSED) {
+		goto(Script_SetGameSettings_Menu)
+	}
+
+	// Vanilla Mode selected
+	if(var(VAR_RESULT) == DIFFICULTY_VANILLA) {
+		msgbox(Text_SetGameSettings_Difficulty_Vanilla_Description)
+		//Check if already vanilla mode
+		if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+			msgbox(Text_SetGameSettings_Difficulty_Vanilla_AlreadySelected)
+			goto(Script_SetGameSettings_Difficulty_Menu)
+		}
+		msgbox(Text_SetGameSettings_Difficulty_Vanilla_TurnOn, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			setvar(VAR_DIFFICULTY, DIFFICULTY_VANILLA)
+			msgbox(Text_SetGameSettings_Difficulty_Vanilla_Enabled)
+		}
+		goto(Script_SetGameSettings_Difficulty_Menu)
+	}
+
+	// Easy Mode selected
+	if(var(VAR_RESULT) == DIFFICULTY_EASY) {
+		msgbox(Text_SetGameSettings_Difficulty_Easy_Description)
+		//Check if already Easy mode
+		if(var(VAR_DIFFICULTY) == DIFFICULTY_EASY) {
+			msgbox(Text_SetGameSettings_Difficulty_Easy_AlreadySelected)
+			goto(Script_SetGameSettings_Difficulty_Menu)
+		}
+		msgbox(Text_SetGameSettings_Difficulty_Easy_TurnOn, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			setvar(VAR_DIFFICULTY, DIFFICULTY_EASY)
+			msgbox(Text_SetGameSettings_Difficulty_Easy_Enabled)
+		}
+		goto(Script_SetGameSettings_Difficulty_Menu)
+	}
+
+	// Normal Mode selected
+	if(var(VAR_RESULT) == DIFFICULTY_NORMAL) {
+		msgbox(Text_SetGameSettings_Difficulty_Normal_Description)
+		//Check if already Normal mode
+		if(var(VAR_DIFFICULTY) == DIFFICULTY_NORMAL) {
+			msgbox(Text_SetGameSettings_Difficulty_Normal_AlreadySelected)
+			goto(Script_SetGameSettings_Difficulty_Menu)
+		}
+		msgbox(Text_SetGameSettings_Difficulty_Normal_TurnOn, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			setvar(VAR_DIFFICULTY, DIFFICULTY_NORMAL)
+			msgbox(Text_SetGameSettings_Difficulty_Normal_Enabled)
+		}
+		goto(Script_SetGameSettings_Difficulty_Menu)
+	}
+}
+
+script Script_SetGameSettings_MinGridingMode_Menu {
+	msgbox(Text_SetGameSettings_MinimalGrinding_Description)
+
+	// Ask to turn off/on
+	if(flag(FLAG_MINIMAL_GRINDING_MODE)) {
+		msgbox(Text_SetGameSettings_MinimalGrinding_TurnOff, MSGBOX_YESNO)
+	} else {
+		msgbox(Text_SetGameSettings_MinimalGrinding_TurnOn, MSGBOX_YESNO)
+	}
+
+	if(var(VAR_RESULT) == YES) {
+		if(flag(FLAG_MINIMAL_GRINDING_MODE)) {
+			clearflag(FLAG_MINIMAL_GRINDING_MODE)
+			msgbox(Text_SetGameSettings_MinimalGriding_Disabled)
+		} else {
+			setflag(FLAG_MINIMAL_GRINDING_MODE)
+			msgbox(Text_SetGameSettings_MinimalGriding_Enabled)
+		}
+	}
+	goto(Script_SetGameSettings_Menu)
+}
+
+script Script_SetGameSettings_Randomizer_Menu {
+	msgbox(Text_SetGameSettings_WhichRandomizerOption)
+	if(flag(FLAG_RANDOMIZER_ENABLED))
+	{
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Species", 0)
+	} else {
+		dynmultipush("Species", 0)
+	}
+
+	if(flag(FLAG_RANDOMIZER_ABILITIES_ENABLED)) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Ability", 0)
+	} else {
+		dynmultipush("Ability", 1)
+	}
+
+	// Add learnset here later
+
+	dynmultipush("Done", MULTI_B_PRESSED)
+
+	dynmultistack( 0, 0, FALSE, 6, FALSE, 0, NULL)
+
+	// Early exit if Done/back
+	if(var(VAR_RESULT) == MULTI_B_PRESSED) {
+		goto(Script_SetGameSettings_Menu)
+	}
+
+	if(var(VAR_RESULT) == 0) {
+		goto(Script_SetGameSettings_Randomizer_Species_Menu)
+	}
+
+	if(var(VAR_RESULT) == 1) {
+		msgbox(Text_SetGameSettings_Randomizer_Ability_Description)
+		if(flag(FLAG_RANDOMIZER_ABILITIES_ENABLED)) {
+			msgbox(Text_SetGameSettings_Randomizer_Ability_TurnOff, MSGBOX_YESNO)
+			if(var(VAR_RESULT) == YES) {
+				clearflag(FLAG_RANDOMIZER_ABILITIES_ENABLED)
+				msgbox(Text_SetGameSettings_Randomizer_Ability_Disabled)
+			}
+		} else {
+			msgbox(Text_SetGameSettings_Randomizer_Ability_TurnOn, MSGBOX_YESNO)
+			if(var(VAR_RESULT) == YES) {
+				setflag(FLAG_RANDOMIZER_ABILITIES_ENABLED)
+				msgbox(Text_SetGameSettings_Randomizer_Ability_TurnOn)
+			}
+		}
+		goto(Script_SetGameSettings_Randomizer_Menu)
+	}
+}
+
+script Script_SetGameSettings_Randomizer_Species_Menu {
+	msgbox(Text_SetGameSettings_WhichSpeciesRandomizerOption)
+	if(var(VAR_RANDOMIZER_MODE) == SPECIES_RANDOMIZER) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Species", SPECIES_RANDOMIZER)
+	} else {
+		dynmultipush("Normal Species", SPECIES_RANDOMIZER)
+	}
+
+	if(var(VAR_RANDOMIZER_MODE) == SCALED_RANDOMIZER) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Scaled Species", SCALED_RANDOMIZER)
+	} else {
+		dynmultipush("Scaled Species", SCALED_RANDOMIZER)
+	}
+
+	if(var(VAR_RANDOMIZER_MODE) == LEGENDARY_AWARE_RANDOMIZER) {
+		dynmultipush("{COLOR GREEN}{SHADOW LIGHT_GREEN}Legendary Aware Species", LEGENDARY_AWARE_RANDOMIZER)
+	} else {
+		dynmultipush("Legendary Aware Species", LEGENDARY_AWARE_RANDOMIZER)
+	}
+	dynmultipush("Done", MULTI_B_PRESSED)
+
+	dynmultistack( 0, 0, FALSE, 6, FALSE, 0, NULL)
+
+	// Early exit for Done/Back
+	if(var(VAR_RESULT) == MULTI_B_PRESSED) {
+		goto(Script_SetGameSettings_Randomizer_Menu)
+	}
+
+	if(var(VAR_RESULT) == SPECIES_RANDOMIZER) {
+		msgbox(Text_SetGameSettings_Randomizer_Species_Description)
+		if(var(VAR_RANDOMIZER_MODE) == SPECIES_RANDOMIZER) {
+			msgbox(Text_SetGameSettings_Randomizer_Species_TurnOff, MSGBOX_YESNO)
+		} else {
+			msgbox(Text_SetGameSettings_Randomizer_Species_TurnOn, MSGBOX_YESNO)
+		}
+		if(var(VAR_RESULT) == YES) {
+			if(var(VAR_RANDOMIZER_MODE) == SPECIES_RANDOMIZER) {
+				clearflag(FLAG_RANDOMIZER_ENABLED)
+				setvar(VAR_RANDOMIZER_MODE, NO_RANDOMIZER)
+				msgbox(Text_SetGameSettings_Randomizer_Species_Disabled)
+			} else {
+				setflag(FLAG_RANDOMIZER_ENABLED)
+				setvar(VAR_RANDOMIZER_MODE, SPECIES_RANDOMIZER)
+				msgbox(Text_SetGameSettings_Randomizer_Species_Enabled)
+			}
+		}
+		goto(Script_SetGameSettings_Randomizer_Species_Menu)
+	}
+
+	if(var(VAR_RESULT) == SCALED_RANDOMIZER) {
+		msgbox(Text_SetGameSettings_Randomizer_Scaled_Description)
+		if(var(VAR_RANDOMIZER_MODE) == SCALED_RANDOMIZER) {
+			msgbox(Text_SetGameSettings_Randomizer_Scaled_TurnOff, MSGBOX_YESNO)
+		} else {
+			msgbox(Text_SetGameSettings_Randomizer_Scaled_TurnOn, MSGBOX_YESNO)
+		}
+		if(var(VAR_RESULT) == YES) {
+			if(var(VAR_RANDOMIZER_MODE) == SCALED_RANDOMIZER) {
+				clearflag(FLAG_RANDOMIZER_ENABLED)
+				setvar(VAR_RANDOMIZER_MODE, NO_RANDOMIZER)
+				msgbox(Text_SetGameSettings_Randomizer_Scaled_Disabled)
+			} else {
+				setflag(FLAG_RANDOMIZER_ENABLED)
+				setvar(VAR_RANDOMIZER_MODE, SCALED_RANDOMIZER)
+				msgbox(Text_SetGameSettings_Randomizer_Scaled_Enabled)
+			}
+		}
+		goto(Script_SetGameSettings_Randomizer_Species_Menu)
+	}
+
+	if(var(VAR_RESULT) == LEGENDARY_AWARE_RANDOMIZER) {
+		msgbox(Text_SetGameSettings_Randomizer_LegendsAware_Description)
+		if(var(VAR_RANDOMIZER_MODE) == LEGENDARY_AWARE_RANDOMIZER) {
+			msgbox(Text_SetGameSettings_Randomizer_LegendsAware_TurnOff, MSGBOX_YESNO)
+		} else {
+			msgbox(Text_SetGameSettings_Randomizer_LegendsAware_TurnOn, MSGBOX_YESNO)
+		}
+		if(var(VAR_RESULT) == YES) {
+			if(var(VAR_RANDOMIZER_MODE) == LEGENDARY_AWARE_RANDOMIZER) {
+				clearflag(FLAG_RANDOMIZER_ENABLED)
+				setvar(VAR_RANDOMIZER_MODE, NO_RANDOMIZER)
+				msgbox(Text_SetGameSettings_Randomizer_LegendsAware_Disabled)
+			} else {
+				setflag(FLAG_RANDOMIZER_ENABLED)
+				setvar(VAR_RANDOMIZER_MODE, LEGENDARY_AWARE_RANDOMIZER)
+				msgbox(Text_SetGameSettings_Randomizer_LegendsAware_Enabled)
+			}
+		}
+		goto(Script_SetGameSettings_Randomizer_Species_Menu)
+	}
+}
+
+
+script Script_InsideOfTruck_MovingBox {
+	msgbox(Text_InsideOfTruck_BoxPrintedWithMonLogo, MSGBOX_SIGN)
+}
+
+text Text_SetGameSettings_ReadCarefully {
+	format("{COLOR RED}{SHADOW LIGHT_RED}Please take a moment to read the following carefully.")
+}
+
+text Text_SetGameSettings_WantToChangeDefaults {
+	"{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Would you like to change the settings?\n"
+	"The default settings are as follows:\p"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Difficulty{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} - challenging Boss\n"
+	"battles with hard level caps enforced.\p"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode is ON{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} - this\n"
+	"guarentees all Pok\emon will have\l"
+	"perfect IVs, and EVs cannot be \l"
+	"obtained. Boss Pok\emon will not have\l"
+	"EVs either.\p"
+	"Randomizer {COLOR RED}{SHADOW LIGHT_RED}OFF{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} - no additional\n"
+	"randomization will be enabled.\p"
+	"With this information in mind:\n"
+	"Would you like to change the settings?"
+}
+
+
+// Which options
+text Text_SetGameSettings_WhichOption {
+	"Which option would you like\n"
+	"to customize?"
+}
+
+text Text_SetGameSettings_WhichDifficulty {
+	"Which difficulty mode would you\n"
+	"like to play on?"
+}
+
+text Text_SetGameSettings_WhichRandomizerOption {
+	"Which Species Randomizer option would\n"
+	"you like to customize?"
+}
+
+text Text_SetGameSettings_WhichSpeciesRandomizerOption {
+	"Which Species Randomizer option would\n"
+	"you like to customize?"
+}
+
+// Easy Difficulty Easy
+text Text_SetGameSettings_Difficulty_Easy_Description {
+	"There are still level caps in {COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode,{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}\n"
+	"however, the Boss Pok\emon will be 2\l"
+	"levels lower than in Normal.\l"
+	"Boss teams are otherwise unchanged.\p"
+	"The player is allowed to access the\n"
+	"Bag during any battle.\p"
+	"Additionally, the player can change the\n"
+	"battle style from Set to Shift.\p"
+	"This will still be more difficult than a\n"
+	"vanilla Pok\emon game.\p"
+}
+
+text Text_SetGameSettings_Difficulty_Easy_AlreadySelected {
+	"You current have {COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode{COLOR DARK_GRAY}{SHADOW DARK_GRAY} enabled.\n"
+	"Please select a different difficulty\l"
+	"mode if you wish to change it."
+}
+
+text Text_SetGameSettings_Difficulty_Easy_TurnOn {
+	"Do you want to turn on\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode?"
+}
+
+text Text_SetGameSettings_Difficulty_Easy_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+// Normal Difficulty Description
+
+text Text_SetGameSettings_Difficulty_Normal_Description {
+	"This is the recommended difficulty\n"
+	"mode and is what the game is priamrily\l"
+	"balanced around.\p"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} has challenging Boss\n"
+	"battles with hard level caps enforced.\p"
+	"The player cannot access the Bag\n"
+	"during trainer battles, and the battle\l"
+	"style is forced to Set.\p"
+}
+
+text Text_SetGameSettings_Difficulty_Normal_AlreadySelected {
+	"You current have {COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode{COLOR DARK_GRAY}{SHADOW DARK_GRAY} enabled.\n"
+	"Please select a different difficulty\l"
+	"mode if you wish to change it."
+}
+
+text Text_SetGameSettings_Difficulty_Normal_TurnOn {
+	"Do you want to turn on\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode?"
+}
+
+text Text_SetGameSettings_Difficulty_Normal_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Normal Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+// Vanilla Difficulty Description
+
+text Text_SetGameSettings_Difficulty_Vanilla_Description {
+	"This mode is meant to feel as close to a \n"
+	"regular Pok\emon game as possible, and\l"
+	"is considered to be the easiest.\p"
+	"The Boss teams will be rough the same\n"
+	"as in Normal Mode, but there will be no\l"
+	"level caps enforced, and no Boss teams\l"
+	"will have their levels scale with the\l"
+	"Player's team.\p"
+	"Additionaly, Pok\emon stats, types, and\l"
+	"abilities have not been updated.\l"
+	"Once selected, you can not change diffculty.\p"
+}
+
+text Text_SetGameSettings_Difficulty_Vanilla_AlreadySelected {
+	"You current have {COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode{COLOR DARK_GRAY}{SHADOW DARK_GRAY} enabled.\n"
+	"Please select a different difficulty\l"
+	"mode if you wish to change it."
+}
+
+text Text_SetGameSettings_Difficulty_Vanilla_TurnOn {
+	"Do you want to turn off\n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Vanilla Mode?"
+}
+
+text Text_SetGameSettings_Difficulty_Vanilla_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Vanilla Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} enabled."
+}
+
+
+// Minimal Griding Mode strings.
+
+text Text_SetGameSettings_MinimalGrinding_Description {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} guarantees all\n"
+	"Pok\emon to have perfect IVs,\l"
+	"and EVs cannot be obtained.\l"
+	"Boss Pok\emon will not have EVs either.\p"
+	"If this mod is disabled, obtainable\n"
+	"Pok\emon will have random IVs and can be \l"
+	"EV trained.\p"
+	"Boss Pok\emon will still have perfect\n"
+	"IVs and will be EV trained.\p"
+}
+
+text Text_SetGameSettings_MinimalGrinding_TurnOff {
+	"Do you want to turn\n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Minimal Grinding Mode off?"
+}
+
+text Text_SetGameSettings_MinimalGrinding_TurnOn {
+	"Do you want to turn\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Grinding Mode on?"
+}
+
+text Text_SetGameSettings_MinimalGriding_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Minimal Griding Mode enabled."
+}
+
+text Text_SetGameSettings_MinimalGriding_Disabled {
+	"{COLOR RED}{SHADOW LIGHT_RED}Minimal Griding Mode disabled."
+}
+
+// Random Ability String
+text Text_SetGameSettings_Randomizer_Ability_Description {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Ability Randomizer{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} randomizes abilities\n"
+	"for the player, but doesn't affect\l"
+	"abilities on Boss Pok\emon.\p"
+}
+
+text Text_SetGameSettings_Randomizer_Ability_TurnOff {
+	"Do you want to turn off the \n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Ability Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Ability_TurnOn {
+	"Do you want to turn on the \n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Ability Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Ability_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Ability Randomizer enabled."
+}
+
+text Text_SetGameSettings_Randomizer_Ability_Disabled {
+	"{COLOR RED}{SHADOW LIGHT_RED}Ability Randomizer disabled."
+}
+
+// Random Learnsets String
+text Text_SetGameSettings_Randomizer_Learnsets_Description {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Learnset Randomizer{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} randomizes\n"
+	"Pok\emon learnsets.\p"
+	"It does not randomize TMs or\n"
+	"move tutors.\p"
+	"Boss Pok\emon also keep their normal\n"
+	"movesets.\p"
+}
+
+text Text_SetGameSettings_Randomizer_Learnsets_TurnOff {
+	"Do you want to turn off the\n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Learnset Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Learnsets_TurnOn {
+	"Do you want to turn on the\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Learnset Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Learnsets_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Learnset Randomizer enabled."
+}
+
+text Text_SetGameSettings_Randomizer_Learnsets_Disabled {
+	"{COLOR RED}{SHADOW LIGHT_RED}Learnset Randomizer disabled."
+}
+
+
+// Species Randomizer String
+text Text_SetGameSettings_Randomizer_Species_Description {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Species Randomizer{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} randomizes\n"
+	"encounters, trainers, and gifts.\l"
+	"It does not randomize Boss battles.\p"
+	"Many legendaries cannot be\n"
+	"encountered.\p"
+}
+
+text Text_SetGameSettings_Randomizer_Species_TurnOff {
+	"Do you want to turn off the\n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Species Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Species_TurnOn {
+	"Do you want to turn on the\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Species Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Species_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Species Randomizer enabled."
+}
+
+text Text_SetGameSettings_Randomizer_Species_Disabled {
+	"{COLOR RED}{SHADOW LIGHT_RED}Species Randomizer disabled."
+}
+
+
+// Scaled Species Randomizer String
+text Text_SetGameSettings_Randomizer_Scaled_Description {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Scaled Randomizer{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} only gives\n"
+	"reasonable Pok\emon for your location\l"
+	"in the game.\p"
+	"This randomization is based off the\n"
+	"base stat total of the original\l"
+	"encounter.\l"
+	"It does not randmoize Boss battles.\p"
+}
+
+text Text_SetGameSettings_Randomizer_Scaled_TurnOff {
+	"Do you want to turn off the\n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Scaled Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Scaled_TurnOn {
+	"Dow you want to turn on the\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Scaled Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_Scaled_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Scaled Randomizer enabled."
+}
+
+text Text_SetGameSettings_Randomizer_Scaled_Disabled {
+	"{COLOR RED}{SHADOW LIGHT_RED}Scaled Randomizer disabled."
+}
+
+// Legends Aware Randomizer Strings
+
+text Text_SetGameSettings_Randomizer_LegendsAware_Description {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Legendary-aware Species Randomizer{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} is\n"
+	"the same thing as the Species\l"
+	"Randomizer, with the only difference\l"
+	"being that legendary Pok\emon will be\l"
+	"guaranteed to be randomized into\l"
+	"legendary Pok\emon.\p"
+}
+
+text Text_SetGameSettings_Randomizer_LegendsAware_TurnOff {
+	"Do you want to turn off the\n"
+	"{COLOR RED}{SHADOW LIGHT_RED}Legendary-aware Species Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_LegendsAware_TurnOn {
+	"Dow you want to turn on the\n"
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Legendary-aware Species Randomizer?"
+}
+
+text Text_SetGameSettings_Randomizer_LegendsAware_Enabled {
+	"{COLOR GREEN}{SHADOW LIGHT_GREEN}Legendary-aware Species Randomizer\n"
+	"enabled."
+}
+
+text Text_SetGameSettings_Randomizer_LegendsAware_Disabled {
+	"{COLOR RED}{SHADOW LIGHT_RED}Legendary-aware Species Randomizer\n"
+	"disabled."
+}
+
+// Settings saved Strings
+
+text Text_SetGameSettings_DefaultSettingsSaved{
+	"Default settings saved.\n"
+	"Good luck!"
+}
+
+text Text_SetGameSettings_CustomSettingsSaved{
+	"Custom settings saved.\n"
+	"Good luck!"
+}
+
+// Misc.
+
+text Text_InsideOfTruck_BoxPrintedWithMonLogo {
+	"The box is printed with a Pok\emon logo.\p"
+	"It's a Pok\emon brand moving and\n"
+	"delivery services."
+}

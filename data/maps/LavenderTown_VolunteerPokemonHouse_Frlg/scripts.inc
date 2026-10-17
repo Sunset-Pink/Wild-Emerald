@@ -213,19 +213,19 @@ LavenderTown_VolunteerPokemonHouse_Text_MonsNiceToHug::
 # 107 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
 LavenderTown_VolunteerPokemonHouse_Text_Nidorino::
 # 108 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
-	.string "NIDORINO: Gaoo!$"
+	.string "Nidorino: Gaoo!$"
 # 109 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
 
 # 110 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
 LavenderTown_VolunteerPokemonHouse_Text_Psyduck::
 # 111 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
-	.string "PSYDUCK: Gwappa!$"
+	.string "Psyduck: Gwappa!$"
 # 112 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
 
 # 113 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
 LavenderTown_VolunteerPokemonHouse_Text_IdLikeYouToHaveThis::
 # 114 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
-	.string "MR. FUJI: {PLAYER}…\p"
+	.string "Mr. Fuji: {PLAYER}…\p"
 # 115 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
 	.string "Your POKéDEX quest is one that\n"
 # 116 "data/maps/LavenderTown_VolunteerPokemonHouse_Frlg/scripts.pory"
