@@ -1,8 +1,7 @@
 #include "global.h"
 #include "swsh_graphics.h"
 
-
-// SwSh Shared Assets
+// SwSh assets shared across branches
 const u32 gStatusIconsSwSh_Gfx[]    = INCGFX_U32("graphics/interface/swsh/status_icons.png", ".4bpp.smol");
 const u16 gStatusIconsSwSh_Pal[]    = INCGFX_U16("graphics/interface/swsh/status_icons.png", ".gbapal");
 const u32 gCategoryIconsSwSh_Gfx[]  = INCGFX_U32("graphics/interface/swsh/category_icons.png", ".4bpp.smol");

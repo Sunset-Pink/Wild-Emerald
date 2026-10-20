@@ -3,7 +3,7 @@
 
 #include "sprite.h"
 
-#define MAX_DESCRIPTION_LINES   4
+#define MAX_DESCRIPTION_LINES   2
 
 // see graphics/interface/swsh/status_icons.png
 enum StatusIcon
