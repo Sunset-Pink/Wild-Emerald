@@ -57,6 +57,7 @@
 #include "constants/songs.h"
 #include "constants/form_change_types.h"
 #include "ui_stat_editor.h"
+#include "quests.h"
 
 enum {
     MENU_ACTION_POKEVIAL,
@@ -71,7 +72,8 @@ enum {
     MENU_ACTION_FOLLOWERS_OFF,
     MENU_ACTION_STAT_EDITOR,
     MENU_ACTION_POKEVIAL2,
-    MENU_ACTION_RETURNITEMS
+    MENU_ACTION_RETURNITEMS,
+    MENU_ACTION_QUEST_MENU
 };
 
 // IWRAM Common
@@ -98,6 +100,7 @@ static bool8 LMenuPokeVialCallback(void);
 static bool8 StartMenuStatEditorCallback(void);
 static bool8 LMenuPokeVial2Callback(void);
 static bool8 LMenuReturnItemsCallback(void);
+static bool8 QuestMenuCallback(void);
 
 static bool8 HandleLMenuInput(void);
 
@@ -115,6 +118,10 @@ static const struct WindowTemplate sWindowTemplate_StartClock = {
 };
 
 static const struct MenuAction sLMenuItems[] = {
+    [MENU_ACTION_QUEST_MENU] = {
+        gText_MenuQuest,
+        { .u8_void = QuestMenuCallback}
+    },
     [MENU_ACTION_POKEVIAL] = { 
         gText_MenuPokeVial, 
         { .u8_void = LMenuPokeVialCallback }
@@ -221,6 +228,9 @@ static void AddLMenuAction(u8 action) {
 
 static void BuildNormalLMenu(void) {
     bool8 hasDexNav = FlagGet(FLAG_SYS_DEXNAV_GET);
+    if(FlagGet(FLAG_SYS_QUEST_MENU_GET)) {
+        AddLMenuAction(MENU_ACTION_QUEST_MENU);
+    }
     if(FlagGet(FLAG_SYS_POKEMON_GET)) {
         if(hasDexNav) {
             AddLMenuAction(MENU_ACTION_POKEVIAL);
@@ -1112,5 +1122,11 @@ static void ShowTimeWindow(void) {
 static bool8 StartMenuStatEditorCallback(void) {
     gSpecialVar_0x8004 = 0;
     CreateTask(Task_OpenStatEditorFromLMenu, 0);
+    return TRUE;
+}
+
+static bool8 QuestMenuCallback(void)
+{
+    CreateTask(Task_QuestMenu_OpenFromStartMenu, 0);
     return TRUE;
 }

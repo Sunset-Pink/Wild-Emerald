@@ -255,6 +255,9 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_GETBRAILLESTRINGWIDTH         ScrCmd_getbraillestringwidth,       requests_effects=1  @ 0xe6
 	script_cmd_table_entry SCR_OP_BUFFERSTARTERINFO             ScrCmd_bufferstarterinfo,           requests_effects=1  @ 0xe7
 	script_cmd_table_entry SCR_OP_ADVANCETIME					ScrCmd_advancetime					requests_effects=1  @ 0xe8
+	script_cmd_table_entry SCR_OP_QUESTMENU						ScrCmd_questmenu,					requests_effects=1  @ 0xe9
+	script_cmd_table_entry SCR_OP_SUBQUESTMENU					ScrCmd_subquestmenu,				requests_effects=1  @ 0xea
+	script_cmd_table_entry SCR_OP_RETURNQUESTSTATE				ScrCmd_returnqueststate,			requests_effects=1  @ 0xeb
 	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
