@@ -450,6 +450,7 @@ static const u8 *const sPocketNamesStringsTable[] =
     [POCKET_POKE_BALLS]             = COMPOUND_STRING("Poké Balls"),
     [POCKET_TM_HM]                  = COMPOUND_STRING("TMs & HMs"),
     [POCKET_BERRIES]                = COMPOUND_STRING("Berries"),
+    [POCKET_MEGA_STONES]            = COMPOUND_STRING("Mega Stones"),
     [POCKET_KEY_ITEMS]              = COMPOUND_STRING("Key Items"),
 #if SWSH_BAG_BATTLE_POCKETS
     [BATTLE_POCKET_MEDICINE]        = COMPOUND_STRING("Medicine"),
@@ -601,6 +602,11 @@ static const u8 sContextMenuItems_BallsPocket[] = {
 static const u8 sContextMenuItems_TmHmPocket[] = {
     ACTION_USE,         ACTION_GIVE,
     ACTION_DUMMY,       ACTION_CANCEL
+};
+
+static const u8 sContextMenuItems_MegaStonesPocket[] = {
+    ACTION_GIVE,
+    ACTION_CANCEL
 };
 
 #if SWSH_BAG_BERRY_TAG
@@ -3578,6 +3584,10 @@ static void OpenContextMenu(u8 taskId)
         {
             switch (gBagPosition.pocket)
             {
+            case POCKET_MEGA_STONES:
+                gBagMenu->contextMenuItemsPtr = sContextMenuItems_MegaStonesPocket;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_MegaStonesPocket);
+                break;
             case POCKET_ITEMS:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
@@ -4307,6 +4317,8 @@ void DoWallyTutorialBagMenu(void)
 {
     PrepareBagForWallyTutorial();
     AddBagItem(ITEM_POTION, 1);
+    AddBagItem(ITEM_GARDEVOIRITE, 1);
+    AddBagItem(ITEM_GALLADITE, 1);
     AddBagItem(ITEM_POKE_BALL, 1);
     GoToBagMenu(ITEMMENULOCATION_WALLY, POCKET_ITEMS, CB2_SetUpReshowBattleScreenAfterMenu2);
 }

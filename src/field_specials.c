@@ -4642,10 +4642,10 @@ void GetCodeFeedback(void)
     }
 
     /* 4: Mega – handled in script */
-    else if (!StringCompare(gStringVar2, sText_CheatCodeMega))
+    /*else if (!StringCompare(gStringVar2, sText_CheatCodeMega))
     {
         gSpecialVar_Result = 4;
-    }
+    }*/
 
     /* 5: ShinyS / SHS – toggle shiny starters */
     else if (!StringCompare(gStringVar2, sText_CheatCodeShinyStarters) ||

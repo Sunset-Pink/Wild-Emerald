@@ -229,7 +229,8 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
-    gSaveBlock2Ptr->autoRun = FALSE;
+    gSaveBlock2Ptr->autoRun = TRUE;
+    FlagSet(FLAG_RECEIVED_RUNNING_SHOES);
     gSaveBlock3Ptr->whiteOuts = 0;
 }
 

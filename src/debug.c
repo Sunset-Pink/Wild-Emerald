@@ -306,6 +306,7 @@ static void DebugAction_PCBag_Fill_PocketPokeBalls(u8 taskId);
 static void DebugAction_PCBag_Fill_PocketTMHM(u8 taskId);
 static void DebugAction_PCBag_Fill_PocketBerries(u8 taskId);
 static void DebugAction_PCBag_Fill_PocketKeyItems(u8 taskId);
+static void DebugAction_PCBag_Fill_PocketMegaStones(u8 taskId);
 static void DebugAction_PCBag_ClearBag(u8 taskId);
 static void DebugAction_PCBag_ClearBoxes(u8 taskId);
 
@@ -614,6 +615,7 @@ static const struct DebugMenuOption sDebugMenu_Actions_PCBag_Fill[] =
     { COMPOUND_STRING("Fill Pocket TMHM"),          DebugAction_PCBag_Fill_PocketTMHM },
     { COMPOUND_STRING("Fill Pocket Berries"),       DebugAction_PCBag_Fill_PocketBerries },
     { COMPOUND_STRING("Fill Pocket Key Items"),     DebugAction_PCBag_Fill_PocketKeyItems },
+    { COMPOUND_STRING("Fill Pocket Mega Stones"),   DebugAction_PCBag_Fill_PocketMegaStones},
     { NULL }
 };
 
@@ -3758,6 +3760,15 @@ static void DebugAction_PCBag_Fill_PocketKeyItems(u8 taskId)
     for (itemId = 1; itemId < ITEMS_COUNT; itemId++)
     {
         if (GetItemPocket(itemId) == POCKET_KEY_ITEMS && CheckBagHasSpace(itemId, 1))
+            AddBagItem(itemId, 1);
+    }
+}
+
+static void DebugAction_PCBag_Fill_PocketMegaStones(u8 taskId) {
+    enum Item itemId;
+
+    for(itemId = 1; itemId < ITEMS_COUNT; itemId++) {
+        if(GetItemPocket(itemId) == POCKET_MEGA_STONES && CheckBagHasSpace(itemId, 1))
             AddBagItem(itemId, 1);
     }
 }
