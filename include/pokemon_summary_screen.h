@@ -46,9 +46,8 @@ enum PokemonSummaryScreenPage
 #endif
     PSS_PAGE_MEMO,
 #endif
-    PSS_PAGE_COUNT
+    PSS_PAGE_COUNT,
 };
-    
 
 enum PokemonSummarySkillsMode
 {

@@ -1,8 +1,7 @@
-
 #ifndef GUARD_SWSH_GRAPHICS_H
 #define GUARD_SWSH_GRAPHICS_H
 
-//Shared SwSh assets
+// SwSh assets shared across branches
 extern const u32 gStatusIconsSwSh_Gfx[];
 extern const u16 gStatusIconsSwSh_Pal[];
 extern const u32 gCategoryIconsSwSh_Gfx[];

@@ -5580,8 +5580,8 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, enum Species species, b
         gTasks[taskId].sAnimId = gSpeciesInfo[species].frontAnimId;
         gTasks[taskId].sAnimDelay = gSpeciesInfo[species].frontAnimDelay;
         gTasks[taskId].tIsShadow = isShadow;  // needed to track anim delay task for mon shadow in BW summary screen
-            if (isShadow)
-                SummaryScreen_SetAnimDelayTaskId(taskId);
+        if (isShadow)
+            SummaryScreen_SetAnimDelayTaskId(taskId);
         SetSpriteCB_MonAnimDummy(sprite);
     }
     else
@@ -5593,7 +5593,7 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, enum Species species, b
 
 void StopPokemonAnimationDelayTask(void)
 {
-    u8 delayTaskId ;
+    u8 delayTaskId;
     while ((delayTaskId = FindTaskIdByFunc(Task_PokemonSummaryAnimateAfterDelay)) != TASK_NONE)
         DestroyTask(delayTaskId);
 }

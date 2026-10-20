@@ -30,7 +30,7 @@
 #define SWSH_SUMMARY_SHOW_TERA_TYPE             (SWSH_SUMMARY_SCREEN && FALSE)  // show tera type icons
 
 // constants
-#define SWSH_MAX_MOVE_DESCRIPTION_LENGTH        400                             // (in pixels) modify if SWSH_SUMMARY_AUTO_FORMAT_MOVE_DESC is true
+#define SWSH_MAX_MOVE_DESCRIPTION_LENGTH        100                             // (in pixels) modify if SWSH_SUMMARY_AUTO_FORMAT_MOVE_DESC is true
 #define SWSH_SUMMARY_MON_IDLE_ANIMS_FRAMES      300                             // number of frames between each idle anim IF SWSH_SUMMARY_MON_IDLE_ANIMS is true.
                                                                                 // for reference, Emerald runs at 60FPS by default
 #define SWSH_SUMMARY_MON_SHADOW_COLOR           RGB(16, 16, 16)                 // flat shadow color, used when SWSH_SUMMARY_STATUS_ICON_FADE is true
