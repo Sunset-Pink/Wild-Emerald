@@ -27,10 +27,6 @@ raw `
 	@ 3: Met Rival
 	@ 4: Received Pokedex
 
-LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
-	return
-
 LittlerootTown_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	return
@@ -833,9 +829,6 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 mapscripts LittlerootTown_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: MapScript_LittlerootTown_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE: MapScript_LittlerootTown_OnFrame
-	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
-		VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1: LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
-	]
 }
 
 script(local) MapScript_LittlerootTown_OnTransition {
@@ -866,18 +859,11 @@ script(local) MapScript_LittlerootTown_OnTransition {
 	if(var(VAR_LITTLEROOT_RIVAL_STATE) == 3) {
 		call(LittlerootTown_EventScript_SetRivalLeftForRoute103)
 	}
-
-	if(var(VAR_DEX_UPGRADE_JOHTO_STARTER_STATE) == 1) {
-		call(LittlerootTown_EventScript_HideMapNamePopup)
-	} elif (var(VAR_DEX_UPGRADE_JOHTO_STARTER_STATE) == 2) {
-		call(LittlerootTown_EventScript_LeftLabAfterDexUpgrade)
-	}
 	end
 }
 
 script(local) MapScript_LittlerootTown_OnFrame {
 	map_script_2(VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruck)
-	map_script_2(VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene)
 }
 
 script LittlerootTown_EventScript_StepOffTruck {

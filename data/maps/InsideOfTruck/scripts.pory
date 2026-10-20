@@ -15,6 +15,7 @@ script Script_InsideOfTruck_OnResume {
 
 script Trigger_InsideOfTruck_GameInitialization {
 	lockall
+	clearflag(FLAG_SYS_POKEMON_GET)
 	setflag(FLAG_HIDE_MAP_NAME_POPUP)
 	setvar(VAR_LITTLEROOT_INTRO_STATE, 1)
 	checkplayergender
@@ -68,7 +69,7 @@ script Script_InsideOfTruck_SetGameSettings {
 }
 
 script Script_SetGameSettings_InitializeDefaultSettings {
-	setvar(VAR_DIFFICULTY, DIFFICULTY_NORMAL)
+	setdifficulty(DIFFICULTY_NORMAL)
 	setflag(FLAG_MINIMAL_GRINDING_MODE)
 	clearflag(FLAG_RANDOMIZER_ENABLED)
 	clearflag(FLAG_RANDOMIZER_ABILITIES_ENABLED)

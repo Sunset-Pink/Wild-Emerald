@@ -45,17 +45,11 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#if IS_FRLG
-
-#include "constants/flags_frlg.h"
-
-#else
-
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define FLAG_TOOK_LEFT_GRASS_STARTER     0x20
+#define FLAG_TOOK_MIDDLE_FIRE_STARTER    0x21
+#define FLAG_TOOK_RIGHT_WATER_STARTER    0x22
+#define FLAG_STOP_ENCOUNTERS             0x23
+#define FLAG_USING_POKEMONPCMENU         0x24
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
@@ -673,7 +667,7 @@
 #define FLAG_RANDOMIZER_ENABLED            0x26A
 #define FLAG_RANDOMIZER_ABILITIES_ENABLED  0x26B
 #define FLAG_RANDOMIZER_LEARNSETS_ENABLED  0x26C 
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
+#define FLAG_DISABLE_FOLLOWERS             0x26D
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
@@ -1404,7 +1398,7 @@
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
 #define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
-#define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
+#define FLAG_SYS_DEXNAV_GET                        (SYSTEM_FLAGS + 0x2F) // Dexnav shows in start menu 
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
 #define FLAG_SYS_TV_WATCH                           (SYSTEM_FLAGS + 0x31)
@@ -2360,7 +2354,7 @@
 #define FLAG_DEFEATED_LANCE           0
 #define FLAG_DEFEATED_CHAMP           0
 
-#define FLAG_0x82A                                                  0
+#define FLAG_SYS_STAT_EDITOR_GET                                    0
 #define FLAG_0x82B                                                  0
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           0
 #define FLAG_0x82E                                                  0
@@ -2433,8 +2427,6 @@
 #define FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL                0
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       0
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        0
-
-#endif
 
 #if TESTING
 #define TESTING_FLAGS_START                     0x5000

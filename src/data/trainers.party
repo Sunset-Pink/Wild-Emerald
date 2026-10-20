@@ -28,6 +28,7 @@ Optional (but still recommended) fields for trainers:
     - Starting Status (see include/constants/battle.h for values)
     - Multi Party   (Half reduces two-trainer battle sides to 3 Pokemon each)
                     (defaults to Full but requires B_MULTI_HALF_TEAMS to be FALSE)
+    - Difficulty: Vanilla/Easy/Normal/Hard
 
 Pokemon are then specified using the Showdown Export format.
 If a field is not specified, it will use it's default value.
@@ -90,6 +91,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Geodude
@@ -103,6 +105,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -116,6 +119,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -133,6 +137,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -146,6 +151,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -159,6 +165,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -172,6 +179,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -185,6 +193,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -198,6 +207,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty
@@ -231,6 +241,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -245,6 +256,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -262,6 +274,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -279,6 +292,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zangoose
@@ -296,6 +310,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -309,6 +324,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Gyarados
@@ -322,6 +338,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -335,6 +352,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -352,6 +370,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -369,6 +388,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -390,6 +410,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -403,6 +424,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -420,6 +442,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -433,6 +456,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -446,6 +470,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -459,6 +484,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -476,6 +502,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -489,6 +516,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -502,6 +530,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -515,6 +544,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Makuhita
@@ -533,6 +563,7 @@ Gender: Male
 Music: Aqua
 Items: Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mightyena
@@ -550,6 +581,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Hariyama
@@ -563,6 +595,7 @@ Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Carvanha
@@ -580,6 +613,7 @@ Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Sharpedo
@@ -598,6 +632,7 @@ Gender: Male
 Music: Aqua
 Items: Super Potion / Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mightyena
@@ -619,6 +654,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spoink
@@ -632,6 +668,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -649,6 +686,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -671,6 +709,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -691,6 +730,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -708,6 +748,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -725,6 +766,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -746,6 +788,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -767,6 +810,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -788,6 +832,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandslash
@@ -805,6 +850,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -838,6 +884,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -856,6 +903,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Sand Attack
 - Poison Sting
 
+
 === TRAINER_DUSTY_2 ===
 Name: DUSTY
 Class: Ruin Maniac
@@ -863,6 +911,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandslash
@@ -880,6 +929,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandslash
@@ -897,6 +947,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandslash
@@ -914,6 +965,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandslash
@@ -931,6 +983,7 @@ Pic: Interviewer
 Gender: Male
 Music: Interviewer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -948,6 +1001,7 @@ Pic: Interviewer
 Gender: Male
 Music: Interviewer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -965,6 +1019,7 @@ Pic: Interviewer
 Gender: Male
 Music: Interviewer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -982,6 +1037,7 @@ Pic: Interviewer
 Gender: Male
 Music: Interviewer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -999,6 +1055,7 @@ Pic: Interviewer
 Gender: Male
 Music: Interviewer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -1016,6 +1073,7 @@ Pic: Interviewer
 Gender: Male
 Music: Interviewer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -1041,6 +1099,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azurill
@@ -1058,6 +1117,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -1071,6 +1131,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -1084,6 +1145,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -1101,6 +1163,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -1118,6 +1181,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -1135,6 +1199,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azumarill
@@ -1152,6 +1217,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -1169,6 +1235,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azurill
@@ -1186,6 +1253,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -1199,6 +1267,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -1216,6 +1285,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -1233,6 +1303,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -1250,6 +1321,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -1268,6 +1340,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Swellow
@@ -1285,6 +1358,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Spinda
@@ -1302,6 +1376,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slakoth @ Sitrus Berry
@@ -1319,6 +1394,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Vigoroth
@@ -1335,6 +1411,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Swellow
@@ -1385,6 +1462,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Sableye
@@ -1407,6 +1485,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mawile
@@ -1425,6 +1504,7 @@ Gender: Male
 Music: Cool
 Items: Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Electrike
@@ -1447,6 +1527,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Cacturne
@@ -1465,6 +1546,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Magneton
@@ -1483,6 +1565,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Swellow
@@ -1505,6 +1588,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Dodrio
@@ -1531,6 +1615,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Kecleon
@@ -1553,6 +1638,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Electrike
@@ -1575,6 +1661,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -1597,6 +1684,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -1619,6 +1707,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -1641,6 +1730,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Graveler
@@ -1659,6 +1749,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Delcatty
@@ -1675,6 +1766,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Wigglytuff
@@ -1692,6 +1784,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Zangoose
@@ -1708,6 +1801,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Mawile
@@ -1742,6 +1836,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Lairon
@@ -1760,6 +1855,7 @@ Gender: Female
 Music: Cool
 Items: Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Wingull
@@ -1782,6 +1878,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Sableye
@@ -1796,6 +1893,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Roselia
@@ -1810,6 +1908,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Claydol
@@ -1824,6 +1923,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Torkoal
@@ -1846,6 +1946,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Skarmory
@@ -1864,6 +1965,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Sandslash
@@ -1886,6 +1988,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Wingull
@@ -1908,6 +2011,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pelipper
@@ -1930,6 +2034,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pelipper
@@ -1952,6 +2057,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pelipper
@@ -1973,6 +2079,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Banette
@@ -1990,6 +2097,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Duskull
@@ -2007,6 +2115,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Duskull
@@ -2024,6 +2133,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sableye
@@ -2037,6 +2147,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shuppet
@@ -2050,6 +2161,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sableye
@@ -2067,6 +2179,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spoink
@@ -2084,6 +2197,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spoink
@@ -2101,6 +2215,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Duskull
@@ -2123,6 +2238,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon @ Nugget
@@ -2137,6 +2253,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc @ Nugget
@@ -2162,6 +2279,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -2184,6 +2302,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon @ Nugget
@@ -2200,6 +2319,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Seaking @ Nugget
@@ -2214,6 +2334,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia @ Nugget
@@ -2228,6 +2349,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2242,6 +2364,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2256,6 +2379,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2270,6 +2394,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2287,6 +2412,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -2300,6 +2426,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -2313,6 +2440,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -2326,6 +2454,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kecleon
@@ -2351,6 +2480,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -2364,6 +2494,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azumarill
@@ -2377,6 +2508,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Clamperl
@@ -2409,6 +2541,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -2426,6 +2559,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kecleon
@@ -2451,6 +2585,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kecleon
@@ -2476,6 +2611,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kecleon
@@ -2501,6 +2637,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kecleon
@@ -2527,6 +2664,7 @@ Gender: Male
 Music: Rich
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon @ Nugget
@@ -2540,6 +2678,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Whiscash
@@ -2558,6 +2697,7 @@ Gender: Male
 Music: Rich
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azumarill @ Nugget
@@ -2572,6 +2712,7 @@ Gender: Male
 Music: Rich
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2586,6 +2727,7 @@ Gender: Male
 Music: Rich
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2600,6 +2742,7 @@ Gender: Male
 Music: Rich
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2614,6 +2757,7 @@ Gender: Male
 Music: Rich
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone @ Nugget
@@ -2631,6 +2775,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Aron
@@ -2644,6 +2789,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -2661,6 +2807,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Rhyhorn
@@ -2674,6 +2821,7 @@ Pic: Magma Grunt F
 Gender: Female
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -2687,6 +2835,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lairon
@@ -2700,6 +2849,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lairon
@@ -2717,6 +2867,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lairon
@@ -2734,6 +2885,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Aggron
@@ -2751,6 +2903,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -2764,6 +2917,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -2777,6 +2931,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -2794,6 +2949,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -2815,6 +2971,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -2828,6 +2985,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacruel
@@ -2841,6 +2999,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -2854,6 +3013,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -2871,6 +3031,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -2888,6 +3049,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -2901,6 +3063,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacruel
@@ -2914,6 +3077,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Horsea
@@ -2927,6 +3091,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Gyarados
@@ -2940,6 +3105,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -2961,6 +3127,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Gyarados
@@ -2974,6 +3141,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -2987,6 +3155,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -3004,6 +3173,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacruel
@@ -3021,6 +3191,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sharpedo
@@ -3034,6 +3205,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sealeo
@@ -3047,6 +3219,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spheal
@@ -3060,6 +3233,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Gyarados
@@ -3073,6 +3247,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -3094,6 +3269,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -3111,6 +3287,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sharpedo
@@ -3124,6 +3301,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sharpedo
@@ -3137,6 +3315,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -3154,6 +3333,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Starmie
@@ -3171,6 +3351,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3184,6 +3365,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3201,6 +3383,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Hariyama
@@ -3214,6 +3397,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3231,6 +3415,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3244,6 +3429,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machoke
@@ -3257,6 +3443,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3274,6 +3461,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3295,6 +3483,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3320,6 +3509,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Makuhita
@@ -3337,6 +3527,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -3350,6 +3541,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Hariyama
@@ -3363,6 +3555,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Electrike
@@ -3387,6 +3580,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -3404,6 +3598,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -3417,6 +3612,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Voltorb
@@ -3434,6 +3630,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Electrike
@@ -3451,6 +3648,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -3468,6 +3666,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -3489,6 +3688,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -3510,6 +3710,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -3531,6 +3732,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -3552,6 +3754,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -3565,6 +3768,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3582,6 +3786,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -3595,6 +3800,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3608,6 +3814,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3621,6 +3828,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3638,6 +3846,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3655,6 +3864,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3672,6 +3882,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -3689,6 +3900,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magcargo
@@ -3706,6 +3918,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -3723,6 +3936,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -3756,6 +3970,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nuzleaf
@@ -3769,6 +3984,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -3786,6 +4002,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kecleon
@@ -3799,6 +4016,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -3816,6 +4034,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -3829,6 +4048,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -3842,6 +4062,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -3859,6 +4080,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -3876,6 +4098,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -3897,6 +4120,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -3918,6 +4142,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -3931,6 +4156,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wurmple
@@ -3952,6 +4178,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wurmple
@@ -3973,6 +4200,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -3994,6 +4222,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dustox
@@ -4011,6 +4240,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -4032,6 +4262,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -4053,6 +4284,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -4078,6 +4310,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -4107,6 +4340,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Abra
@@ -4121,6 +4355,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kirlia
@@ -4134,6 +4369,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ralts
@@ -4147,6 +4383,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Girafarig
@@ -4160,6 +4397,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ralts
@@ -4181,6 +4419,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4198,6 +4437,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Solrock
@@ -4211,6 +4451,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4228,6 +4469,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4245,6 +4487,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4262,6 +4505,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Solrock
@@ -4279,6 +4523,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Abra
@@ -4293,6 +4538,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kirlia
@@ -4306,6 +4552,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Xatu
@@ -4319,6 +4566,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4332,6 +4580,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wobbuffet
@@ -4353,6 +4602,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kirlia
@@ -4370,6 +4620,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4387,6 +4638,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4404,6 +4656,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4421,6 +4674,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -4438,6 +4692,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lunatone
@@ -4455,6 +4710,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -4468,6 +4724,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -4485,6 +4742,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zangoose
@@ -4498,6 +4756,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -4511,6 +4770,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -4536,6 +4796,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -4560,6 +4821,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -4594,6 +4856,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer / Force Setup First Turn
 Mugshot: Purple
 
@@ -4645,6 +4908,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 Mugshot: Green
 
@@ -4696,6 +4960,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 Mugshot: Pink
 
@@ -4747,6 +5012,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 Mugshot: Blue
 
@@ -4798,6 +5064,7 @@ Gender: Female
 Music: Female
 Items: Potion / Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Geodude
@@ -4832,6 +5099,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Machop
@@ -4866,6 +5134,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Voltorb
@@ -4908,6 +5177,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Numel
@@ -4950,6 +5220,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Spinda
@@ -4992,6 +5263,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer / Risky
 
 Swablu
@@ -5042,6 +5314,7 @@ Gender: Male
 Music: Female
 Items: Hyper Potion / Hyper Potion / Hyper Potion / Hyper Potion
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Claydol
@@ -5084,6 +5357,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Luvdisc
@@ -5133,6 +5407,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ralts
@@ -5146,6 +5421,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ralts
@@ -5159,6 +5435,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -5180,6 +5457,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ralts
@@ -5197,6 +5475,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kirlia
@@ -5214,6 +5493,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kirlia
@@ -5231,6 +5511,7 @@ Pic: School Kid M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kirlia
@@ -5252,6 +5533,7 @@ Pic: School Kid F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -5265,6 +5547,7 @@ Pic: School Kid F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -5282,6 +5565,7 @@ Pic: School Kid F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -5299,6 +5583,7 @@ Pic: School Kid F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -5316,6 +5601,7 @@ Pic: School Kid F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -5333,6 +5619,7 @@ Pic: School Kid F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -5350,6 +5637,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spinda
@@ -5375,6 +5663,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -5399,6 +5688,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -5423,6 +5713,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -5447,6 +5738,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -5471,6 +5763,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Linoone
@@ -5495,6 +5788,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Taillow @ Oran Berry
@@ -5512,6 +5806,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty @ Oran Berry
@@ -5525,6 +5820,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty @ Oran Berry
@@ -5582,6 +5878,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty @ Oran Berry
@@ -5595,6 +5892,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty @ Oran Berry
@@ -5608,6 +5906,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Delcatty @ Oran Berry
@@ -5621,6 +5920,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Delcatty @ Sitrus Berry
@@ -5634,6 +5934,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Roselia @ Oran Berry
@@ -5647,6 +5948,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pikachu @ Oran Berry
@@ -5660,6 +5962,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azurill @ Oran Berry
@@ -5681,6 +5984,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle @ Oran Berry
@@ -5698,6 +6002,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle @ Oran Berry
@@ -5715,6 +6020,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle @ Oran Berry
@@ -5732,6 +6038,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle @ Oran Berry
@@ -5749,6 +6056,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle @ Sitrus Berry
@@ -5766,6 +6074,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hariyama
@@ -5779,6 +6088,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hariyama
@@ -5796,6 +6106,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hariyama
@@ -5813,6 +6124,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hariyama
@@ -5830,6 +6142,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hariyama
@@ -5847,6 +6160,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Meditite
@@ -5864,6 +6178,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Meditite
@@ -5881,6 +6196,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Meditite
@@ -5898,6 +6214,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -5915,6 +6232,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -5932,6 +6250,7 @@ Pic: Expert F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -5949,6 +6268,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -5962,6 +6282,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -5979,6 +6300,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -5993,6 +6315,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -6010,6 +6333,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -6023,6 +6347,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -6049,6 +6374,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slaking
@@ -6075,6 +6401,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Gardevoir
@@ -6100,6 +6427,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Trapinch
@@ -6113,6 +6441,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Aron
@@ -6126,6 +6455,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -6139,6 +6469,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -6156,6 +6487,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -6177,6 +6509,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -6198,6 +6531,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -6215,6 +6549,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -6232,6 +6567,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Aron
@@ -6250,6 +6586,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 Mugshot: Yellow
 
@@ -6308,6 +6645,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -6329,6 +6667,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -6350,6 +6689,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -6371,6 +6711,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -6392,6 +6733,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -6405,6 +6747,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -6430,6 +6773,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Barboach
@@ -6443,6 +6787,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -6460,6 +6805,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -6473,6 +6819,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -6490,6 +6837,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -6511,6 +6859,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Gyarados
@@ -6536,6 +6885,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Gyarados
@@ -6561,6 +6911,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Gyarados
@@ -6586,6 +6937,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -6619,6 +6971,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Voltorb
@@ -6640,6 +6993,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6657,6 +7011,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6670,6 +7025,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6683,6 +7039,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6696,6 +7053,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -6709,6 +7067,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -6722,6 +7081,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6735,6 +7095,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6756,6 +7117,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6769,6 +7131,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -6782,6 +7145,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -6795,6 +7159,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magneton
@@ -6808,6 +7173,7 @@ Pic: Running Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -6821,6 +7187,7 @@ Pic: Running Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -6834,6 +7201,7 @@ Pic: Running Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -6847,6 +7215,7 @@ Pic: Running Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dodrio
@@ -6860,6 +7229,7 @@ Pic: Running Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dodrio
@@ -6873,6 +7243,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -6886,6 +7257,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -6899,6 +7271,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -6912,6 +7285,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dodrio
@@ -6925,6 +7299,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dodrio
@@ -6938,6 +7313,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -6955,6 +7331,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -6972,6 +7349,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -6985,6 +7363,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7002,6 +7381,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -7019,6 +7399,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7032,6 +7413,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7045,6 +7427,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Starmie
@@ -7058,6 +7441,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Starmie
@@ -7071,6 +7455,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7084,6 +7469,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -7101,6 +7487,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7114,6 +7501,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7127,6 +7515,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -7144,6 +7533,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7157,6 +7547,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -7170,6 +7561,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Starmie
@@ -7183,6 +7575,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Starmie
@@ -7196,6 +7589,7 @@ Pic: Dragon Tamer
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Altaria
@@ -7213,6 +7607,7 @@ Pic: Dragon Tamer
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Altaria
@@ -7230,6 +7625,7 @@ Pic: Dragon Tamer
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Altaria
@@ -7247,6 +7643,7 @@ Pic: Dragon Tamer
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Bagon
@@ -7268,6 +7665,7 @@ Pic: Dragon Tamer
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Altaria
@@ -7289,6 +7687,7 @@ Pic: Dragon Tamer
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Bagon
@@ -7306,6 +7705,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -7319,6 +7719,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -7336,6 +7737,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -7349,6 +7751,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -7370,6 +7773,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skarmory
@@ -7383,6 +7787,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tropius
@@ -7400,6 +7805,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -7417,6 +7823,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -7434,6 +7841,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swablu
@@ -7447,6 +7855,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -7468,6 +7877,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Taillow
@@ -7485,6 +7895,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Natu
@@ -7502,6 +7913,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Natu
@@ -7519,6 +7931,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Natu
@@ -7536,6 +7949,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Altaria
@@ -7553,6 +7967,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Natu
@@ -7570,6 +7985,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tropius
@@ -7583,6 +7999,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Ninjask
@@ -7596,6 +8013,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Ninjask
@@ -7840,6 +8258,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -7853,6 +8272,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -7866,6 +8286,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -7883,6 +8304,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -7896,6 +8318,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -7909,6 +8332,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -7926,6 +8350,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -7943,6 +8368,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Medicham
@@ -7960,6 +8386,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Medicham
@@ -7977,6 +8404,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -7994,6 +8422,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -8011,6 +8440,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Castform
@@ -8028,6 +8458,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -8045,6 +8476,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -8062,6 +8494,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -8087,6 +8520,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -8112,6 +8546,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -8129,6 +8564,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -8142,6 +8578,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -8155,6 +8592,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -8172,6 +8610,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -8185,6 +8624,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Horsea
@@ -8202,6 +8642,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -8215,6 +8656,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -8236,6 +8678,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -8249,6 +8692,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -8262,6 +8706,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -8275,6 +8720,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Seaking
@@ -8288,6 +8734,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -8305,6 +8752,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -8318,6 +8766,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -8335,6 +8784,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -8348,6 +8798,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Seaking
@@ -8361,6 +8812,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azumarill
@@ -8374,6 +8826,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -8391,6 +8844,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Seaking
@@ -8404,6 +8858,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Horsea
@@ -8421,6 +8876,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lanturn
@@ -8438,6 +8894,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -8455,6 +8912,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Seaking
@@ -8468,6 +8926,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -8481,6 +8940,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -8494,6 +8954,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -8511,6 +8972,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -8532,6 +8994,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -8557,6 +9020,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -8582,6 +9046,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Taillow
@@ -8599,6 +9064,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -8616,6 +9082,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty
@@ -8633,6 +9100,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -8654,6 +9122,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wobbuffet
@@ -8671,6 +9140,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -8688,6 +9158,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -8709,6 +9180,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -8730,6 +9202,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -8751,6 +9224,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Breloom
@@ -8772,6 +9246,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle
@@ -8789,6 +9264,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle
@@ -8806,6 +9282,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Seedot
@@ -8823,6 +9300,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Beautifly
@@ -8840,6 +9318,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle
@@ -8857,6 +9336,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Duskull
@@ -8878,6 +9358,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle
@@ -8895,6 +9376,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle
@@ -8920,6 +9402,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Plusle
@@ -8945,6 +9428,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -8962,6 +9446,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -8975,6 +9460,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -8992,6 +9478,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -9013,6 +9500,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacruel
@@ -9030,6 +9518,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -9051,6 +9540,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spheal
@@ -9068,6 +9558,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -9089,6 +9580,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -9110,6 +9602,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -9131,6 +9624,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -9152,6 +9646,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -9165,6 +9660,7 @@ Pic: Pokefan F
 Gender: Female
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Feebas @ Oran Berry
@@ -9191,6 +9687,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Absol
@@ -9204,6 +9701,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Koffing
@@ -9221,6 +9719,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Castform
@@ -9238,6 +9737,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -9255,6 +9755,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machoke
@@ -9273,6 +9774,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -9290,6 +9792,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -9307,6 +9810,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -9320,6 +9824,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Chinchou
@@ -9337,6 +9842,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -9354,6 +9860,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zangoose
@@ -9371,6 +9878,7 @@ Pic: Magma Admin
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 Multi Party: Half
 
@@ -9393,6 +9901,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -9410,6 +9919,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -9427,6 +9937,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -9444,6 +9955,7 @@ Pic: Collector
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ludicolo
@@ -9462,6 +9974,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Altaria
@@ -9511,6 +10024,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Treecko
@@ -9524,6 +10038,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slugma
@@ -9545,6 +10060,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slugma
@@ -9566,6 +10082,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Torchic
@@ -9579,6 +10096,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Wingull
@@ -9600,6 +10118,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pelipper
@@ -9621,6 +10140,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mudkip
@@ -9634,6 +10154,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lombre
@@ -9655,6 +10176,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lombre
@@ -9676,6 +10198,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Treecko
@@ -9689,6 +10212,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Wingull
@@ -9710,6 +10234,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slugma
@@ -9731,6 +10256,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Torchic
@@ -9744,6 +10270,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Wingull
@@ -9765,6 +10292,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pelipper
@@ -9786,6 +10314,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mudkip
@@ -9799,6 +10328,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lombre
@@ -9820,6 +10350,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lombre
@@ -9841,6 +10372,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Whismur
@@ -9874,6 +10406,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pinsir
@@ -9887,6 +10420,7 @@ Pic: Cooltrainer M
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lunatone
@@ -9912,6 +10446,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Loudred
@@ -9945,6 +10480,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Loudred
@@ -9978,6 +10514,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Loudred
@@ -10011,6 +10548,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Loudred
@@ -10044,6 +10582,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -10078,6 +10617,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Sableye
@@ -10095,6 +10635,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandslash
@@ -10108,6 +10649,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -10141,6 +10683,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -10174,6 +10717,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -10207,6 +10751,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -10241,6 +10786,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Breloom
@@ -10255,6 +10801,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Seedot
@@ -10277,6 +10824,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Cacturne
@@ -10291,6 +10839,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Breloom
@@ -10305,6 +10854,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Breloom
@@ -10319,6 +10869,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Breloom
@@ -10333,6 +10884,7 @@ Gender: Male
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Kecleon
@@ -10351,6 +10903,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Gloom
@@ -10369,6 +10922,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Lotad
@@ -10391,6 +10945,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Swablu
@@ -10409,6 +10964,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Gloom
@@ -10427,6 +10983,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Gloom
@@ -10445,6 +11002,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Gloom
@@ -10463,6 +11021,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Bellossom
@@ -10480,6 +11039,7 @@ Pic: Cycling Triathlete M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -10493,6 +11053,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -10510,6 +11071,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -10527,6 +11089,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -10544,6 +11107,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -10561,6 +11125,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -10578,6 +11143,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machop
@@ -10591,6 +11157,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -10604,6 +11171,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Makuhita
@@ -10617,6 +11185,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -10630,6 +11199,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -10644,6 +11214,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -10666,6 +11237,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacruel
@@ -10679,6 +11251,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -10692,6 +11265,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sharpedo
@@ -10705,6 +11279,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Girafarig
@@ -10718,6 +11293,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spoink
@@ -10731,6 +11307,7 @@ Pic: Hex Maniac
 Gender: Female
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -10744,6 +11321,7 @@ Pic: Gentleman
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Girafarig
@@ -10757,6 +11335,7 @@ Pic: Psychic M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wobbuffet
@@ -10770,6 +11349,7 @@ Pic: Magma Grunt F
 Gender: Female
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -10787,6 +11367,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -10800,6 +11381,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -10813,6 +11395,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -10826,6 +11409,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -10839,6 +11423,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Natu
@@ -10852,6 +11437,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lotad
@@ -10869,6 +11455,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -10886,6 +11473,7 @@ Pic: Expert M
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Swellow
@@ -10903,6 +11491,7 @@ Pic: Swimming Triathlete F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -10916,6 +11505,7 @@ Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -10933,6 +11523,7 @@ Pic: Magma Admin
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Numel
@@ -10959,6 +11550,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Kecleon
@@ -10976,6 +11568,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slugma
@@ -10993,6 +11586,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Wingull
@@ -11011,6 +11605,7 @@ Gender: Male
 Music: Magma
 Items: Super Potion / Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mightyena
@@ -11033,6 +11628,7 @@ Gender: Male
 Music: Magma
 Items: Super Potion / Super Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mightyena
@@ -11054,6 +11650,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -11071,6 +11668,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lotad
@@ -11088,6 +11686,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -11101,6 +11700,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Marill
@@ -11122,6 +11722,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -11139,6 +11740,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -11156,6 +11758,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -11173,6 +11776,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -11194,6 +11798,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Oddish
@@ -11207,6 +11812,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty
@@ -11228,6 +11834,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -11241,6 +11848,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -11258,6 +11866,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wurmple
@@ -11275,6 +11884,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wurmple
@@ -11300,6 +11910,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wurmple
@@ -11317,6 +11928,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nincada
@@ -11334,6 +11946,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Volbeat
@@ -11351,6 +11964,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ninjask
@@ -11364,6 +11978,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nincada
@@ -11381,6 +11996,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ninjask
@@ -11394,6 +12010,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dustox
@@ -11411,6 +12028,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -11432,6 +12050,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Surskit
@@ -11457,6 +12076,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -11474,6 +12094,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11495,6 +12116,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11512,6 +12134,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11529,6 +12152,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11550,6 +12174,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11563,6 +12188,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11580,6 +12206,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -11595,6 +12222,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -11616,6 +12244,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11637,6 +12266,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11662,6 +12292,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11687,6 +12318,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -11712,6 +12344,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Graveler
@@ -11737,6 +12370,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Delcatty
@@ -11754,6 +12388,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -11771,6 +12406,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Volbeat
@@ -11788,6 +12424,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Volbeat
@@ -11805,6 +12442,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Volbeat
@@ -11822,6 +12460,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Volbeat
@@ -11839,6 +12478,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Volbeat
@@ -11856,6 +12496,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -11870,6 +12511,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Kecleon
@@ -11887,6 +12529,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -11912,6 +12555,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -11929,6 +12573,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Koffing
@@ -11954,6 +12599,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Koffing
@@ -11979,6 +12625,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint
 
 Nincada
@@ -12004,6 +12651,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -12021,6 +12669,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swablu
@@ -12042,6 +12691,7 @@ Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Ralts
@@ -12056,6 +12706,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Altaria
@@ -12106,6 +12757,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Altaria
@@ -12156,6 +12808,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Altaria
@@ -12206,6 +12859,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Altaria
@@ -12255,6 +12909,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -12280,6 +12935,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -12305,6 +12961,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -12330,6 +12987,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -12355,6 +13013,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -12380,6 +13039,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -12405,6 +13065,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -12426,6 +13087,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Carvanha
@@ -12443,6 +13105,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -12465,6 +13128,7 @@ Gender: Female
 Music: Cool
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Gloom
@@ -12483,6 +13147,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Shiftry
@@ -12500,6 +13165,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machoke
@@ -12513,6 +13179,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -12534,6 +13201,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swellow
@@ -12551,6 +13219,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spheal
@@ -12568,6 +13237,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Chinchou
@@ -12581,6 +13251,7 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Spinda
@@ -12598,6 +13269,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Swablu
@@ -12623,6 +13295,7 @@ Pic: Sr And Jr
 Gender: Male
 Music: Twins
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -12648,6 +13321,7 @@ Pic: Young Couple
 Gender: Male
 Music: Girl
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dustox
@@ -12673,6 +13347,7 @@ Pic: Old Couple
 Gender: Male
 Music: Intense
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -12698,6 +13373,7 @@ Pic: Old Couple
 Gender: Male
 Music: Intense
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -12723,6 +13399,7 @@ Pic: Old Couple
 Gender: Male
 Music: Intense
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -12748,6 +13425,7 @@ Pic: Old Couple
 Gender: Male
 Music: Intense
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Medicham
@@ -12773,6 +13451,7 @@ Pic: Old Couple
 Gender: Male
 Music: Intense
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Medicham
@@ -12798,6 +13477,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Azumarill
@@ -12815,6 +13495,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Chinchou
@@ -12832,6 +13513,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Chinchou
@@ -12849,6 +13531,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lanturn
@@ -12866,6 +13549,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lanturn
@@ -12883,6 +13567,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lanturn
@@ -12900,6 +13585,7 @@ Pic: Sis And Bro
 Gender: Male
 Music: Swimmer
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -12917,6 +13603,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -12942,6 +13629,7 @@ Pic: Rich Boy
 Gender: Male
 Music: Rich
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon @ Nugget
@@ -12960,6 +13648,7 @@ Gender: Female
 Music: Female
 Items: Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lotad
@@ -12977,6 +13666,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magikarp
@@ -12990,6 +13680,7 @@ Pic: Tuber F
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -13003,6 +13694,7 @@ Pic: Tuber M
 Gender: Male
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -13020,6 +13712,7 @@ Pic: Pokefan M
 Gender: Male
 Music: Twins
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Minun @ Oran Berry
@@ -13037,6 +13730,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Electrike
@@ -13054,6 +13748,7 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Magnemite
@@ -13067,6 +13762,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Voltorb
@@ -13080,6 +13776,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Makuhita
@@ -13093,6 +13790,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -13106,6 +13804,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Roselia
@@ -13119,6 +13818,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -13132,6 +13832,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -13145,6 +13846,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -13162,6 +13864,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skarmory
@@ -13179,6 +13882,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -13196,6 +13900,7 @@ Pic: Pokemaniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Aron
@@ -13213,6 +13918,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Lombre
@@ -13230,6 +13936,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Barboach
@@ -13243,6 +13950,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nuzleaf
@@ -13256,6 +13964,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zigzagoon
@@ -13277,6 +13986,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -13290,6 +14000,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -13303,6 +14014,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -13316,6 +14028,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -13333,6 +14046,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -13350,6 +14064,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -13363,6 +14078,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -13376,6 +14092,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -13389,6 +14106,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -13402,6 +14120,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -13415,6 +14134,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -13428,6 +14148,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -13441,6 +14162,7 @@ Pic: Magma Grunt M
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Zubat
@@ -13454,6 +14176,7 @@ Pic: Magma Grunt F
 Gender: Female
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Mightyena
@@ -13467,6 +14190,7 @@ Pic: Magma Grunt F
 Gender: Female
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -13480,6 +14204,7 @@ Pic: Magma Grunt F
 Gender: Female
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Baltoy
@@ -13493,6 +14218,7 @@ Pic: Magma Admin
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -13519,6 +14245,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pelipper
@@ -13536,6 +14263,7 @@ Pic: Magma Leader Maxie
 Gender: Male
 Music: Magma
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 Multi Party: Half
 
@@ -13558,6 +14286,7 @@ Pic: Swimmer M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Tentacool
@@ -13571,6 +14300,7 @@ Pic: Swimmer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -13584,6 +14314,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -13601,6 +14332,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Taillow
@@ -13618,6 +14350,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -13631,6 +14364,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -13653,6 +14387,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -13674,6 +14409,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skarmory
@@ -13691,6 +14427,7 @@ Pic: Picnicker
 Gender: Female
 Music: Girl
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Marill
@@ -13708,6 +14445,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -13725,6 +14463,7 @@ Pic: Camper
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Taillow
@@ -13742,6 +14481,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Numel
@@ -13759,6 +14499,7 @@ Pic: Aroma Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -13776,6 +14517,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -13793,6 +14535,7 @@ Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ninjask
@@ -13810,6 +14553,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Kadabra
@@ -13827,6 +14571,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -13844,6 +14589,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -13861,6 +14607,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Geodude
@@ -13878,6 +14625,7 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Shroomish
@@ -13895,6 +14643,7 @@ Pic: Running Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Doduo
@@ -13908,6 +14657,7 @@ Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Ralts
@@ -13921,6 +14671,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -13935,6 +14686,7 @@ Gender: Female
 Music: Intense
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Roselia
@@ -13952,6 +14704,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -13965,6 +14718,7 @@ Pic: Kindler
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Slugma
@@ -13982,6 +14736,7 @@ Pic: Parasol Lady
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Goldeen
@@ -13996,6 +14751,7 @@ Gender: Male
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Manectric
@@ -14012,6 +14768,7 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Meditite
@@ -14029,6 +14786,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Dustox
@@ -14046,6 +14804,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Makuhita
@@ -14079,6 +14838,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Poochyena
@@ -14113,6 +14873,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Loudred
@@ -14130,6 +14891,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lotad
@@ -14147,6 +14909,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Torkoal
@@ -14165,6 +14928,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Golem
@@ -14207,6 +14971,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Omanyte
@@ -14257,6 +15022,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Omastar
@@ -14307,6 +15073,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Aerodactyl
@@ -14365,6 +15132,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Machamp @ Sitrus Berry
@@ -14407,6 +15175,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Machamp @ Sitrus Berry
@@ -14449,6 +15218,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hitmonchan
@@ -14499,6 +15269,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hitmonlee
@@ -14557,6 +15328,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Mareep
@@ -14599,6 +15371,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Pikachu
@@ -14649,6 +15422,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Raichu
@@ -14699,6 +15473,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Electabuzz
@@ -14757,6 +15532,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Magcargo @ White Herb
@@ -14799,6 +15575,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Growlithe
@@ -14849,6 +15626,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Houndour
@@ -14907,6 +15685,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Arcanine
@@ -14965,6 +15744,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Chansey
@@ -15007,6 +15787,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slaking @ Sitrus Berry
@@ -15057,6 +15838,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slaking @ Sitrus Berry
@@ -15107,6 +15889,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slaking @ Sitrus Berry
@@ -15165,6 +15948,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer / Risky
 
 Dratini @ Sitrus Berry
@@ -15215,6 +15999,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer / Risky
 
 Hoothoot
@@ -15273,6 +16058,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer / Risky
 
 Noctowl
@@ -15331,6 +16117,7 @@ Gender: Female
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer / Risky
 
 Noctowl
@@ -15389,6 +16176,7 @@ Gender: Male
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Slowpoke
@@ -15439,6 +16227,7 @@ Gender: Male
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Drowzee
@@ -15497,6 +16286,7 @@ Gender: Male
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hypno
@@ -15555,6 +16345,7 @@ Gender: Male
 Music: Female
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Hypno
@@ -15613,6 +16404,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Poliwag
@@ -15663,6 +16455,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Poliwhirl
@@ -15713,6 +16506,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lapras
@@ -15771,6 +16565,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore
 Double Battle: Yes
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Lapras
@@ -15828,6 +16623,7 @@ Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Illumise
@@ -15851,6 +16647,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Tropius
@@ -15865,6 +16662,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Skarmory
@@ -15922,6 +16720,7 @@ Pic: Salon Maiden Anabel
 Gender: Female
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -15935,6 +16734,7 @@ Pic: Dome Ace Tucker
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -15948,6 +16748,7 @@ Pic: Palace Maven Spenser
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -15961,6 +16762,7 @@ Pic: Arena Tycoon Greta
 Gender: Female
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -15974,6 +16776,7 @@ Pic: Factory Head Noland
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -15987,6 +16790,7 @@ Pic: Pike Queen Lucy
 Gender: Female
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -16000,6 +16804,7 @@ Pic: Pyramid King Brandon
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Beldum
@@ -16013,6 +16818,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Sandshrew
@@ -16030,6 +16836,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nosepass
@@ -16051,6 +16858,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nosepass
@@ -16072,6 +16880,7 @@ Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Nosepass
@@ -16093,6 +16902,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -16114,6 +16924,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -16135,6 +16946,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -16156,6 +16968,7 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -16177,6 +16990,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Staryu
@@ -16194,6 +17008,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wingull
@@ -16215,6 +17030,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -16236,6 +17052,7 @@ Pic: Swimming Triathlete M
 Gender: Male
 Music: Swimmer
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Pelipper
@@ -16257,6 +17074,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Machoke
@@ -16274,6 +17092,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Makuhita
@@ -16295,6 +17114,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Hariyama
@@ -16316,6 +17136,7 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Hariyama
@@ -16338,6 +17159,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Loudred
@@ -16356,6 +17178,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Spinda
@@ -16378,6 +17201,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Spinda
@@ -16400,6 +17224,7 @@ Gender: Female
 Music: Cool
 Items: Hyper Potion
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Spinda
@@ -16421,6 +17246,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Electrike
@@ -16442,6 +17268,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Electrike
@@ -16463,6 +17290,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -16484,6 +17312,7 @@ Pic: Guitarist
 Gender: Male
 Music: Intense
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Manectric
@@ -16505,6 +17334,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Geodude
@@ -16522,6 +17352,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Machop
@@ -16543,6 +17374,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Machop
@@ -16564,6 +17396,7 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
+Difficulty: Vanilla
 AI: Basic Trainer
 
 Machoke
@@ -16585,6 +17418,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty
@@ -16618,6 +17452,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Skitty
@@ -16651,6 +17486,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Delcatty
@@ -16684,6 +17520,7 @@ Pic: Pokemon Breeder F
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Delcatty
@@ -16717,6 +17554,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Wailmer
@@ -16734,6 +17572,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -16755,6 +17594,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc
@@ -16776,6 +17616,7 @@ Pic: Beauty
 Gender: Female
 Music: Female
 Double Battle: No
+Difficulty: Vanilla
 AI: Check Bad Move
 
 Luvdisc

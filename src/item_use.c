@@ -272,6 +272,15 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
 #endif
 }
 
+extern u8 PokeVialHealScriptItem[];
+void ItemUseCB_PokeVial(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(PokeVialHealScriptItem);
+    DestroyTask(taskId);
+}
+
+
 void ItemUseOutOfBattle_Bike(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;

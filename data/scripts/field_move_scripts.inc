@@ -425,6 +425,119 @@ EventScript_FailSweetScent::
 Text_FailSweetScent:
 	.string "Looks like there's nothing here…$"
 
+EventScript_DisableAutoRun::
+	msgbox AutoRunDisabled MSGBOX_SIGN
+	end
+AutoRunDisabled:
+    .string "Auto Run {COLOR RED}disabled{COLOR DARK_GRAY}.$"
+
+EventScript_EnableAutoRun::
+    msgbox AutoRunEnabled MSGBOX_SIGN
+    end
+AutoRunEnabled:
+    .string "Auto Run {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
+
+EventScript_DisableFollowers::
+	callnative RemoveFollowingPokemon
+    msgbox FollowersDisabled MSGBOX_SIGN
+    end
+FollowersDisabled:
+    .string "Followers {COLOR RED}disabled{COLOR DARK_GRAY}.$"
+    
+EventScript_EnableFollowers::
+	callnative UpdateFollowingPokemon
+    msgbox FollowersEnabled MSGBOX_SIGN
+    end
+FollowersEnabled:
+    .string "Followers {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
+
+EventScript_DisableInfiniteRepel::
+    msgbox InfiniteRepelDisabled MSGBOX_SIGN
+    end
+InfiniteRepelDisabled:
+    .string "Infinite Repel {COLOR RED}disabled{COLOR DARK_GRAY}.$"
+    
+EventScript_EnableInfiniteRepel::
+    msgbox InfiniteRepelEnabled MSGBOX_SIGN
+    end
+InfiniteRepelEnabled:
+    .string "Infinite Repel {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
+
+EventScript_TimeChanger::
+	dynmultipush TimeChanger_Text_Day, 0
+	dynmultipush TimeChanger_Text_Night, 1
+	dynmultipush TimeChanger_Text_Morning, 2
+	dynmultipush TimeChanger_Text_Dusk, 3 
+	dynmultipush TimeChanger_Text_Exit, MULTI_B_PRESSED
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq EventScript_TimeChanger_Time_Unchanged
+	compare VAR_RESULT, 0
+	goto_if_eq EventScript_TimeChanger_ChangeTimeToDay
+	compare VAR_RESULT, 1
+	goto_if_eq EventScript_TimeChanger_ChangeTimeToNight
+	compare VAR_RESULT, 2
+	goto_if_eq EventScript_TimeChanger_ChangeTimeToMorning
+	compare VAR_RESULT, 3
+	goto_if_eq EventScript_TimeChanger_ChangeTimeToDusk
+	end
+
+EventScript_TimeChanger_Time_Unchanged:
+    end
+
+EventScript_TimeChanger_ChangeTimeToDay:
+	advancetime 0
+	msgbox TimeChanger_Text_ItIsNowDay MSGBOX_SIGN
+    end
+
+EventScript_TimeChanger_ChangeTimeToNight:
+	advancetime 1
+	msgbox TimeChanger_Text_ItIsNowNight MSGBOX_SIGN
+    end
+
+EventScript_TimeChanger_ChangeTimeToMorning:
+	advancetime 2
+	msgbox TimeChanger_Text_ItIsNowMorning MSGBOX_SIGN
+    end
+
+EventScript_TimeChanger_ChangeTimeToDusk:
+	advancetime 3
+	msgbox TimeChanger_Text_ItIsNowDusk MSGBOX_SIGN
+    end
+
+TimeChanger_Text_Day:
+	.string "Day$"
+
+TimeChanger_Text_Night:
+	.string "Night$"
+
+TimeChanger_Text_Morning:
+	.string "Morning$"
+
+TimeChanger_Text_Dusk:
+	.string "Dusk$"
+
+TimeChanger_Text_ItIsNowDay:
+	.string "Time set to 10:00 AM.$"
+
+TimeChanger_Text_ItIsNowNight:
+	.string "Time set to 8:00 PM.$"
+
+TimeChanger_Text_ItIsNowMorning:
+	.string "Time set to 6:00 AM.$"
+
+TimeChanger_Text_ItIsNowDusk:
+	.string "Time set to 7:00 PM.$"
+
+TimeChanger_Text_Exit:
+	.string "Cancel$"
+
+EventScript_NoWildMonsFound::
+    msgbox NoWildMonsFound MSGBOX_SIGN
+    end
+NoWildMonsFound:
+    .string "There are no wild Pokémon in this area!$"
+
 EventScript_UseDefog::
 	lockall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT

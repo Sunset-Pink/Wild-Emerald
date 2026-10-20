@@ -981,9 +981,13 @@ static void Task_EvolutionScene(u8 taskId)
             if (!gPaletteFade.active)
             {
                 FreeAllWindowBuffers();
-                ShowSelectMovePokemonSummaryScreen(gParties[B_TRAINER_PLAYER], gTasks[taskId].tPartyId,
-                            CB2_EvolutionSceneLoadGraphics,
-                            gMoveToLearn);
+
+                ShowSelectMovePokemonSummaryScreen(
+                    gParties[B_TRAINER_PLAYER], 
+                    gTasks[taskId].tPartyId,
+                    CB2_EvolutionSceneLoadGraphics,
+                    gMoveToLearn
+                ); 
                 gTasks[taskId].tLearnMoveState++;
             }
             break;
@@ -1372,20 +1376,20 @@ static void Task_TradeEvolutionScene(u8 taskId)
                 if (gTasks[taskId].tPartyId == PC_MON_CHOSEN)
                 {
                     ShowSelectMovePokemonSummaryScreen(
-                                gParties[B_TRAINER_OPPONENT_A], 
-                                TRADEMON_FROM_PC,
-                                CB2_TradeEvolutionSceneLoadGraphics,
-                                gMoveToLearn
-                            );
+                        gParties[B_TRAINER_OPPONENT_A], 
+                        TRADEMON_FROM_PC,
+                        CB2_TradeEvolutionSceneLoadGraphics,
+                        gMoveToLearn
+                    );
                 }
                 else
                 {
                     ShowSelectMovePokemonSummaryScreen(
-                                gParties[B_TRAINER_PLAYER], 
-                                gTasks[taskId].tPartyId,
-                                CB2_TradeEvolutionSceneLoadGraphics,
-                                gMoveToLearn
-                            );
+                        gParties[B_TRAINER_PLAYER], 
+                        gTasks[taskId].tPartyId,
+                        CB2_TradeEvolutionSceneLoadGraphics,
+                        gMoveToLearn
+                    );
                 }
                 gTasks[taskId].tLearnMoveState++;
             }

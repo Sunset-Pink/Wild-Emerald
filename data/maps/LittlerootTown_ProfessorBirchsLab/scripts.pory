@@ -1,107 +1,40 @@
+// State descriptions for VAR_BIRCH_LAB_STATE
+// 1: Never occurs
+// 2: Chose starter
+// 3: Recieved starter in lab
+// 4: Defeated rival on Route 103
+// 5: Received PokéDex
+
+
+mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Script_LittlerootTown_ProfessorBirchsLab_OnTransition
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+		VAR_BIRCH_LAB_STATE, 2: LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter
+	]
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_BIRCH_LAB_STATE, 2: LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent
+		VAR_BIRCH_LAB_STATE, 4: LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent
+	]
+}
+
+script(local) Script_LittlerootTown_ProfessorBirchsLab_OnTransition {
+	call(Common_EventScript_SetupRivalGfxId)
+	call(ProfBirch_EventScript_UpdateLocation)
+	end
+}
+
+
 raw `
-LittlerootTown_ProfessorBirchsLab_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_ProfessorBirchsLab_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_ProfessorBirchsLab_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_ProfessorBirchsLab_OnFrame
-	.byte 0
-
-	@ State descriptions for VAR_DEX_UPGRADE_JOHTO_STARTER_STATE
-	@ 1: Beat Elite Four, Dex upgrade ready
-	@ 2: Received National Dex
-	@ 3: Left lab after receiving National Dex
-	@ 4: Entered lab after catching all Hoenn mons
-	@ 5: Birch told player to choose Johto starter
-	@ 6: Chose Johto starter
-
-	@ State descriptions for VAR_BIRCH_LAB_STATE
-	@ 1: Never occurs
-	@ 2: Chose starter
-	@ 3: Received starter in lab
-	@ 4: Defeated rival on Route 103
-	@ 5: Received pokedex
-
-LittlerootTown_ProfessorBirchsLab_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
-	call ProfBirch_EventScript_UpdateLocation
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
-	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter::
-	specialvar VAR_RESULT, HasAllHoennMons
-	goto_if_eq VAR_RESULT, TRUE, LittlerootTown_ProfessorBirchsLab_EventScript_SetReadyForJohtoStarter
-	setobjectmovementtype LOCALID_BIRCHS_LAB_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
-	setobjectxyperm LOCALID_BIRCHS_LAB_RIVAL, 5, 10
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetReadyForJohtoStarter::
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout::
-	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout::
-	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
-	setobjectmovementtype LOCALID_BIRCHS_LAB_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
-	setobjectxyperm LOCALID_BIRCHS_LAB_RIVAL, 5, 10
-	end
-
-LittlerootTown_ProfessorBirchsLab_OnWarp:
-	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AddRivalObject
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AddRivalObject
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters
-	.2byte 0
 
 LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter::
 	turnobject LOCALID_PLAYER, DIR_NORTH
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade::
-	turnobject LOCALID_PLAYER, DIR_NORTH
-	addobject LOCALID_BIRCHS_LAB_BIRCH
-	addobject LOCALID_BIRCHS_LAB_RIVAL
-	turnobject LOCALID_BIRCHS_LAB_RIVAL, DIR_NORTH
-	setobjectxy LOCALID_BIRCHS_LAB_RIVAL, 5, 5
-	turnobject LOCALID_BIRCHS_LAB_BIRCH, DIR_SOUTH
-	setobjectxy LOCALID_BIRCHS_LAB_BIRCH, 6, 4
-	turnobject LOCALID_BIRCHS_LAB_AIDE, DIR_EAST
-	setobjectxy LOCALID_BIRCHS_LAB_AIDE, 10, 10
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_AddRivalObject::
 	addobject LOCALID_BIRCHS_LAB_RIVAL
 	end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters::
-	addobject LOCALID_BIRCHS_LAB_CYNDAQUIL_BALL
-	addobject LOCALID_BIRCHS_LAB_TOTODILE_BALL
-	addobject LOCALID_BIRCHS_LAB_CHIKORITA_BALL
-	addobject LOCALID_BIRCHS_LAB_RIVAL
-	turnobject LOCALID_BIRCHS_LAB_CYNDAQUIL_BALL, DIR_SOUTH
-	setobjectxy LOCALID_BIRCHS_LAB_CYNDAQUIL_BALL, 8, 4
-	turnobject LOCALID_BIRCHS_LAB_TOTODILE_BALL, DIR_SOUTH
-	setobjectxy LOCALID_BIRCHS_LAB_TOTODILE_BALL, 9, 4
-	turnobject LOCALID_BIRCHS_LAB_CHIKORITA_BALL, DIR_SOUTH
-	setobjectxy LOCALID_BIRCHS_LAB_CHIKORITA_BALL, 10, 4
-	turnobject LOCALID_BIRCHS_LAB_BIRCH, DIR_SOUTH
-	setobjectxy LOCALID_BIRCHS_LAB_BIRCH, 6, 4
-	turnobject LOCALID_BIRCHS_LAB_RIVAL, DIR_EAST
-	setobjectxy LOCALID_BIRCHS_LAB_RIVAL, 5, 5
-	end
 
-LittlerootTown_ProfessorBirchsLab_OnFrame:
-	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent
-	map_script_2 VAR_BIRCH_LAB_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter
-	.2byte 0
 
 @ The starter is technically given prior to this on Route 101 by special ChooseStarter
 @ This is just where the game tells you its yours and lets you nickname it
@@ -159,63 +92,6 @@ LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForPokedex:
 	walk_up
 	step_end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
-	lockall
-	delay 30
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_BIRCHS_LAB_BIRCH, LittlerootTown_ProfessorBirchsLab_Movement_BirchRetrievePokedexes
-	waitmovement 0
-	delay 20
-	playse SE_CLICK
-	delay 10
-	playse SE_CLICK
-	delay 10
-	playse SE_CLICK
-	delay 10
-	playse SE_CLICK
-	delay 20
-	applymovement LOCALID_BIRCHS_LAB_RIVAL, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment
-	playse SE_PC_ON
-	waitse
-	delay 20
-	applymovement LOCALID_BIRCHS_LAB_BIRCH, LittlerootTown_ProfessorBirchsLab_Movement_BirchReturnPokedex
-	waitmovement 0
-	applymovement LOCALID_BIRCHS_LAB_RIVAL, Common_Movement_WalkInPlaceFasterUp
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
-	waitmessage
-	waitfanfare
-	setflag FLAG_SYS_NATIONAL_DEX
-	special EnableNationalPokedex
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
-	closemessage
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_RIVAL
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
-	setvar VAR_SCOTT_BF_CALL_STEP_COUNTER, 0
-	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool, MSGBOX_DEFAULT
-	closemessage
-	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe, MSGBOX_DEFAULT
-	closemessage
-	return
-
 LittlerootTown_ProfessorBirchsLab_Movement_BirchRetrievePokedexes:
 	walk_left
 	walk_in_place_faster_down
@@ -248,25 +124,6 @@ LittlerootTown_ProfessorBirchsLab_Movement_BirchReturnPokedex:
 	walk_in_place_faster_down
 	step_end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter::
-	lockall
-	applymovement LOCALID_PLAYER, LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForJohtoStarter
-	waitmovement 0
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon, MSGBOX_DEFAULT
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForJohtoStarter:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
 	lock
 	faceplayer
@@ -287,193 +144,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter::
 	release
 	end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil::
-	release
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter
-	applymovement LOCALID_BIRCHS_LAB_BIRCH, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	showmonpic SPECIES_CYNDAQUIL, 10, 3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeCyndaquil, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveCyndaquil
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Totodile::
-	release
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter
-	applymovement LOCALID_BIRCHS_LAB_BIRCH, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	showmonpic SPECIES_TOTODILE, 10, 3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTotodile, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveTotodile
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita::
-	release
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter
-	applymovement LOCALID_BIRCHS_LAB_BIRCH, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	showmonpic SPECIES_CHIKORITA, 10, 3
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeChikorita, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveChikorita
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone, MSGBOX_DEFAULT
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime::
-	hidemonpic
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_TakeYourTimeAllInvaluable, MSGBOX_DEFAULT
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveCyndaquil::
-	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CYNDAQUIL
-	givemon SPECIES_CYNDAQUIL, 5
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToPC
-	hidemonpic
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToParty::
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter
-	removeobject LOCALID_BIRCHS_LAB_CYNDAQUIL_BALL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToPC::
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter
-	removeobject LOCALID_BIRCHS_LAB_CYNDAQUIL_BALL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_CyndaquilTransferredToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_CyndaquilTransferredToPC
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_CyndaquilTransferredToPC::
-	call Common_EventScript_TransferredToPC
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil::
-	hidemonpic
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveTotodile::
-	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOTODILE
-	givemon SPECIES_TOTODILE, 5
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToPC
-	hidemonpic
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToParty::
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter
-	removeobject LOCALID_BIRCHS_LAB_TOTODILE_BALL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToPC::
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter
-	removeobject LOCALID_BIRCHS_LAB_TOTODILE_BALL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TotodileTransferredToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_TotodileTransferredToPC
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_TotodileTransferredToPC::
-	call Common_EventScript_TransferredToPC
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile::
-	hidemonpic
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveChikorita::
-	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA
-	givemon SPECIES_CHIKORITA, 5
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToPC
-	hidemonpic
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToParty::
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter
-	removeobject LOCALID_BIRCHS_LAB_CHIKORITA_BALL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedChikorita
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedChikorita
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToPC::
-	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter
-	removeobject LOCALID_BIRCHS_LAB_CHIKORITA_BALL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ChikoritaTransferredToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ChikoritaTransferredToPC
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ChikoritaTransferredToPC::
-	call Common_EventScript_TransferredToPC
-	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedChikorita
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedChikorita::
-	hidemonpic
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter::
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedJohtoStarter
-	waitmessage
-	waitfanfare
-	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
 	lock
 	faceplayer
-	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon
-	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting
 	goto_if_unset FLAG_HAS_MATCH_CALL, LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
 	goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnyOneOfRarePokemon, MSGBOX_DEFAULT
-	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting::
@@ -483,8 +160,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister::
 	goto_if_unset FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380, ProfBirch_EventScript_RatePokedexOrRegister
-	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, ProfBirch_EventScript_RatePokedexOrRegister
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, ProfBirch_EventScript_RatePokedexOrRegister
 	goto_if_eq VAR_BIRCH_LAB_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome, MSGBOX_DEFAULT
 	release
@@ -568,16 +243,9 @@ LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer:
 	walk_in_place_faster_left
 	step_end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_Machine::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine, MSGBOX_SIGN
-	end
-
 LittlerootTown_ProfessorBirchsLab_EventScript_Rival::
 	lock
 	faceplayer
-	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhereShouldIGoNext
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanWhereShouldIGoNext
@@ -636,26 +304,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork::
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
 	return
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PC::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_Book::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead, MSGBOX_SIGN
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
-	lockall
-	pokenavcall LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall
-	waitmessage
-	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
-	releaseall
-	end
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork:
 	.string "Hunh? Prof. Birch?\p"
@@ -802,58 +450,6 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext:
 	.string "Brendan: Where should I look for\n"
 	.string "Pokémon next…$"
 
-LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine:
-	.string "It's a serious-looking machine.\n"
-	.string "The Prof must use this for research.$"
-
-LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch:
-	.string "It's a PC used for research.\n"
-	.string "Better not mess around with it.$"
-
-LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon:
-	.string "It's crammed with books on Pokémon.$"
-
-LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead:
-	.string "It's a book that's too hard to read.$"
-
-LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational:
-	.string "Prof. Birch: Now…\p"
-	.string "{PLAYER}{KUN} and {RIVAL}, I've had the two\n"
-	.string "of you help me study Pokémon.\p"
-	.string "Thanks to your help, new facts\n"
-	.string "are coming to light.\p"
-	.string "It appears that in the Hoenn region,\n"
-	.string "there are also Pokémon from other\l"
-	.string "regions.\p"
-	.string "It goes to show how rich and varied\n"
-	.string "the natural environments of Hoenn\l"
-	.string "happen to be.\p"
-	.string "That's why I think it's necessary for\n"
-	.string "me to upgrade your PokéDex to\l"
-	.string "the National Mode.\p"
-	.string "Here, let me see your PokéDex units.$"
-
-LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool:
-	.string "May: Eheheh!\p"
-	.string "It's so cool that even my PokéDex\n"
-	.string "is getting updated!\p"
-	.string "It's because you went out and caught\n"
-	.string "so many Pokémon, {PLAYER}{KUN}!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe:
-	.string "Brendan: I went out all over Hoenn\n"
-	.string "and checked out Pokémon.\p"
-	.string "You can thank me for getting\n"
-	.string "the National Mode PokéDex.\p"
-	.string "Yep, you're lucky, {PLAYER}!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone:
-	.string "Prof. Birch: Okay, all done!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational:
-	.string "{PLAYER}'s PokéDex was upgraded\n"
-	.string "to the National Mode!$"
-
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2:
 	.string "Prof. Birch: But listen.\n"
 	.string "You've become the Champion,\l"
@@ -875,66 +471,6 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork:
 	.string "I'll be helping out the Prof here\n"
 	.string "for a while.$"
 
-LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon:
-	.string "Prof. Birch: Oh, {PLAYER}{KUN}!\n"
-	.string "Let's have a look at your PokéDex.\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
-	.string "Yes, there's no doubt about it.\p"
-	.string "You really have completed the Hoenn\n"
-	.string "region's PokéDex.\p"
-	.string "That's more than just impressive.\p"
-	.string "I have a gift for you.\p"
-	.string "Consider it my show of appreciation\n"
-	.string "for the fantastic work you've done.\p"
-	.string "My gift is a rare Pokémon only found\n"
-	.string "in another region!\p"
-	.string "You can have any one of these\n"
-	.string "three Pokémon!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnyOneOfRarePokemon:
-	.string "Prof. Birch: These are rare Pokémon\n"
-	.string "only found in another region!\p"
-	.string "You can have any one of these\n"
-	.string "three Pokémon!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_YoullTakeCyndaquil:
-	.string "Prof. Birch: The Fire Pokémon\n"
-	.string "Cyndaquill caught your eye!\p"
-	.string "You're as sharp as ever!\p"
-	.string "So the Cyndaquill is your choice?$"
-
-LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTotodile:
-	.string "Prof. Birch: The Water Pokémon\n"
-	.string "Totodile is your choice!\p"
-	.string "You know how to pick a good one.\p"
-	.string "So, you'll take the Totodile?$"
-
-LittlerootTown_ProfessorBirchsLab_Text_YoullTakeChikorita:
-	.string "Prof. Birch: The Grass Pokémon\n"
-	.string "Chikorita is your choice!\p"
-	.string "You sure know what you're doing.\p"
-	.string "So, you'll take the Chikorita?$"
-
-LittlerootTown_ProfessorBirchsLab_Text_TakeYourTimeAllInvaluable:
-	.string "Prof. Birch: Take your time before\n"
-	.string "you decide.\p"
-	.string "They're all invaluable Pokémon.$"
-
-@ Unused
-LittlerootTown_ProfessorBirchsLab_Text_PickedFinePokemon:
-	.string "Prof. Birch: I see!\n"
-	.string "You picked a fine Pokémon!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_ReceivedJohtoStarter:
-	.string "{PLAYER} received the {STR_VAR_1}\n"
-	.string "from Prof. Birch!$"
-
-@ Unused
-LittlerootTown_ProfessorBirchsLab_Text_NicknameJohtoStarter:
-	.string "Want to give a nickname to\n"
-	.string "the {STR_VAR_1} you received?$"
-
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
 	.string "Prof. Birch: Listen, {PLAYER}{KUN}.\n"
 	.string "You've completed the Hoenn PokéDex,\l"
@@ -947,11 +483,6 @@ LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
 LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone:
 	.string "You received the promised Pokémon.\n"
 	.string "Better leave the others alone.$"
-
-@ Unused
-LittlerootTown_ProfessorBirchsLab_Text_DontHaveAnyRoomForPokemon:
-	.string "Oh, you don't have any room for\n"
-	.string "this Pokémon.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere:
 	.string "May: {PLAYER}{KUN}, after this…\n"
@@ -976,21 +507,579 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
 	.string "Brendan: Hey, {PLAYER}!\n"
 	.string "Have you gone out to that place,\l"
 	.string "the Battle Frontier?$"
-
-LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
-	.string "… … … … … …\n"
-	.string "… … … … … Beep!\p"
-	.string "Scott: Hi, hi, {PLAYER}!\n"
-	.string "It's me, Scott.\p"
-	.string "I'm aboard the S.S. Tidal now.\n"
-	.string "It feels great to be on the sea!\p"
-	.string "By the way…\p"
-	.string "There's this place that I'd like to\n"
-	.string "invite you to for a visit.\p"
-	.string "If you're interested, board a ferry\n"
-	.string "at either Slateport or Lilycove.\p"
-	.string "I'll fill you in on the details when\n"
-	.string "we meet. I'll be waiting!\p"
-	.string "… … … … … …\n"
-	.string "… … … … … Click!$"
 `
+
+// Interact Professor Birch
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch {
+	lockall
+
+	if(
+		!flag(FLAG_TOOK_LEFT_GRASS_STARTER)
+		&& !flag(FLAG_TOOK_MIDDLE_FIRE_STARTER)
+		&& !flag(FLAG_TOOK_RIGHT_WATER_STARTER)
+	) {
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch_Starter)
+	}
+
+	releaseall
+	end
+}
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch_Starter {
+	if(flag(FLAG_USE_MONOTYPE_STARTERS)) {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Birch_ChangeType)
+		dynmultipush("Fighting", 0)
+        dynmultipush("Flying", 1)
+        dynmultipush("Poison", 2)
+        dynmultipush("Ground", 3)
+        dynmultipush("Rock", 4)
+        dynmultipush("Bug", 5)
+        dynmultipush("Ghost", 6)
+        dynmultipush("Steel", 7)
+        dynmultipush("Electric", 8)
+        dynmultipush("Psychic", 9)
+        dynmultipush("Ice", 10)
+        dynmultipush("Dragon", 11)
+        dynmultipush("Dark", 12)
+        dynmultipush("Normal", 13)
+        dynmultipush("Fairy", 14)
+        dynmultipush("Cancel", MULTI_B_PRESSED)
+
+		dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
+
+		if(var(VAR_RESULT) != MULTI_B_PRESSED) {
+			copyvar(VAR_MONOTYPE_STARTER, VAR_RESULT)
+		}
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch_SayTypeShowing)
+	} else {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Birch_ChangeGeneration)
+
+		dynmultipush("Gen 1", 0)
+        dynmultipush("Gen 2", 1)
+        dynmultipush("Gen 3", 2)
+        dynmultipush("Gen 4", 3)
+        dynmultipush("Gen 5", 4)
+        dynmultipush("Gen 6", 5)
+        dynmultipush("Gen 7", 6)
+        dynmultipush("Gen 8", 7)
+        dynmultipush("Gen 9", 8)
+        dynmultipush("Cancel", MULTI_B_PRESSED)
+
+		dynmultistack(0, 0, FALSE, 6, FALSE, 0, NULL)
+
+		if(var(VAR_RESULT) != MULTI_B_PRESSED) {
+			copyvar(VAR_STARTER_GEN, VAR_RESULT)
+		}
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch_SayGenShowing)
+	}
+	return
+}
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch_SayGenShowing {
+	switch(var(VAR_STARTER_GEN))
+    {
+        case 0:
+            msgbox("Showing starters for Gen 1.")
+        case 1:
+            msgbox("Showing starters for Gen 2.")
+        case 2:
+            msgbox("Showing starters for Gen 3.")
+        case 3:
+            msgbox("Showing starters for Gen 4.")
+        case 4:
+            msgbox("Showing starters for Gen 5.")
+        case 5:
+            msgbox("Showing starters for Gen 6.")
+        case 6:
+            msgbox("Showing starters for Gen 7.")
+        case 7:
+            msgbox("Showing starters for Gen 8.")
+        case 8:
+            msgbox("Showing starters for Gen 9.")
+        default:
+            msgbox("Now showing starters.")
+    }
+    return
+}
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_Birch_SayTypeShowing {
+	switch(var(VAR_MONOTYPE_STARTER)) {
+		case 0:
+            msgbox("Showing Fighting-type starters.")
+        case 1:
+            msgbox("Showing Flying-type starters.")
+        case 2:
+            msgbox("Showing Poison-type starters.")
+        case 3:
+            msgbox("Showing Ground-type starters.")
+        case 4:
+            msgbox("Showing Rock-type starters.")
+        case 5:
+            msgbox("Showing Bug-type starters.")
+        case 6:
+            msgbox("Showing Ghost-type starters.")
+        case 7:
+            msgbox("Showing Steel-type starters.")
+        case 8:
+            msgbox("Showing Electric-type starters.")
+        case 9:
+            msgbox("Showing Psychic-type starters.")
+        case 10:
+            msgbox("Showing Ice-type starters.")
+        case 11:
+            msgbox("Showing Dragon-type starters.")
+        case 12:
+            msgbox("Showing Dark-type starters.")
+        case 13:
+            msgbox("Showing Normal-type starters.")
+        case 14:
+            msgbox("Showing Fairy-type starters.")
+        default:
+            msgbox("Showing Normal-type starters.")
+    }
+    return
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Birch_ChangeGeneration {
+	"Which Generation of Starters would you\n"
+    "like to see? You can change\l"
+    "Generations as many times as you want."
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Birch_ChangeType {
+	"Which Type of Starters would you\n"
+    "like to see? You can change\l"
+    "Types as many times as you want."
+}
+
+// Interact Rival
+
+// Interact Aide
+
+script(global) Text_LittlerootTown_ProfessorBirchsLab_Interact_Aide {
+	if(flag(FLAG_USE_MONOTYPE_STARTERS)) {
+		switch(var(VAR_MONOTYPE_STARTER))
+		{
+			case 0:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFighting)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFighting_Updated)
+				}
+			case 1: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFlying)
+			case 2:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoPoison)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoPoison_Updated)
+				}
+			case 3: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoGround)
+			case 4:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoRock)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoRock_Updated)
+				}
+			case 5:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoBug)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoBug_Updated)
+				}
+			case 6:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoGhost)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoGhost_Updated)
+				}
+			case 7: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoSteel)
+			case 8:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoElectric)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoElectric_Updated)
+				}
+			case 9: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoPsychic)
+			case 10: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoIce)
+			case 11: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoDragon)
+			case 12: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoDark)
+			case 13: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoNormal)
+			case 14:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFairy)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFairy_Updated)
+				}
+			default: 
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoNormal)
+		}
+	} else {
+		switch(var(VAR_STARTER_GEN))
+		{
+			case 0:
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen1)
+			case 1:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen2)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen2_Updated)
+				}
+			case 2:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen3)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen3_Updated)
+				}
+			case 3:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen4)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen4_Updated)
+				}
+			case 4:
+				if(var(VAR_DIFFICULTY) == DIFFICULTY_VANILLA) {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen5)
+				} else {
+					msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen5_Updated)
+				}
+			case 5:
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen6)
+			case 6:
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen7)
+			case 7:
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen8)
+			case 8:
+				msgbox(Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen9)
+		}
+	}
+	
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen1 {
+	format("Aide: These starters have great potential. Bulbasaur can evolve into a Grass/Poison type, and has a Mega Evolution. Charmander can evolve into a Fire/Flying type, and has 2 Mega Evolutions. Squirtle can evolve into a Water type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen2 {
+	format("Aide: These starters have great potential. Chikorita can evolve into a Grass type, and has a Mega Evolution. Cyndaquil can evolve into Fire type or Fire/Ghost type. Totodile can evolve into a Water type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen2_Updated {
+	format("Aide: These starters have great potential. Chikorita can evolve into a Grass/Fairy type, and has a Mega Evolution. Cyndaquil can evolve into Fire/Ground type or Fire/Ghost type. Totodile can evolve into a Water type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen3 {
+	format("Aide: These starters have great potential. Treecko can evolve into a Grass type, and has a Mega Evolution. Torchic can evolve into a Fire/Fighting type, and has a Mega Evolution. Mudkip can evolve into a Water/Ground type, and has a Mega Evolution. I wonder which you will choose?") 
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen3_Updated {
+	format("Aide: These starters have great potential. Treecko can evolve into a Grass/Dragon type, and has a Mega Evolution. Torchic can evolve into a Fire/Fighting type, and has a Mega Evolution. Mudkip can evolve into a Water/Ground type, and has a Mega Evolution. I wonder which you will choose?") 
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen4 {
+	format("Aide: These starters have great potential. Turtwig can evolve into a Grass/Ground type. Chimchar can evolve into a Fire/Fighting type. Piplup can evolve into a Water/Steel type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen4_Updated {
+	format("Aide: These starters have great potential. Turtwig can evolve into a Grass/Ground type, and has a Mega Evolution. Chimchar can evolve into a Fire/Fighting type, and has a Mega Evolution. Piplup can evolve into a Water/Steel type, and has 2 Mega Evolutions. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen5 {
+	format("Aide: These starters have great potential. Snivy can evolve into a Grass type. Tepig can evolve into a Fire/Fighting type, and has a Mega Evolution. Oshawott can evolve into a Water or a Water/Dark type.I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen5_Updated {
+	format("Aide: These starters have great potential. Snivy can evolve into a Grass type. Tepig can evolve into a Fire/Fighting type, and has a Mega Evolution. Oshawott can evolve into a Water/Steel or a Water/Dark type.I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen6 {
+	format("Aide: These starters have great potential. Chespin can evolve into a Grass/Fighting type, and has a Mega Evolution. Frennekin can evolve into a Fire/Psychic type and has a Mega Evolution. Froakie can evolve into a Water/Dark type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen7{
+	format("Aide: These starters have great potential. Rowlet can evolve into a Grass/Ghost or A Grass/Fighting type. Litten can evolve into a Fire/Dark type. Popplio can evolve into a Water/Fairy type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen8 {
+	format("Aide: These starters have great potential. Grooky can evolve into a Grass type. Scorbunny can evolve into a Fire type. Sobble can evolve into a Water type. I wonder which you will chooce?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_Gen9 {
+	format("Aide: These starters have great potential. Sprigatito can evovle into a Grass/Dark type. Fuecoco can evolve into a Fire/Ghost type. Quaxly can evolve into a Water/Fighting type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFighting {
+	format("Aide: These starters have great potential. Mankey can evolve into a Fighting/Ghost type. Machop can evolve into a Fighting type. Timburr can evolve into a Fighting type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFighting_Updated {
+	format("Aide: These starters have great potential. Mankey can evolve into a Fighting/Ghost type. Machop can evolve into a Fighting type, and has a Mega Evolution. Timburr can evolve into a Fighting type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFlying {
+	format("Aide: These starters have great potential. Hoppip can evolve into a Grass/Flying type. Fletchling can evolve into a Fire/Flying type. Rookidee can evolve into a Flying/Steel type. I wonder which you will choose?") 
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoPoison {
+	format("Aide: These starters have great potential. Budew can evolve into a Grass/Poison type, and has a Mega Evolution. Venipede can evolve into a Bug/Poison type, and has a Mega Evolution. Koffing can evolve into a Poison or a Poison/Fairy type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoPoison_Updated {
+	format("Aide: These starters have great potential. Budew can evolve into a Grass/Poison type, and has a Mega Evolution. Venipede can evolve into a Bug/Poison type, and has a Mega Evolution. Koffing can evolve into a Poison or a Poison/Fairy type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoGround {
+	format("Aide: These starters have great potential. Traphinch can evolve into a Ground/Dragon type. Geodue can evovle into a Rock/Ground type. Tympole can evolve into a Water/Ground type. I wonder which you will choose?")}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoRock {
+	format("Aide: These starters have great potential. Rolycoly can evolve into a Rock/Fire type. Alolan Geodue can evolve into a Rock/Electric type. Nacli can evolve into a Rock type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoRock_Updated {
+	format("Aide: These starters have great potential. Rolycoly can evolve into a Rock/Fire type, and has a Mega evolution. Alolan Geodue can evolve into a Rock/Electric type. Nacli can evolve into a Rock type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoBug {
+	format("Aide: These starters have great potential. Grubbin can evolve into a Bug/Electric type. Blipbug can evolve into a Bug/Psychic type. Scatterbug evolves into a Bug/Flying type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoBug_Updated {
+	format("Aide: These starters have great potential. Grubbin can evolve into a Bug/Electric type. Blipbug can evolve into a Bug/Psychic type, and has a Mega Evolution. Scatterbug evolves into a Bug/Flying type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoGhost {
+	format("Aide: These starters have great potential. Ghastly can evolve into a Poison/Ghost type. Litwick can evolve into a Ghost/Fire type, and has a Mega Evolution. Duskull can evolve into a Ghost type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoGhost_Updated {
+	format("Aide: These starters have great potential. Ghastly can evolve into a Poison/Ghost type. Litwick can evolve into a Ghost/Fire type, and has a Mega Evolution. Duskull can evolve into a Ghost type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoSteel {
+	format("Aide: These starters have great potential. Tinkatink can evolve into a Fairy/Steel type. Honedge can evolve into a Steel/Ghost type. Klink can evolve into a Steel type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoElectric {
+	format("Aide: These starters have great potential. Pichu can evolve into a Electric or Electric/Psychic type. Shinx can evolve into a Electric type. Mareep can evolve into an Electric type, and has a Mega Evolution I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoElectric_Updated {
+	format("Aide: These starters have great potential. Pichu can evolve into a Electric/Normal or Electric/Psychic type. Shinx can evolve into a Electric/Dark type, and has a Mega Evolution. Mareep can evolve into an Electric/Dragon type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoPsychic {
+	format("Aide: These starters have great potential. Hatenna can evolve into a Psychic/Fairy type. Solosis can evolve into a Psychic type. Gothita can evolve into a Psychic type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoIce {
+	format("Aide: These starters have great potential. Snover can evolve into a Grass/Type type, and has a Mega Evolution. Swinum can evolve into a Ice/Ground type. Spheal can evolve into a Ice/Water type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoDragon {
+	format("Aide: These starters have great potential. Bagon can evolve into a Dragon/Flying type, and has a Mega Evolution. Gible can evolve into a Dragon/Ground type, and has a Mega Evolution. Dratini can evovle into a Dragon/Flying type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoDark {
+	format("Aide: These starters have great potential. Pawniard can evolve into a Dark/Steel type. Galarian Zigzagoon can evolve into a Dark/Normal type. Sandile can evolve into a Ground/Dark type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoNormal {
+	format("Aide: These starters have great potential. Whismur can evolve into a Normal Type. Lillipup can evolve into a Normal type. Smoliv can evolve into a Grass/Normal type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFairy {
+	format("Aide: These starters have great potential. Cottonee can evolve into a Grass/Fairy type. Igglybugg can evolve into a Normal/Fairy type. Impidimp can evolve into a Dark/Fairy type. I wonder which you will choose?")
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Aide_StarterHint_MonoFairy_Updated {
+	format("Aide: These starters have great potential. Cottonee can evolve into a Grass/Fairy type. Igglybugg can evolve into a Normal/Fairy type. Impidimp can evolve into a Dark/Fairy type, and has a Mega Evolution. I wonder which you will choose?")
+}
+
+
+// Interact Balls
+
+script Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_Start {
+	msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		hidemonpic
+		msgbox("You did not choose this Pok\emon.", MSGBOX_DEFAULT)
+		releaseall
+		end
+	} else {
+		
+	}
+	call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_GiveStarter)
+
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox("{PLAYER} recieved the {STR_VAR_1}!")
+	waitfanfare
+	return
+}
+
+script Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_End {
+	
+	if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		msgbox("Give a nickname?", MSGBOX_YESNO)
+		hidemonpic
+		if(var(VAR_RESULT) == YES) {
+			call(Common_EventScript_GetGiftMonPartySlot)
+			call(Common_EventScript_NameReceivedPartyMon)
+		}
+	} else {
+		msgbox("Give a nicname?", MSGBOX_YESNO)
+		hidemonpic
+		if(var(VAR_RESULT) == YES) {
+			call(Common_EventScript_NameReceivedBoxMon)
+		}
+		msgbox("Transferred to PC.")
+	}
+	setflag(FLAG_SYS_POKEMON_GET)
+}
+
+script Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_GiveStarter {
+	if(flag(FLAG_SHINY_STARTERS)) {
+		givemon(VAR_0x8006, 5, shinyMode = TRUE)
+	} else {
+		givemon(VAR_0x8006, 5)
+	}
+	return
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Examine_PokeBalls {
+	"Those are Pok\e Balls\n"
+	"They contain Pok\emon!"
+}
+
+// Interact Left Ball
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_LeftBall {
+	lockall
+	if(!flag(FLAG_SYS_POKEMON_GET)) {
+		bufferstarterinfo(STR_VAR_1, 0)
+		showmonpic(VAR_0x8006, 10, 3)
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_Start)
+		removeobject(LOCALID_BIRCHS_LAB_LEFT_STARTER)
+		setflag(FLAG_TOOK_LEFT_GRASS_STARTER)
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_End)
+	} else {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Examine_PokeBalls, MSGBOX_DEFAULT)
+	}
+	releaseall
+	end
+}
+
+// Interact Middle Ball
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_MiddleBall {
+	lockall
+	if(!flag(FLAG_SYS_POKEMON_GET)) {
+		bufferstarterinfo(STR_VAR_1, 1)
+		showmonpic(VAR_0x8006, 10, 3)
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_Start)
+		removeobject(LOCALID_BIRCHS_LAB_MIDDLE_STARTER)
+		setflag(FLAG_TOOK_MIDDLE_FIRE_STARTER)
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_End)
+	} else {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Examine_PokeBalls)
+	}
+	releaseall
+	end
+}
+
+// Interact Right Ball
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_RightBall {
+	lockall
+	if(!flag(FLAG_SYS_POKEMON_GET)) {
+		bufferstarterinfo(STR_VAR_1, 2)
+		showmonpic(VAR_0x8006, 10, 3)
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_Start)
+		removeobject(LOCALID_BIRCHS_LAB_RIGHT_STARTER)
+		setflag(FLAG_TOOK_RIGHT_WATER_STARTER)
+		call(Script_LittlerootTown_ProfessorBirchsLab_Interact_Pokeballs_StarterChoice_End)
+	} else {
+		msgbox(Text_LittlerootTown_ProfessorBirchsLab_Examine_PokeBalls)
+	}
+	releaseall
+	end
+}
+
+// Interact Professor PC
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_ProfessorsPC {
+	msgbox(Text_LittleRootTown_ProfessorBirchsLab_Examine_ProfessorsPC, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_LittleRootTown_ProfessorBirchsLab_Examine_ProfessorsPC {
+	"It's a PC used for research.\n"
+	"Better not mess around with it.$"
+}
+
+// Interact Serious Looking Machine
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_SeriousLookingMachine {
+	msgbox(Text_LittlerootTown_ProfessorBirchsLab_Examine_SeriousLookingMachine, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Examine_SeriousLookingMachine {
+	"It's a serious-looking machine.\n"
+	"The Prof must use this for research."
+}
+
+// Interact Bookcase
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_Bookcase {
+	msgbox(Text_LittlerootTown_ProfressorBirchsLab_Examine_Bookcase, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_LittlerootTown_ProfressorBirchsLab_Examine_Bookcase {
+	"It's crammed with books on Pokémon."
+}
+
+// Interact Books
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_Interact_Books {
+	msgbox(Text_LittlerootTown_ProfessorBirchsLab_Examine_Books, MSGBOX_SIGN)
+	end
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Examine_Books {
+	"It's a book that's too hard to read."
+}
+
+// Scott call about battle frontier
+
+script(global) Script_LittlerootTown_ProfessorBirchsLab_NavCall_Scott_AboardSSTidal {
+	lockall
+	pokenavcall(Text_LittlerootTown_ProfessorBirchsLab_Scott_AboardSSTidal)
+	waitmessage
+	clearflag(FLAG_SCOTT_CALL_BATTLE_FRONTIER)
+	releaseall
+	end
+}
+
+text(local) Text_LittlerootTown_ProfessorBirchsLab_Scott_AboardSSTidal {
+	"… … … … … …\n"
+	"… … … … … Beep!\p"
+	"Scott: Hi, hi, {PLAYER}!\n"
+	"It's me, Scott.\p"
+	"I'm aboard the S.S. Tidal now.\n"
+	"It feels great to be on the sea!\p"
+	"By the way…\p"
+	"There's this place that I'd like to\n"
+	"If you're interested, board a ferry\n"
+	"at either Slateport or Lilycove.\p"
+	"I'll fill you in on the details when\n"
+	"we meet. I'll be waiting!\p"
+	"… … … … … …\n"
+	"… … … … … Click!$"
+}

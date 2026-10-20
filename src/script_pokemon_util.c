@@ -48,6 +48,23 @@ void HealPlayerParty(void)
         FlagSet(B_FLAG_TERA_ORB_CHARGED);
 }
 
+void HealPlayerPartyNonDead(void) {
+    u32 i;
+    for( i = 0; i <gPartiesCount[B_TRAINER_PLAYER]; i++) {
+        if(GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HP) != 0) {
+            HealPokemon(&gParties[B_TRAINER_PLAYER][i]);
+        }
+    }
+
+    if(OW_PC_HEAL >= GEN_8) {
+        HealPlayerBoxes();
+    }
+
+    if(B_FLAG_TERA_ORB_CHARGED != 0 && CheckBagHasItem(ITEM_TERA_ORB, 1)) {
+        FlagSet(B_FLAG_TERA_ORB_CHARGED);
+    }
+}
+
 static void HealPlayerBoxes(void)
 {
     int boxId, boxPosition;

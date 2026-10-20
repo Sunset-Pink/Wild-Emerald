@@ -3174,7 +3174,7 @@ bool8 Scrcmd_getobjectfacingdirection(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 Scrcmd_bufferstarterinfo(struct ScriptContext * ctx) {
+bool8 ScrCmd_bufferstarterinfo(struct ScriptContext * ctx) {
     // {Grass, Fire, Water}
     u8 stringVarIndex = ScriptReadByte(ctx);
     u16 startertype = VarGet(ScriptReadHalfword(ctx));
@@ -3357,6 +3357,32 @@ bool8 ScrCmd_fwdweekday(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
     FakeRtc_AdvanceTimeBy(daysToAdd, 0, 0, 0);
+    return FALSE;
+}
+
+bool8 ScrCmd_advancetime(struct ScriptContext *ctx) {
+    if(!OW_USE_FAKE_RTC)
+        return FALSE;
+
+    u16 timeToAdvanceTo = VarGet(ScriptReadHalfword(ctx));
+    switch (timeToAdvanceTo)
+    {
+        case TIME_MORNING:
+            FakeRtc_ForwardTimeTo(MORNING_HOUR_BEGIN, 0, 0);
+            break;
+        case TIME_DAY:
+            FakeRtc_ForwardTimeTo(DAY_HOUR_BEGIN, 0, 0);
+            break;
+        case TIME_EVENING:
+            FakeRtc_ForwardTimeTo(EVENING_HOUR_BEGIN, 0, 0);
+            break;
+        case TIME_NIGHT:
+            FakeRtc_ForwardTimeTo(NIGHT_HOUR_BEGIN, 0, 0);
+            break;
+        default:
+            FakeRtc_ForwardTimeTo(DAY_HOUR_BEGIN, 0, 0);
+            break;
+    }
     return FALSE;
 }
 

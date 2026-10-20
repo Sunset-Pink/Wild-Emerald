@@ -2313,6 +2313,14 @@ void Task_OpenDexNavFromStartMenu(u8 taskId)
     }
 }
 
+void Task_OpenDexNavFromLMenu(u8 taskId) {
+    if(!gPaletteFade.active) {
+        CleanupOverworldWindowsAndTilemaps();
+        DexNavGuiInit(CB2_ReturnToFieldWithOpenLMenu);
+        DestroyTask(taskId);
+    }
+}
+
 static void Task_DexNavWaitFadeIn(u8 taskId)
 {
     if (!gPaletteFade.active)

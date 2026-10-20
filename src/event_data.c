@@ -254,3 +254,7 @@ bool8 FlagGet(u16 id)
 
     return TRUE;
 }
+
+u32 GetWhiteOutCount(void) {
+    return gSaveBlock3Ptr->whiteOuts;
+}

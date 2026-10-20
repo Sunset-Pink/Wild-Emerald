@@ -642,14 +642,14 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Overgrow"),
         .description = COMPOUND_STRING("Boosts Grass moves by 50%\nat 1/3 or less HP."),
-        .updatedDescription = COMPOUND_STRING("Boosts Grass moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
+        //.updatedDescription = COMPOUND_STRING("Boosts Grass moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
         .aiRating = 5,
     },
 
     [ABILITY_BLAZE] =
     {
         .name = _("Blaze"),
-        .description = COMPOUND_STRING("Boosts Fire moves by 50%\nat 1/3 or less HP."),
+        .description = COMPOUND_STRING("Boosts Fire moves by 50% at 1/3 or less HP."),
         .updatedDescription = COMPOUND_STRING("Boosts Fire moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
         .aiRating = 5,
     },

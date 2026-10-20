@@ -128,6 +128,7 @@ gStdScripts::
 	.4byte Std_MsgboxPokenav           @ MSGBOX_POKENAV
 	.4byte Std_PutItemAway             @ STD_PUT_ITEM_AWAY
 	.4byte Std_ReceivedItem            @ STD_RECEIVED_ITEM
+	.4byte Std_ObtainItemFast          @ STD_OBTAIN_ITEM_FAST
 gStdScripts_End::
 
 

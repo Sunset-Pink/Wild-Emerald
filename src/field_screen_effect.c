@@ -16,6 +16,7 @@
 #include "gpu_regs.h"
 #include "heal_location.h"
 #include "io_reg.h"
+#include "l_menu.h"
 #include "link.h"
 #include "link_rfu.h"
 #include "load_save.h"
@@ -476,6 +477,13 @@ static void Task_WaitForFadeShowStartMenu(u8 taskId)
     }
 }
 
+static void Task_WaitForFadeShowLMenu(u8 taskId) {
+    if(WaitForWeatherFadeIn()) {
+        DestroyTask(taskId);
+        CreateTask(Task_ShowLMenu, 80);
+    }
+}
+
 void ReturnToFieldOpenStartMenu(void)
 {
     FadeInFromBlack();
@@ -486,6 +494,17 @@ void ReturnToFieldOpenStartMenu(void)
 bool8 FieldCB_ReturnToFieldOpenStartMenu(void)
 {
     ShowReturnToFieldStartMenu();
+    return FALSE;
+}
+
+void ReturnToFieldOpenLMenu(void) {
+    FadeInFromBlack();
+    CreateTask(Task_WaitForFadeShowLMenu, 0x50);
+    LockPlayerFieldControls();
+}
+
+bool8 FieldCB_ReturnToFieldOpenLMenu(void) {
+    ShowReturnToFieldLMenu();
     return FALSE;
 }
 

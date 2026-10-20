@@ -81,6 +81,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#if !SWSH_PARTY_MENU
+
 enum {
     MENU_SUMMARY,
     MENU_SWITCH,
@@ -3145,12 +3147,13 @@ static void CB2_ShowPokemonSummaryScreen(void)
                 GetMultiPartyForSummaryScreen();
         }
 
-        if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL_PARTNER)
+        if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL_PARTNER) {
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PARTNER], gPartyMenu.slotId, CalculatePartyCount(B_TRAINER_PARTNER) - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
-        else if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL)
+        } else if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL) {
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, CalculatePartyCount(B_TRAINER_PLAYER) - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
-        else
+        } else {
             ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, CalculatePartyCountOfSide(B_BATTLER_0) - 1, CB2_ReturnToPartyMenuFromSummaryScreen);
+        }
     }
     else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
     {
@@ -8623,4 +8626,6 @@ s8 Test_UpdatePartySelectionSingleLayout(s8 slotId, s8 movementDir, bool8 choose
     sPartyMenuInternal = savedInternal;
     return slotId;
 }
-#endif
+#endif // TESTING
+
+#endif // !SWSH_PARTY_MENU

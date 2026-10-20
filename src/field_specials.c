@@ -4573,6 +4573,16 @@ void EnterCode(void)
     DoNamingScreen(NAMING_SCREEN_CODE, gStringVar2, 0, 0, 0, CB2_ReturnToFieldContinueScript);
 }
 
+// Code Feedback Response
+// 1: DexAll / DXA - Toggle full Pokedex seen.
+// 2: CaughtAll / CAL - Mark all species seend & caught
+// 3: EZCatch / EZC - Toggle 100% catch rate.
+// 4: Mega - Handled in script.
+// 5: ShinyS / SHS - Toggle shiny starter.
+// 6: MaxMoney / MMY - Set money max.
+// 7: ShinyR / SHR - Toggle shiny roamers.
+// 8: Mono - Toggles mono starter mode.
+// 0: Invalid code
 void GetCodeFeedback(void)
 {
     static const u8 sText_CheatCodeDexAll[]           = _("DexAll");

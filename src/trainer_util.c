@@ -6,9 +6,12 @@
 #include "string_util.h"
 #include "trainer_util.h"
 #include "text.h"
+#include "event_data.h"
 
 #include "constants/battle_ai.h"
 #include "constants/pokeball.h"
+#include "constants/flags.h"
+#include "difficulty.h"
 
 rng_value_t GeneratePartySeed(const struct Trainer *trainer)
 {
@@ -145,11 +148,16 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         errorf("Unkwown trainer mon gender value %d", trainerMon->gender);
     personality |= genderValue;
     ModifyPersonalityForNature(&personality, trainerMon->nature);
+
+    
     CreateMon(mon, trainerMon->species, trainerMon->lvl, personality, trainer->otID);
     if (trainerMon->nickname != NULL)
         SetMonData(mon, MON_DATA_NICKNAME, trainerMon->nickname);
-    if (trainerMon->ev) //ev in struct TrainerMon are stored in Showdown order not vanilla Emerald order
-    {
+    
+
+    // Min Griding Mode does not use EVs
+    if(!FlagGet(FLAG_MINIMAL_GRINDING_MODE) && trainerMon->ev) {
+        //ev in struct TrainerMon are stored in Showdown order not vanilla Emerald order
         SetMonData(mon, MON_DATA_HP_EV, &trainerMon->ev[0]);
         SetMonData(mon, MON_DATA_ATK_EV, &trainerMon->ev[1]);
         SetMonData(mon, MON_DATA_DEF_EV, &trainerMon->ev[2]);
@@ -158,7 +166,15 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         SetMonData(mon, MON_DATA_SPEED_EV, &trainerMon->ev[5]);
     }
 
-    SetMonData(mon, MON_DATA_IVS, &trainerMon->iv);
+    // All mons should have 31 IVs in Minimal Grinding Mode
+    if(FlagGet(FLAG_MINIMAL_GRINDING_MODE)) {
+        int perfectIVS[6] = { 31, 31, 31, 31, 31, 31};
+        SetMonData(mon, MON_DATA_IVS, &perfectIVS);
+    } else {
+        SetMonData(mon, MON_DATA_IVS, &trainerMon->iv);
+    }
+    
+    
     CustomTrainerPartyAssignMoves(mon, trainerMon);
     SetMonData(mon, MON_DATA_HELD_ITEM, &trainerMon->heldItem);
 

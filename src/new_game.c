@@ -1,5 +1,6 @@
 #include "global.h"
 #include "clock.h"
+#include "event_data.h"
 #include "new_game.h"
 #include "random.h"
 #include "clock.h"
@@ -160,17 +161,11 @@ void ResetMenuAndMonGlobals(void)
 
 void NewGameInitData(void)
 {
-#if IS_FRLG
-    u8 rivalName[PLAYER_NAME_LENGTH + 1];
-#endif
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
-
-#if IS_FRLG
-    StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
-#endif
     gDifferentSaveFile = TRUE;
     gSaveBlock2Ptr->encryptionKey = 0;
+    FlagClear(FLAG_SYS_POKEMON_GET);
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
     ResetPokedex();
@@ -234,6 +229,8 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    gSaveBlock2Ptr->autoRun = FALSE;
+    gSaveBlock3Ptr->whiteOuts = 0;
 }
 
 static void ResetMiniGamesRecords(void)

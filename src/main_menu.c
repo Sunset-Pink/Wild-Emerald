@@ -272,7 +272,6 @@ static const u8 gText_MysteryGiftCantUse[] = _("Mystery Gift can't be used while
 static const u8 gText_MysteryEventsCantUse[] = _("Mystery Events can't be used while\nthe Wireless Adapter is attached.");
 
 static const u8 gText_ContinueMenuPlayer[] = _("Player");
-static const u8 gText_ContinueMenuTime[] = _("Time");
 static const u8 gText_ContinueMenuPokedex[] = _("Pokédex");
 static const u8 gText_ContinueMenuBadges[] = _("Badges");
 

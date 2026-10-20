@@ -144,11 +144,14 @@ extern const u8 gText_PleaseResetTime[];
 extern const u8 gText_ClockHasBeenReset[];
 extern const u8 gText_SaveCompleted[];
 extern const u8 gText_SaveFailed[];
+extern const u8 gText_AM[];
+extern const u8 gText_PM[];
 
 // menu texts
 extern const u8 gText_MenuPokedex[];
 extern const u8 gText_MenuPokemon[];
 extern const u8 gText_MenuBag[];
+extern const u8 gText_MenuPC[];
 extern const u8 gText_MenuPokenav[];
 extern const u8 gText_MenuPlayer[];
 extern const u8 gText_MenuSave[];
@@ -156,7 +159,15 @@ extern const u8 gText_MenuOption[];
 extern const u8 gText_MenuExit[];
 extern const u8 gText_MenuRetire[];
 extern const u8 gText_MenuRest[];
+extern const u8 gText_MenuPokeVial[];
+extern const u8 gText_MenuReturnItems[];
+extern const u8 gText_MenuPokeVial2[];
 extern const u8 gText_MenuDexNav[];
+extern const u8 gText_TimeChanger[];
+extern const u8 gText_AutoRunOn[];
+extern const u8 gText_AutoRunOff[];
+extern const u8 gText_FollowersOn[];
+extern const u8 gText_FollowersOff[];
 extern const u8 gText_Floor1[];
 extern const u8 gText_Floor2[];
 extern const u8 gText_Floor3[];
@@ -324,6 +335,7 @@ extern const u8 gText_SpDef[];
 extern const u8 gText_Speed[];
 extern const u8 gText_Dash[];
 extern const u8 gText_Plus[];
+extern const u8 gText_StatEditor[];
 
 //Pokédex text
 extern const u8 gText_CryOf[];
@@ -362,6 +374,8 @@ extern const u8 gText_GoBackPrevMenu[];
 extern const u8 gText_Cancel[];
 
 extern const u8 gText_Cancel2[];
+extern const u8 gText_Rename[];
+
 
 extern const u8 gText_NoItems[];
 extern const u8 gText_WhatToDoWithVar1sMail[];
@@ -576,6 +590,8 @@ extern const u8 gText_LureEffectsLingered[];
 extern const u8 gText_BoxFull[];
 extern const u8 gText_WontHaveEffect[];
 extern const u8 gText_NextFusionMon[];
+extern const u8 gText_InfiniteRepelOn[];
+extern const u8 gText_InfiniteRepelOff[];
 
 extern const u8 gText_LevelSymbol[];
 extern const u8 gText_PkmnInfo[];
@@ -1709,6 +1725,7 @@ extern const u8 gText_BattleArenaDesc[];
 extern const u8 gText_BattleFactoryDesc[];
 extern const u8 gText_BattlePikeDesc[];
 extern const u8 gText_BattlePyramidDesc[];
+extern const u8 gText_ContinueMenuTime[];
 
 // Apprentice
 extern const u8 gText_Give[];

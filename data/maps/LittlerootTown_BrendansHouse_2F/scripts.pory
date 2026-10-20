@@ -21,7 +21,6 @@ LittlerootTown_BrendansHouse_2F_EventScript_TryUpdateBrendanPos::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LittlerootTown_BrendansHouse_2F_EventScript_Ret
 	@ Odd that the MaysHouse equivalent was used below instead
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_MaysHouse_2F_EventScript_Ret
 	setobjectxyperm LOCALID_RIVALS_HOUSE_2F_RIVAL, 0, 2
 	setobjectmovementtype LOCALID_RIVALS_HOUSE_2F_RIVAL, MOVEMENT_TYPE_FACE_UP
 	return
@@ -301,3 +300,304 @@ PlayersHouse_2F_Text_ItsAGameCube:
 	.string "A Game Boy Advance is connected to\n"
 	.string "serve as the Controller.$"
 `
+
+
+// Interact GameCube / Cheat Codes
+// 1: DexAll / DXA - Toggle full Pokedex seen.
+// 2: CaughtAll / CAL - Mark all species seend & caught
+// 3: EZCatch / EZC - Toggle 100% catch rate.
+// 4: Mega - Handled in script.
+// 5: ShinyS / SHS - Toggle shiny starter.
+// 6: MaxMoney / MMY - Set money max.
+// 7: ShinyR / SHR - Toggle shiny roamers.
+// 8: Mono - Toggles mono starter mode.
+// 0: Invalid code
+script(global) Script_PlayerHouse_2F_Interact_GameCube {
+	msgbox(Text_PlayerHouse_2F_GameCube_EnterCode, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == 0) {
+		goto(Script_PlayerHouse_2F_Interact_GameCube_Exit)
+	}
+	special(EnterCode)
+	waitstate
+	special(GetCodeFeedback)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			call(Script_PlayerHouse_2F_Interact_GameCube_FailedCode)
+		case 1:
+			call(Script_PlayerHouse_2F_Interact_GameCube_DexAll)
+		case 2:
+			call(Script_PlayerHouse_2F_Interact_GameCube_CaughtAll)
+		case 3:
+			call(Script_PlayerHouse_2F_Interact_GameCube_EzCatch)
+		case 4:
+			call(Script_PlayerHouse_2F_Interact_GameCube_MegaStone)
+		case 5:
+			call(Script_PlayerHouse_2F_Interact_GameCube_ShinyStarters)
+		case 6:
+			call(Script_PlayerHouse_2F_Interact_GameCube_MaxMoney)
+		case 7:
+			call(Script_PlayerHouse_2F_Interact_GameCube_ShinyRoamer)
+		case 8:
+			call(Script_PlayerHouse_2F_Interact_GameCube_MonoStarters)
+	}
+	releaseall
+	end
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_FailedCode {
+	msgbox(Text_PlayerHouse_2F_GameCube_FailedCode, MSGBOX_DEFAULT)
+	end
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_DexAll {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	if(flag(FLAG_DEXALL)) {
+		msgbox(Text_PlayerHouse_2F_GameCube_DexAll_Enabled)
+	} else {
+		msgbox(Text_PlayerHouse_2F_GameCube_DexAll_Disabled)
+	}
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_CaughtAll {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	msgbox(Text_PlayerHouse_2F_GameCube_CatchAll_Enabled)
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_EzCatch {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	if(flag(FLAG_EZ_CATCH)) {
+		msgbox(Text_PlayerHouse_2F_GameCube_EzCatch_Enabled)
+	} else {
+		msgbox(Text_PlayerHouse_2F_GameCube_EzCatch_Disabled)
+	}
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_MegaStone {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	giveitemfast(ITEM_VENUSAURITE)
+	giveitemfast(ITEM_CHARIZARDITE_X)
+	giveitemfast(ITEM_CHARIZARDITE_Y)
+	giveitemfast(ITEM_BLASTOISINITE)
+	giveitemfast(ITEM_BEEDRILLITE)
+	giveitemfast(ITEM_PIDGEOTITE)
+	giveitemfast(ITEM_ALAKAZITE)
+	giveitemfast(ITEM_SLOWBRONITE)
+	giveitemfast(ITEM_GENGARITE)
+	giveitemfast(ITEM_KANGASKHANITE)
+	giveitemfast(ITEM_PINSIRITE)
+	giveitemfast(ITEM_GYARADOSITE)
+	giveitemfast(ITEM_AERODACTYLITE)
+	giveitemfast(ITEM_MEWTWONITE_X)
+	giveitemfast(ITEM_MEWTWONITE_Y)
+	giveitemfast(ITEM_AMPHAROSITE)
+	giveitemfast(ITEM_STEELIXITE)
+	giveitemfast(ITEM_SCIZORITE)
+	giveitemfast(ITEM_HERACRONITE)
+	giveitemfast(ITEM_HOUNDOOMINITE)
+	giveitemfast(ITEM_TYRANITARITE)
+	giveitemfast(ITEM_SCEPTILITE)
+	giveitemfast(ITEM_BLAZIKENITE)
+	giveitemfast(ITEM_SWAMPERTITE)
+	giveitemfast(ITEM_GARDEVOIRITE)
+	giveitemfast(ITEM_SABLENITE)
+	giveitemfast(ITEM_MAWILITE)
+	giveitemfast(ITEM_AGGRONITE)
+	giveitemfast(ITEM_MEDICHAMITE)
+	giveitemfast(ITEM_MANECTITE)
+	giveitemfast(ITEM_SHARPEDONITE)
+	giveitemfast(ITEM_CAMERUPTITE)
+	giveitemfast(ITEM_ALTARIANITE)
+	giveitemfast(ITEM_BANETTITE)
+	giveitemfast(ITEM_ABSOLITE)
+	giveitemfast(ITEM_GLALITITE)
+	giveitemfast(ITEM_SALAMENCITE)
+	giveitemfast(ITEM_METAGROSSITE)
+	giveitemfast(ITEM_LATIASITE)
+	giveitemfast(ITEM_LATIOSITE)
+	giveitemfast(ITEM_LOPUNNITE)
+	giveitemfast(ITEM_GARCHOMPITE)
+	giveitemfast(ITEM_LUCARIONITE)
+	giveitemfast(ITEM_ABOMASITE)
+	giveitemfast(ITEM_GALLADITE)
+	giveitemfast(ITEM_AUDINITE)
+	giveitemfast(ITEM_DIANCITE)
+	giveitemfast(ITEM_LUXRITE)
+	giveitemfast(ITEM_TORTERRITE)
+	giveitemfast(ITEM_EMPOLEONITE_O)
+	giveitemfast(ITEM_EMPOLEONITE_D)
+	giveitemfast(ITEM_INFERNAPITE)
+	giveitemfast(ITEM_KINGLERITE)
+	giveitemfast(ITEM_BUTTERFRITE)
+	giveitemfast(ITEM_MACHAMPITE)
+	giveitemfast(ITEM_LAPRASITE)
+	giveitemfast(ITEM_SNORLAXITE)
+	giveitemfast(ITEM_GARBODORITE)
+	giveitemfast(ITEM_ORBEETLITE)
+	giveitemfast(ITEM_DREDNAWITE)
+	giveitemfast(ITEM_COALOSSITE)
+	giveitemfast(ITEM_APPLITE)
+	giveitemfast(ITEM_SANDACONDITE)
+	giveitemfast(ITEM_TOXTRICITITE)
+	giveitemfast(ITEM_CENTISKITE)
+	giveitemfast(ITEM_GRIMMITE)
+	giveitemfast(ITEM_COPPERAJITE)
+	giveitemfast(ITEM_SLAKITE)
+	giveitemfast(ITEM_ROSERADITE)
+	giveitemfast(ITEM_DUSKNOIRITE)
+	giveitemfast(ITEM_CLEFABLITE)
+	giveitemfast(ITEM_VICTREEBELITE)
+	giveitemfast(ITEM_STARMINITE)
+	giveitemfast(ITEM_DRAGONINITE)
+	giveitemfast(ITEM_MEGANIUMITE)
+	giveitemfast(ITEM_FERALIGITE)
+	giveitemfast(ITEM_SKARMORITE)
+	giveitemfast(ITEM_FROSLASSITE)
+	giveitemfast(ITEM_EMBOARITE)
+	giveitemfast(ITEM_EXCADRITE)
+	giveitemfast(ITEM_SCOLIPITE)
+	giveitemfast(ITEM_SCRAFTINITE)
+	giveitemfast(ITEM_EELEKTROSSITE)
+	giveitemfast(ITEM_CHANDELURITE)
+	giveitemfast(ITEM_CHESNAUGHTITE)
+	giveitemfast(ITEM_DELPHOXITE)
+	giveitemfast(ITEM_GRENINJITE)
+	giveitemfast(ITEM_PYROARITE)
+	giveitemfast(ITEM_FLOETTITE)
+	giveitemfast(ITEM_MALAMARITE)
+	giveitemfast(ITEM_BARBARACITE)
+	giveitemfast(ITEM_DRAGALGITE)
+	giveitemfast(ITEM_HAWLUCHANITE)
+	giveitemfast(ITEM_ZYGARDITE)
+	giveitemfast(ITEM_DRAMPANITE)
+	giveitemfast(ITEM_FALINKSITE)
+	giveitemfast(ITEM_HEATRANITE)
+	giveitemfast(ITEM_DARKRANITE)
+	giveitemfast(ITEM_ZERAORITE)
+	giveitemfast(ITEM_RAICHUNITE_X)
+	giveitemfast(ITEM_RAICHUNITE_Y)
+	giveitemfast(ITEM_CHIMECHITE)
+	giveitemfast(ITEM_ABSOLITE_Z)
+	giveitemfast(ITEM_STARAPTITE)
+	giveitemfast(ITEM_GARCHOMPITE_Z)
+	giveitemfast(ITEM_LUCARIONITE_Z)
+	giveitemfast(ITEM_GOLURKITE)
+	giveitemfast(ITEM_MEOWSTICITE)
+	giveitemfast(ITEM_CRABOMINITE)
+	giveitemfast(ITEM_GOLISOPITE)
+	giveitemfast(ITEM_MAGEARNITE)
+	giveitemfast(ITEM_SCOVILLAINITE)
+	giveitemfast(ITEM_BAXCALIBRITE)
+	giveitemfast(ITEM_TATSUGIRINITE)
+	giveitemfast(ITEM_GLIMMORANITE)
+	msgbox(Text_PlayerHouse_2F_GameCube_MegaStones)
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_ShinyStarters {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	if(flag(FLAG_SHINY_STARTERS)) {
+		msgbox(Text_PlayerHouse_2F_GameCube_ShinyStarter_Enabled)
+	} else {
+		msgbox(Text_PlayerHouse_2F_GameCube_ShinyStarter_Disabled)
+	}
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_MaxMoney {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	msgbox(Text_PlayerHouse_2F_GameCube_MaxMoney)
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_ShinyRoamer {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	if(flag(FLAG_SHINY_ROAMERS)) {
+		msgbox(Text_PlayerHouse_2F_GameCube_ShinyRoamer_Enabled)
+	} else {
+		msgbox(Text_PlayerHouse_2F_GameCube_ShinyRoamer_Disabled)
+	}
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_MonoStarters {
+	msgbox(Text_PlayerHouse_2F_GameCube_SuccessCode)
+	if(flag(FLAG_USE_MONOTYPE_STARTERS)) {
+		msgbox(Text_PlayerHouse_2F_GameCube_MonoStarter_Enabled)
+	} else {
+		msgbox(Text_PlayerHouse_2F_GameCube_MonoStarter_Disabled)
+	}
+	return
+}
+
+script(global) Script_PlayerHouse_2F_Interact_GameCube_Exit {
+	releaseall
+	end
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_EnterCode {
+	"It's a Nintendo GameCube.\p"
+	"Enter a cheat code?"
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_FailedCode {
+	"Cheat code failed."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_SuccessCode {
+	"Cheat code succeeded."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_DexAll_Enabled {
+	"DexAll cheat enabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_DexAll_Disabled {
+	"DexAll cheat disabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_CatchAll_Enabled {
+	"CaughtAll cheat enabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_MaxMoney {
+	"Money set to max amount."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_EzCatch_Enabled {
+	"EZCatch cheat enabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_EzCatch_Disabled {
+	"EZCatch cheat disabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_MegaStones {
+	"All Mega Stones given."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_ShinyStarter_Enabled {
+	"ShinyStarter cheat enabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_ShinyStarter_Disabled {
+	"ShinyStarter cheat disabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_ShinyRoamer_Enabled {
+	"ShinyRoamer cheat enabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_ShinyRoamer_Disabled {
+	"ShinyRoamer cheat disabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_MonoStarter_Enabled {
+	"Monotype starter cheat enabled."
+}
+
+text(local) Text_PlayerHouse_2F_GameCube_MonoStarter_Disabled {
+	"Monotype starter cheat disabled."
+}
