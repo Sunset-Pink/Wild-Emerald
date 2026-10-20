@@ -1100,7 +1100,14 @@ static void CreateMainMenu(u8 whichMenu, s16 *windowIdPtr)
 static void CB2_ExitPokeStorage(void)
 {
     sPreviousBoxOption = GetCurrentBoxOption();
-    gFieldCallback = FieldTask_ReturnToPcMenu;
+#if SWSH_PARTY_PC_ACCESS
+    if(PokemonPC_HasReturnToPartyCallback()) 
+    {
+        gFieldCallback = CB2_ReopenPartyMenuFromPC;
+    } 
+    else
+#endif //SWSH_PARTY_PC_ACCESS
+        gFieldCallback = FieldTask_ReturnToPcMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
 
