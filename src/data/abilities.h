@@ -9,8 +9,655 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeTraced = TRUE,
     },
 
-    // Summons weather
+        // Double Attacking Stat Abilies
+    // Variants:
+    //  - Atk: Huge Power, Pure Power
+    //  - SpAtk: Feline Prowess
+    [ABILITY_HUGE_POWER] =
+    {
+        .name = _("Huge Power"),
+        .description = COMPOUND_STRING("Doubles Attack."),
+        .aiRating = 10,
+    },
 
+    [ABILITY_PURE_POWER] =
+    {
+        .name = _("Pure Power"),
+        .description = COMPOUND_STRING("Doubles Attack."),
+        .aiRating = 10,
+    },
+
+    // Inspiration Radical Red
+    // Suggested Users: Persian, Alolan Persian, Delcatty, Meowstic
+    [ABILITY_FELINE_PROWESS] = 
+    {
+        .name = _("Feline Prowess"),
+        .description = COMPOUND_STRING("Doubles Special Attack."),
+        .aiRating = 10,
+    },
+
+    // In a Pinch/Boost type when HP Low Abilities
+    // Variants:
+    //  - Grass    => Overgrow
+    //  - Fire     => Blaze
+    //  - Water    => Torrent
+    //  - Bug      => Swarm
+    //  - Normal   => Adrenaline
+    //  - Electric => Volt
+    //  - Ice      => Subzero
+    //  - Fighting => Underdog
+    //  - Poison   => Infection
+    //  - Ground   => Fault Line
+    //  - Flying   => Flock
+    //  - Psychic  => Revelation
+    //  - Rock     => Sedimentary
+    //  - Ghost    => Haunt
+    //  - Dragon   => Mythological
+    //  - Dark     => Eclipse
+    //  - Steel    => Temper
+    //  - Fairy    => Enchant
+    [ABILITY_OVERGROW] =
+    {
+        .name = _("Overgrow"),
+        .description = COMPOUND_STRING("Ups Grass moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_BLAZE] =
+    {
+        .name = _("Blaze"),
+        .description = COMPOUND_STRING("Ups Fire moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_TORRENT] =
+    {
+        .name = _("Torrent"),
+        .description = COMPOUND_STRING("Ups Water moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_SWARM] =
+    {
+        .name = _("Swarm"),
+        .description = COMPOUND_STRING("Ups Bug moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_ADRENALINE] =
+    {
+        .name = _("Adrenaline"),
+        .description = COMPOUND_STRING("Ups Normal moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_VOLT] =
+    {
+        .name = _("Volt"),
+        .description = COMPOUND_STRING("Ups Electric moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_SUBZERO] =
+    {
+        .name = _("Subzero"),
+        .description = COMPOUND_STRING("Ups Ice moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_UNDERDOG] =
+    {
+        .name = _("Underdog"),
+        .description = COMPOUND_STRING("Ups Fighting moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_INFECTION] =
+    {
+        .name = _("Infection"),
+        .description = COMPOUND_STRING("Ups Poison moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_FAULT_LINE] =
+    {
+        .name = _("Fault Line"),
+        .description = COMPOUND_STRING("Ups Ground moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_FLOCK] =
+    {
+        .name = _("Flock"),
+        .description = COMPOUND_STRING("Ups Flying moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_REVELATION] =
+    {
+        .name = _("Revelation"),
+        .description = COMPOUND_STRING("Ups Psychic moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_SEDIMENTARY] =
+    {
+        .name = _("Sedimentary"),
+        .description = COMPOUND_STRING("Ups Rock moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_HAUNT] =
+    {
+        .name = _("Haunt"),
+        .description = COMPOUND_STRING("Ups Ghost moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_MYTHOLOGICAL] =
+    {
+        .name = _("Mythological"),
+        .description = COMPOUND_STRING("Ups Dragon moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_ECLIPSE] =
+    {
+        .name = _("ECLIPSE"),
+        .description = COMPOUND_STRING("Ups Dark moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_TEMPER] =
+    {
+        .name = _("Temper"),
+        .description = COMPOUND_STRING("Ups Steel moves at low HP."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_ENCHANT] =
+    {
+        .name = _("Encant"),
+        .description = COMPOUND_STRING("Ups Fairy moves at low HP."),
+        .aiRating = 5,
+    },
+
+    // Boost Specific Move Regardless of Type
+    // Variants
+    // - Iron Fist (Punching)
+    // - Striker (Kicking)
+    // - Sharpness (Slicing)
+    // - Mega Launcher (Pulse)
+    // - Strong Jaw (Biting)
+    // - Reckless (Recoil)
+    // - Tough Claws (Contact)
+    [ABILITY_IRON_FIST] =
+    {
+        .name = _("Iron Fist"),
+        .description = COMPOUND_STRING("Boosts punching moves\nby 30%."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_STRIKER] =
+    {
+        .name = _("Striker"),
+        .description = COMPOUND_STRING("Boosts kicking moves\nby 30%."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_SHARPNESS] =
+    {
+        .name = _("Sharpness"),
+        .description = COMPOUND_STRING("Boosts slashing moves\nby 50%."),
+        .aiRating = 7,
+    },
+
+    [ABILITY_MEGA_LAUNCHER] =
+    {
+        .name = _("Mega Launcher"),
+        .description = COMPOUND_STRING("Boosts aura and pulse moves\nby 50%."),
+        .aiRating = 7,
+    },
+
+    [ABILITY_STRONG_JAW] =
+    {
+        .name = _("Strong Jaw"),
+        .description = COMPOUND_STRING("Boosts biting moves by 50%."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_RECKLESS] =
+    {
+        .name = _("Reckless"),
+        .description = COMPOUND_STRING("Powers up recoil moves."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_TOUGH_CLAWS] =
+    {
+        .name = _("Tough Claws"),
+        .description = COMPOUND_STRING("Boosts moves that make\ncontact by 30%."),
+        .aiRating = 7,
+    },
+
+    [ABILITY_BONE_ZONE] =
+    {
+        .name = _("Bone Zone"),
+        .description = COMPOUND_STRING("Bone moves have Tinted Lens\nand ignore immunities."),
+        .aiRating = 7,
+    },
+
+    [ABILITY_LIQUID_VOICE] =
+    {
+        .name = _("Liquid Voice"),
+        .description = COMPOUND_STRING("Sound moves become Water-\ntype & boosted by 20%."),
+        .aiRating = 5,
+    },
+
+    [ABILITY_PUNK_ROCK] =
+    {
+        .name = _("Punk Rock"),
+        .description = COMPOUND_STRING("Boosts sound moves by 30%\n& resists them by 50%."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+
+    // Increas Priority to X Type Moves
+    // Variants:
+    //  - Grass    => 
+    //  - Fire     => Blazing Soul
+    //  - Water    => 
+    //  - Bug      => 
+    //  - Normal   => 
+    //  - Electric => 
+    //  - Ice      => 
+    //  - Fighting => 
+    //  - Poison   => 
+    //  - Ground   => 
+    //  - Flying   => Gale Wings
+    //  - Psychic  => 
+    //  - Rock     => 
+    //  - Ghost    => 
+    //  - Dragon   => Drake Momentum
+    //  - Dark     => 
+    //  - Steel    => 
+    //  - Fairy    => 
+    [ABILITY_GALE_WINGS] =
+    {
+        .name = _("Gale Wings"),
+        .description = COMPOUND_STRING("Flying moves have priority."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_BLAZING_SOUL] =
+    {
+        .name = _("Blazing Soul"),
+        .description = COMPOUND_STRING("Fire moves have priority."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_DRAKE_MOMENTUM] =
+    {
+        .name = _("Drake Momentum"),
+        .description = COMPOUND_STRING("Dragon moves have priority."),
+        .aiRating = 6,
+    },
+
+    // Ate/Ize Abilities
+    // Variants:
+    //  - Grass    => Pollinate
+    //  - Fire     => Conflagrate
+    //  - Water    => Moisturize
+    //  - Bug      => Pupate
+    //  - Normal   => Normalize
+    //  - Electric => Galvanize
+    //  - Ice      => Refrigerate
+    //  - Fighting => Exercize
+    //  - Poison   => Contaminate
+    //  - Ground   => Escavate
+    //  - Flying   => Aerilate
+    //  - Psychic  => Prophesize
+    //  - Rock     => Mineralize
+    //  - Ghost    => Enervate
+    //  - Dragon   => Dragonize
+    //  - Dark     => Terrorize
+    //  - Steel    => Metallicize
+    //  - Fairy    => Pixilate
+
+    // Suggested Users: Leafeon
+    [ABILITY_POLLINATE] =
+    {
+        .name = _("Pollinate"),
+        .description = COMPOUND_STRING("Normal moves become Grass."),
+        .aiRating = 8,
+    }, 
+    
+    // Suggested Users: Flareon
+    [ABILITY_CONFLAGRATE] =
+    {
+        .name = _("Conflagrate"),
+        .description = COMPOUND_STRING("Normal moves become Fire."),
+        .aiRating = 8,
+    },
+
+    // Suggested Users: Vaporeon
+    [ABILITY_MOISTURIZE] =
+    {
+        .name = _("Moisturize"),
+        .description = COMPOUND_STRING("Normal moves turn Water."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_PUPATE] =
+    {
+        .name = _("Pupate"),
+        .description = COMPOUND_STRING("Normal moves become Bug."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_NORMALIZE] =
+    {
+        .name = _("Normalize"),
+        .description = COMPOUND_STRING("Moves turn Normal-type."),
+        .aiRating = -1,
+    },
+
+    // Suggested Users: Jolteon
+    [ABILITY_GALVANIZE] =
+    {
+        .name = _("Galvanize"),
+        .description = COMPOUND_STRING("Normal moves turn Electric."),
+        .aiRating = 8,
+    },
+
+    // Suggeted Users: Glaceon
+    [ABILITY_REFRIGERATE] =
+    {
+        .name = _("Refrigerate"),
+        .description = COMPOUND_STRING("Normal moves become Ice."),
+        .aiRating = 8,
+    },
+    
+    [ABILITY_EXERCIZE] =
+    {
+        .name = _("Exercize"),
+        .description = COMPOUND_STRING("Normal moves turn Fighting."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_CONTAMINATE] =
+    {
+        .name = _("Contaminate"),
+        .description = COMPOUND_STRING("Normal moves become Poison."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_ESCAVATE] =
+    {
+        .name = _("Escavate"),
+        .description = COMPOUND_STRING("Normal moves become Ground."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_AERILATE] =
+    {
+        .name = _("Aerilate"),
+        .description = COMPOUND_STRING("Normal moves become Flying."),
+        .aiRating = 8,
+    },
+
+    // Suggested Users: Espeon
+    [ABILITY_PROPHESIZE] =
+    {
+        .name = _("Prophesize"),
+        .description = COMPOUND_STRING("Normal moves turn Psychic."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_MINERALIZE] =
+    {
+        .name = _("Mineralize"),
+        .description = COMPOUND_STRING("Normal moves turn Rock."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_ENERVATE] =
+    {
+        .name = _("Enervate"),
+        .description = COMPOUND_STRING("Normal moves become Ghost."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_DRAGONIZE] =
+    {
+        .name = _("Dragonize"),
+        .description = COMPOUND_STRING("Normal moves turn Dragon."),
+    },
+
+    // Suggested Users: Umbreon
+    [ABILITY_TERRORIZE] =
+    {
+        .name = _("Terrorize"),
+        .description = COMPOUND_STRING("Normal moves turn Dark."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_METALLICIZE] =
+    {
+        .name = _("Metallicize"),
+        .description = COMPOUND_STRING("Normal moves turn Steel."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_PIXILATE] =
+    {
+        .name = _("Pixilate"),
+        .description = COMPOUND_STRING("Normal moves become Fairy."),
+        .aiRating = 8,
+    },
+
+    // Boost Speed in Terrain Abilities'
+    // Variants:
+    //  - Electric Terrain => Surge Surfer
+    //  - Grassy Terrain   => Grassy Gallop
+    //  - Misty Terrain    => Mist Walker
+    //  - Psychic Terrain  => Synapse Surfer
+    [ABILITY_SURGE_SURFER] =
+    {
+        .name = _("Surge Surfer"),
+        .description = COMPOUND_STRING("Electric Terrain ups Speed."),
+        .aiRating = 4,
+    },
+
+    // Suggested Users: Deerling, Sawsbuck
+    [ABILITY_GRASSY_GALLOP] =
+    {
+        .name = _("Grassy Gallop"),
+        .description = COMPOUND_STRING("Grassy Terrain ups Speed."),
+        .aiRating = 4,
+    },
+
+    [ABILITY_MIST_WALKER] =
+    {
+        .name = _("Mist Walker"),
+        .description = COMPOUND_STRING("Misty Terrain ups Speed."),
+        .aiRating = 4,
+    },
+
+    [ABILITY_SYNAPSE_SURGE] =
+    {
+        .name = _("Synapse Surfer"),
+        .description = COMPOUND_STRING("Psychic Terrain ups Speed."),
+        .aiRating = 4,
+    },
+
+    // 'Choice-like' abilities
+    // Variants:
+    //  - Atk    => Gorilla Tactics
+    //  - Sp Atk => Sage Power
+    [ABILITY_GORILLA_TACTICS] =
+    {
+        .name = _("Gorilla Tactics"),
+        .description = COMPOUND_STRING("Ups Atk by 50% but\nlocks move."),
+        .aiRating = 4,
+    },
+
+    // Recommended Users: Panpour, Pansage, Pansear, Semipout, Semisage, Semisear
+    [ABILITY_SAGE_POWER] = 
+    {
+        .name = _("Sage Power"),
+        .description = COMPOUND_STRING("Ups Sp. Atk by 50% but\nlocks move."),
+        .aiRating = 4,
+    },
+
+        [ABILITY_NORMAL_AURA] =
+    {
+        .name = _("Normal Aura"),
+        .description = COMPOUND_STRING("Powers up all Normal-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_GHOST_AURA] =
+    {
+        .name = _("Ghost Aura"),
+        .description = COMPOUND_STRING("Powers up all Ghost-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_FIGHTING_AURA] =
+    {
+        .name = _("Fighting Aura"),
+        .description = COMPOUND_STRING("Powers up all Fighting-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_FIRE_AURA] =
+    {
+        .name = _("Fire Aura"),
+        .description = COMPOUND_STRING("Powers up all Fire-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_ELECTRIC_AURA] =
+    {
+        .name = _("Electric Aura"),
+        .description = COMPOUND_STRING("Powers up all Electric-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_WATER_AURA] =
+    {
+        .name = _("Water Aura"),
+        .description = COMPOUND_STRING("Powers up all Water-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_GRASS_AURA] =
+    {
+        .name = _("Grass Aura"),
+        .description = COMPOUND_STRING("Powers up all grass-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_PSYCHIC_AURA] =
+    {
+        .name = _("Psychic Aura"),
+        .description = COMPOUND_STRING("Powers up all Psychic-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_DRAGON_AURA] =
+    {
+        .name = _("Dragon Aura"),
+        .description = COMPOUND_STRING("Powers up all Dragon-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_STEEL_AURA] =
+    {
+        .name = _("Steel Aura"),
+        .description = COMPOUND_STRING("Powers up all Steel-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_POISON_AURA] =
+    {
+        .name = _("Normal Aura"),
+        .description = COMPOUND_STRING("Powers up all Poison-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_BUG_AURA] =
+    {
+        .name = _("Bug Aura"),
+        .description = COMPOUND_STRING("Powers up all Bug-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_GROUND_AURA] =
+    {
+        .name = _("Ground Aura"),
+        .description = COMPOUND_STRING("Powers up all ground-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_ROCK_AURA] =
+    {
+        .name = _("Rock Aura"),
+        .description = COMPOUND_STRING("Powers up all Rock-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_DARK_AURA] =
+    {
+        .name = _("Dark Aura"),
+        .description = COMPOUND_STRING("Powers up all Dark-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_FAIRY_AURA] =
+    {
+        .name = _("Fairy Aura"),
+        .description = COMPOUND_STRING("Powers up all Fairy-type\nmoves by 33%."),
+        .aiRating = 6,
+        .breakable = FALSE,
+    },
+
+    [ABILITY_AURA_BREAK] =
+    {
+        .name = _("Aura Break"),
+        .description = COMPOUND_STRING("Reverses Aura Abilities."),
+        .aiRating = 3,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_AURA_GUARD] =
+    {
+        .name = _("Aura Guard"),
+        .description = COMPOUND_STRING("Unimplemented."),
+    },
+
+    // Simple Summon Weather Abilties
+    // Variants
+    //  - Rain => Drizzle
+    //  - Sun  => Drought
+    //  - Snow => Snow Warning
+    //  - Sand => Sand Stream
     [ABILITY_DRIZZLE] =
     {
         .name = _("Drizzle"),
@@ -47,8 +694,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     },
 
 
-    // Summons weather+
-
+    // Summons Weather(Plus) abilities
+    // Variants
+    //  - Sun  => Oricalcum Pulse
+    //  - Rain => Deluge
+    //  - Snow => Whiteout
+    //  - Sand => Dust Devil
     [ABILITY_DELUGE] = 
     {
         .name = _("Deluge"),
@@ -85,7 +736,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     },
 
     // Summons weather when hit.
-
+    // Variants
+    //  - Sandstrom => Sand Spit
+    //  - Snow      => Frost Dust
+    //  - Rain      => ???
+    //  - Sun       => ???
+    //  - Wind      => ???
     [ABILITY_SAND_SPIT] =
     {
         .name = _("Sand Spit"),
@@ -93,8 +749,20 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 5,
     },
 
-    // Summons Heavy Weather
+    [ABILITY_FROST_DUST] =
+    {
+        .name = _("Frost Dust"),
+        .description = COMPOUND_STRING("Summons Snow for 5 turns\nif hit."),
+        .aiRating = 5,
+    },
 
+    // Summons Weather (Primal)
+    // Variants:
+    //  - Rain => Primordial Sea
+    //  - Sun  => Desolate Land
+    //  - Snow => Fimbulwinter
+    //  - Sand => Prehistoric Dust
+    //  - Wind => Delta Stream
     [ABILITY_PRIMORDIAL_SEA] =
     {
         .name = _("Primordial Sea"),
@@ -109,7 +777,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 10,
     },
 
-    // Partially implemented
     [ABILITY_FIMBULWINTER] = 
     {
         .name = _("Fimbulwinter"),
@@ -117,7 +784,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 10,
     },
 
-    // Partially implemented
     [ABILITY_PREHISTORIC_DUST] = 
     {
         .name = _("Prehistoric Dust"),
@@ -132,8 +798,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 10,
     },
 
-    // Boosts evasion in weather
-
+    // Weather Boost Evasion
+    // Variants:
+    //  - Sun  => Heat Mirage
+    //  - Snow => Snow Cloak
+    //  - Sand => Sand Veil
+    //  - Rain => ???
     [ABILITY_HEAT_MIRAGE] = 
     {
         .name = _("Heat Mirage"),
@@ -158,8 +828,13 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-    // Boosts speed in weather
-
+    // Weather Boosts Speed
+    // Variants
+    // - Rain => Swift Swim
+    // - Sun  => Chlorophyll
+    // - Snow => Slush Rush
+    // - Sand => Sand Rush
+    // - Wind => Jet Stream
     [ABILITY_SWIFT_SWIM] =
     {
         .name = _("Swift Swim"),
@@ -235,8 +910,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .failsOnImposter = TRUE,
     },
 
-    // Always act as in weather.
 
+    // Weather Always On
+    // Variants:
+    //  - Snow => Mega Aurorus
+    //  - Sun  => Mega Sol
+    //  - Rain => Damp?
     [ABILITY_DAMP] =
     {
         .name = _("Damp"),
@@ -257,8 +936,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Acts like under Snow.")
     },
 
-    // Heal in weather
-
+    // Weather End Turn Heal
+    // Variants:
+    //  - Rain => Rain Dish
+    //  - Snow => Ice Body
+    //  - Sand => ???
+    //  - Sun  => ???
     [ABILITY_RAIN_DISH] =
     {
         .name = _("Rain Dish"),
@@ -285,8 +968,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-    // Summons Terrain
-    
+    // Summon Terrain (Simple)
+    // Variants:
+    //  - Electric => Electric Surge
+    //  - Misty    => Misty Surge
+    //  - Psychic  => Psychic Surge
+    //  - Grassy   => Grassy Surge
     [ABILITY_ELECTRIC_SURGE] =
     {
         .name = _("Electric Surge"),
@@ -315,8 +1002,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 8,
     },
 
-    // Summon Terrain+
-
+    // Summon Terrain(Plus)
+    // Variants:
+    //  - Electric => Hadron Engine
+    //  - Grassy   => ???
+    //  - Psychic  => ???
+    //  - Misty    => ???
     [ABILITY_HADRON_ENGINE] =
     {
         .name = _("Hadron Engine"),
@@ -325,7 +1016,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     },
 
     // Summon Terrain if hit
-
+    // Variants
+    //  - Electric Terrain => Voltage Drop
+    //  - Psychic Terrain  => Memory Lapse
+    //  - Misty Terrain    => Sprinkled Dust
+    //  - Grasy Terrain    => Seed Sower
     [ABILITY_VOLTAGE_DROP] = 
     {
         .name = _("Voltage Drop"),
@@ -354,8 +1049,9 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 5,
     },
 
-    // Boosts Defenses in Terrain
-
+    // Terrain Boosts Defenses
+    // Variants:
+    //  - Grassy => Grass Pelt
     [ABILITY_GRASS_PELT] =
     {
         .name = _("Grass Pelt"),
@@ -364,25 +1060,9 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-    // Boosts Speed in Terrain.
-
-    [ABILITY_SURGE_SURFER] =
-    {
-        .name = _("Surge Surfer"),
-        .description = COMPOUND_STRING("Doubles Speed in Electric\nTerrain."),
-        .aiRating = 4,
-    },
-
-    // Not Implmented
-    [ABILITY_MIST_WALKER] =
-    {
-        .name = _("Mist Walker"),
-        .description = COMPOUND_STRING("Doubles Speed in Misty\nTerrain."),
-        .aiRating = 4,
-    },
-
-    // Boosts highest in terrain
-
+    // Terrain Boosts Highest Stat
+    // Variants:
+    //  - Electric => Quirk Drive
     [ABILITY_QUARK_DRIVE] =
     {
         .name = _("Quark Drive"),
@@ -394,8 +1074,26 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .failsOnImposter = TRUE,
     },
 
-    // Absorb type to heal
-
+    // Absorb Damage of Certain Type to Heal
+    // Variants:
+    //  - Grass    => ???
+    //  - Fire     => ???
+    //  - Water    => Water Absorb
+    //  - Bug      => ???
+    //  - Normal   => ???
+    //  - Electric => Volt Absorb
+    //  - Ice      => Ice Eater
+    //  - Fighting => ???
+    //  - Poison   => ???
+    //  - Ground   => Earth Eater
+    //  - Flying   => ???
+    //  - Psychic  => ???
+    //  - Rock     => ???
+    //  - Ghost    => ???
+    //  - Dragon   => ???
+    //  - Dark     => ???
+    //  - Steel    => ???
+    //  - Fairy    => ???
     [ABILITY_VOLT_ABSORB] =
     {
         .name = _("Volt Absorb"),
@@ -428,7 +1126,29 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-    // Draws in to boost.
+    // Absorb Damage of Certain Type to Boost
+    // Variants:
+    //  - Grass    => Sap Sipper
+    //  - Fire
+    //      - Power => Flash Fire
+    //  - Water    => Storm Drain
+    //  - Bug      => ???
+    //  - Normal   => ???
+    //  - Electric
+    //      - Sp Atk => Lighting Rod
+    //      - Speed  => Motor Drive
+    //  - Ice      => Ice Eater
+    //  - Fighting => ???
+    //  - Poison   => ???
+    //  - Ground   => Earth Eater
+    //  - Flying   => ???
+    //  - Psychic  => ???
+    //  - Rock     => ???
+    //  - Ghost    => ???
+    //  - Dragon   => ???
+    //  - Dark     => ???
+    //  - Steel    => ???
+    //  - Fairy    => ???
 
     [ABILITY_STORM_DRAIN] =
     {
@@ -449,17 +1169,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_SAP_SIPPER] =
     {
         .name = _("Sap Sipper"),
-        .description = COMPOUND_STRING("Boosts attack if hit by\na Grass-type move."),
+        .description = COMPOUND_STRING("Boosts Atk if hit by\na Grass-type move."),
         .aiRating = 7,
         .breakable = TRUE,
     },
 
-    // Hit by type to boost.
-
-
-    
-
-    // Immune to Type
     [ABILITY_MOTOR_DRIVE] =
     {
         .name = _("Motor Drive"),
@@ -467,7 +1181,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 6,
         .breakable = TRUE,
     },
-
 
     [ABILITY_FLASH_FIRE] =
     {
@@ -477,425 +1190,91 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-
-    // Aura
-
-    // Not Implmented
-    [ABILITY_NORMAL_AURA] =
+    // Boost Power of Type
+    // Variants:
+    //  - Grass
+    //  - Fire
+    //    - Self      => Fire Mane  
+    //  - Water 
+    //  - Bug
+    //  - Normal
+    //  - Electric
+    //    - Self      => Transistor
+    //  - Ice
+    //    - Self      => Snap Freeze
+    //  - Fighting
+    //  - Poison
+    //  - Ground      => Earth Eater
+    //  - Flying
+    //  - Psychic
+    //  - Rock
+    //    - Self      => Rocky Payload
+    //  - Ghost
+    //  - Dragon
+    //    - Self      => Dragons Maw
+    //  - Dark
+    //  - Steel
+    //    - Self      => Steelworker
+    //    - User Side => Steely Sprit
+    //  - Fairy
+    //
+    // Special
+    //  - Water + Steel => Emperors Presence
+    [ABILITY_TRANSISTOR] =
     {
-        .name = _("Normal Aura"),
-        .description = COMPOUND_STRING("Powers up all Normal-type\nmoves by 33%."),
+        .name = _("Transistor"),
+        .description = COMPOUND_STRING("Powers up Electric-type\nmoves by 50%."),
         .aiRating = 6,
-        .breakable = FALSE,
     },
 
-    // Not Implmented
-    [ABILITY_GHOST_AURA] =
+    [ABILITY_SNAP_FREEZE] =
     {
-        .name = _("Ghost Aura"),
-        .description = COMPOUND_STRING("Powers up all Ghost-type\nmoves by 33%."),
+        .name = _("Snap Freeze"),
+        .description = COMPOUND_STRING("Powers up Ice-type\nmoves by 50%."),
         .aiRating = 6,
-        .breakable = FALSE,
     },
 
-    // Not Implmented
-    [ABILITY_FIGHTING_AURA] =
+    [ABILITY_DRAGONS_MAW] =
     {
-        .name = _("Fighting Aura"),
-        .description = COMPOUND_STRING("Powers up all Fighting-type\nmoves by 33%."),
+        .name = _("Dragon's Maw"),
+        .description = COMPOUND_STRING("Powers up Dragon-type\nmoves by 50%."),
         .aiRating = 6,
-        .breakable = FALSE,
     },
 
-    // Not Implmented
-    [ABILITY_FIRE_AURA] =
+    [ABILITY_ROCKY_PAYLOAD] =
     {
-        .name = _("Fire Aura"),
-        .description = COMPOUND_STRING("Powers up all Fire-type\nmoves by 33%."),
+        .name = _("Rocky Payload"),
+        .description = COMPOUND_STRING("Powers up Rock-type\nmoves by 50%."),
         .aiRating = 6,
-        .breakable = FALSE,
     },
 
-    // Not Implmented
-    [ABILITY_ELECTRIC_AURA] =
+    [ABILITY_STEELWORKER] =
     {
-        .name = _("Electric Aura"),
-        .description = COMPOUND_STRING("Powers up all Electric-type\nmoves by 33%."),
+        .name = _("Steelworker"),
+        .description = COMPOUND_STRING("Powers up Steel-type\nmoves by 50%."),
         .aiRating = 6,
-        .breakable = FALSE,
     },
 
-    // Not Implmented
-    [ABILITY_WATER_AURA] =
+    [ABILITY_FIRE_MANE] =
     {
-        .name = _("Water Aura"),
-        .description = COMPOUND_STRING("Powers up all Water-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
+        .name = _("Fire Mane"),
+        .description = COMPOUND_STRING("Powers up Fire-type\nmoves by 50%."),
     },
 
-    // Not Implmented
-    [ABILITY_GRASS_AURA] =
+    [ABILITY_STEELY_SPIRIT] =
     {
-        .name = _("Grass Aura"),
-        .description = COMPOUND_STRING("Powers up all grass-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
+        .name = _("Steely Spirit"),
+        .description = COMPOUND_STRING("Boosts own and ally's\nSteel-type moves by 50%."),
+        .aiRating = 2,
     },
 
-    // Not Implmented
-    [ABILITY_PSYCHIC_AURA] =
+    [ABILITY_EMPERORS_PRESENCE] =
     {
-        .name = _("Psychic Aura"),
-        .description = COMPOUND_STRING("Powers up all Psychic-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
+        .name = _("Emperor"),
+        .description = COMPOUND_STRING("Boosts own and ally's\nWater & Steel-type moves by 30%."),
+        .aiRating = 2,
     },
 
-    // Not Implmented
-    [ABILITY_DRAGON_AURA] =
-    {
-        .name = _("Dragon Aura"),
-        .description = COMPOUND_STRING("Powers up all Dragon-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    // Not Implmented
-    [ABILITY_STEEL_AURA] =
-    {
-        .name = _("Steel Aura"),
-        .description = COMPOUND_STRING("Powers up all Steel-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    // Not Implmented
-    [ABILITY_POISON_AURA] =
-    {
-        .name = _("Normal Aura"),
-        .description = COMPOUND_STRING("Powers up all Poison-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    // Not Implmented
-    [ABILITY_BUG_AURA] =
-    {
-        .name = _("Bug Aura"),
-        .description = COMPOUND_STRING("Powers up all Bug-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    // Not Implmented
-    [ABILITY_GROUND_AURA] =
-    {
-        .name = _("Ground Aura"),
-        .description = COMPOUND_STRING("Powers up all ground-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    // Not Implmented
-    [ABILITY_ROCK_AURA] =
-    {
-        .name = _("Rock Aura"),
-        .description = COMPOUND_STRING("Powers up all Rock-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    [ABILITY_DARK_AURA] =
-    {
-        .name = _("Dark Aura"),
-        .description = COMPOUND_STRING("Powers up all Dark-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    [ABILITY_FAIRY_AURA] =
-    {
-        .name = _("Fairy Aura"),
-        .description = COMPOUND_STRING("Powers up all Fairy-type\nmoves by 33%."),
-        .aiRating = 6,
-        .breakable = FALSE,
-    },
-
-    [ABILITY_AURA_BREAK] =
-    {
-        .name = _("Aura Break"),
-        .description = COMPOUND_STRING("Reverses Aura Abilities."),
-        .aiRating = 3,
-        .breakable = TRUE,
-    },
-
-    [ABILITY_AURA_GUARD] =
-    {
-        .name = _("Aura Guard"),
-        .description = COMPOUND_STRING("Unimplemented."),
-    },
-
-    // In a pinch, 1/3 health boost abilities
-
-    [ABILITY_OVERGROW] =
-    {
-        .name = _("Overgrow"),
-        .description = COMPOUND_STRING("Boosts Grass moves by 50%\nat 1/3 or less HP."),
-        //.updatedDescription = COMPOUND_STRING("Boosts Grass moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_BLAZE] =
-    {
-        .name = _("Blaze"),
-        .description = COMPOUND_STRING("Boosts Fire moves by 50% at 1/3 or less HP."),
-        .updatedDescription = COMPOUND_STRING("Boosts Fire moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_TORRENT] =
-    {
-        .name = _("Torrent"),
-        .description = COMPOUND_STRING("Ups Water moves at low HP."),
-        .updatedDescription = COMPOUND_STRING("Boosts Water moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_SWARM] =
-    {
-        .name = _("Swarm"),
-        .description = COMPOUND_STRING("Ups Bug moves at low HP."),
-        .updatedDescription = COMPOUND_STRING("Boosts Bug moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_ADRENALINE] =
-    {
-        .name = _("Adrenaline"),
-        .description = COMPOUND_STRING("Boosts Normal moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_OVERCHARGE] =
-    {
-        .name = _("Overcharge"),
-        .description = COMPOUND_STRING("Boosts Electric moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_TREMOR] =
-    {
-        .name = _("Tremor"),
-        .description = COMPOUND_STRING("Boosts Ground moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_HAUNT] =
-    {
-        .name = _("Haunt"),
-        .description = COMPOUND_STRING("Boosts Ghost moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_FLOCK] =
-    {
-        .name = _("Flock"),
-        .description = COMPOUND_STRING("Boosts Flying moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_ECLIPSE] =
-    {
-        .name = _("Eclipse"),
-        .description = COMPOUND_STRING("Boosts Dark moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_TEMPER] =
-    {
-        .name = _("Temper"),
-        .description = COMPOUND_STRING("Boosts Steel moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_SUB_ZERO] =
-    {
-        .name = _("Sub-Zero"),
-        .description = COMPOUND_STRING("Boosts Ice moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_UNDERDOG] =
-    {
-        .name = _("Underdog"),
-        .description = COMPOUND_STRING("Boosts Fighting moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_ENLIGHTEN] =
-    {
-        .name = _("Enlighten"),
-        .description = COMPOUND_STRING("Boosts Psychic moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_ENCHANT] =
-    {
-        .name = _("Adrenaline"),
-        .description = COMPOUND_STRING("Boosts Fairy moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_SEDIMENTARY] =
-    {
-        .name = _("Sedimentary"),
-        .description = COMPOUND_STRING("Boosts Rock moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_INFECTION] =
-    {
-        .name = _("Infection"),
-        .description = COMPOUND_STRING("Boosts Poison moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_MYTHOLOGICAL] =
-    {
-        .name = _("Mythological"),
-        .description = COMPOUND_STRING("Boosts Dragon moves by 30%.\nBoosts by 50% when at 1/3 or less HP."),
-        .aiRating = 5,
-    },
-    
-    // Transform type abilties. Ex. -ize, -ate
-
-    [ABILITY_NORMALIZE] =
-    {
-        .name = _("Normalize"),
-        .description = COMPOUND_STRING("Moves become Normal-type\n&boosted by 20%."),
-        .aiRating = -1,
-    },
-
-    [ABILITY_DRAGONIZE] =
-    {
-        .name = _("Dragonize"),
-        .description = COMPOUND_STRING("Normal moves turn Dragon."),
-        .updatedDescription = COMPOUND_STRING("Normal moves turn Dragon\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_GALVANIZE] =
-    {
-        .name = _("Galvanize"),
-        .description = COMPOUND_STRING("Normal moves become Electric\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_AERILATE] =
-    {
-        .name = _("Aerilate"),
-        .description = COMPOUND_STRING("Normal moves become Flying\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_PIXILATE] =
-    {
-        .name = _("Pixilate"),
-        .description = COMPOUND_STRING("Normal moves become Fairy\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_REFRIGERATE] =
-    {
-        .name = _("Refrigerate"),
-        .description = COMPOUND_STRING("Normal moves become Ice\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_PULVERIZE] = 
-    {
-        .name = _("Pulverize"),
-        .description = COMPOUND_STRING("Normal moves become Fighting\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_CONTAMINATE] = 
-    {
-        .name = _("Contaminate"),
-        .description = COMPOUND_STRING("Normal moves become Poison\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_ESCAVATE] = 
-    {
-        .name = _("Escavate"),
-        .description = COMPOUND_STRING("Normal moves become Ground\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_MINERALIZE] = 
-    {
-        .name = _("Mineralize"),
-        .description = COMPOUND_STRING("Normal moves become Rock\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_PUPATE] = 
-    {
-        .name = _("Pupate"),
-        .description = COMPOUND_STRING("Normal moves become Bug\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_ENERVATE] = 
-    {
-        .name = _("Enervate"),
-        .description = COMPOUND_STRING("Normal moves become Ghost\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_METALLICIZE] = 
-    {
-        .name = _("Metallicize"),
-        .description = COMPOUND_STRING("Normal moves become Steel\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_EMOLATE] = 
-    {
-        .name = _("Emolate"),
-        .description = COMPOUND_STRING("Normal moves become Fire\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_IRRIGATE] = 
-    {
-        .name = _("Irrigate"),
-        .description = COMPOUND_STRING("Normal moves become Water\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_POLLINATE] = 
-    {
-        .name = _("Pollinate"),
-        .description = COMPOUND_STRING("Normal moves become Grass\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_PROPHESIZE] = 
-    {
-        .name = _("Prophesize"),
-        .description = COMPOUND_STRING("Normal moves become Psychic\n& boosted by 20%."),
-        .aiRating = 8,
-    },
-
-    [ABILITY_TERRORIZE] = 
-    {
-        .name = _("Terrorize"),
-        .description = COMPOUND_STRING("Normal moves become Dark\n& boosted by 20%."),
-        .aiRating = 8,
-    },
 
     // Prevents specific status
 
@@ -1042,170 +1421,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-    // Choice-like
-    
-    [ABILITY_GORILLA_TACTICS] =
-    {
-        .name = _("Gorilla Tactics"),
-        .description = COMPOUND_STRING("Ups Atk by 50% but\nlocks move."),
-        .aiRating = 4,
-    },
-
-    [ABILITY_SAGE_POWER] =
-    {
-        .name = _("Sage Power"),
-        .description = COMPOUND_STRING("Ups Sp. Atk by 50% but\nlocks move."),
-        .aiRating = 4,
-    },
-
-    // Doubles a stat
-
-    [ABILITY_PURE_POWER] =
-    {
-        .name = _("Pure Power"),
-        .description = COMPOUND_STRING("Doubles Attack."),
-        .aiRating = 10,
-    },
-
-    [ABILITY_HUGE_POWER] =
-    {
-        .name = _("Huge Power"),
-        .description = COMPOUND_STRING("Doubles Attack."),
-        .aiRating = 10,
-    },
-
-    [ABILITY_FELINE_PROWESS] =
-    {
-        .name = _("Feline Prowess"),
-        .description = COMPOUND_STRING("Doubles Sp. Atk."),
-        .aiRating = 10,
-    },
-
-    // Boosts own X-type moves.
-
-    [ABILITY_TRANSISTOR] =
-    {
-        .name = _("Transistor"),
-        .description = COMPOUND_STRING("Powers up Electric-type\nmoves by 50%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_SNAP_FREEZE] =
-    {
-        .name = _("Snap Freeze"),
-        .description = COMPOUND_STRING("Powers up Ice-type\nmoves by 50%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_DRAGONS_MAW] =
-    {
-        .name = _("Dragon's Maw"),
-        .description = COMPOUND_STRING("Powers up Dragon-type\nmoves by 50%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_ROCKY_PAYLOAD] =
-    {
-        .name = _("Rocky Payload"),
-        .description = COMPOUND_STRING("Powers up Rock-type\nmoves by 50%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_STEELWORKER] =
-    {
-        .name = _("Steelworker"),
-        .description = COMPOUND_STRING("Powers up Steel-type\nmoves by 50%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_FIRE_MANE] =
-    {
-        .name = _("Fire Mane"),
-        .description = COMPOUND_STRING("Powers up Fire-type\nmoves by 50%."),
-    },
-
-    // Boost own and ally X-type 
-
-    [ABILITY_STEELY_SPIRIT] =
-    {
-        .name = _("Steely Spirit"),
-        .description = COMPOUND_STRING("Boosts own and ally's\nSteel-type moves by 50%."),
-        .aiRating = 2,
-    },
-
-    [ABILITY_EMPERORS_PRESENCE] =
-    {
-        .name = _("Emperor"),
-        .description = COMPOUND_STRING("Boosts own and ally's\nWater & Steel-type moves by 30%."),
-        .aiRating = 2,
-    },
-
-    // Boost specific type of moves
-
-    [ABILITY_STRONG_JAW] =
-    {
-        .name = _("Strong Jaw"),
-        .description = COMPOUND_STRING("Boosts biting moves by 50%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_IRON_FIST] =
-    {
-        .name = _("Iron Fist"),
-        .description = COMPOUND_STRING("Boosts punching moves\nby 30%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_STRIKER] =
-    {
-        .name = _("Striker"),
-        .description = COMPOUND_STRING("Boosts kicking moves\nby 30%."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_SHARPNESS] =
-    {
-        .name = _("Sharpness"),
-        .description = COMPOUND_STRING("Boosts slashing moves\nby 50%."),
-        .aiRating = 7,
-    },
-
-    [ABILITY_BONE_ZONE] =
-    {
-        .name = _("Bone Zone"),
-        .description = COMPOUND_STRING("Bone moves have Tinted Lens\nand ignore immunities."),
-        .aiRating = 7,
-    },
-
-    [ABILITY_LIQUID_VOICE] =
-    {
-        .name = _("Liquid Voice"),
-        .description = COMPOUND_STRING("Sound moves become Water-\ntype & boosted by 20%."),
-        .aiRating = 5,
-    },
-
-    [ABILITY_PUNK_ROCK] =
-    {
-        .name = _("Punk Rock"),
-        .description = COMPOUND_STRING("Boosts sound moves by 30%\n& resists them by 50%."),
-        .aiRating = 2,
-        .breakable = TRUE,
-    },
-
-    [ABILITY_MEGA_LAUNCHER] =
-    {
-        .name = _("Mega Launcher"),
-        .description = COMPOUND_STRING("Boosts aura and pulse moves\nby 50%."),
-        .aiRating = 7,
-    },
-
-    [ABILITY_TOUGH_CLAWS] =
-    {
-        .name = _("Tough Claws"),
-        .description = COMPOUND_STRING("Boosts moves that make\ncontact by 30%."),
-        .aiRating = 7,
-    },
-
     // Break/ignore/bypass abilities
 
     [ABILITY_MOLD_BREAKER] =
@@ -1213,22 +1428,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .name = _("Mold Breaker"),
         .description = COMPOUND_STRING("Moves ignore most\nabilities."),
         .aiRating = 7,
-    },
-
-    // Gain Priority when at full HP
-
-    [ABILITY_GALE_WINGS] =
-    {
-        .name = _("Gale Wings"),
-        .description = COMPOUND_STRING("Gives +1 priority to\nFlying moves at full HP."),
-        .aiRating = 6,
-    },
-
-    [ABILITY_BLAZING_SOUL] =
-    {
-        .name = _("Blazing Soul"),
-        .description = COMPOUND_STRING("Gives +1 priority to\nFire moves at full HP."),
-        .aiRating = 6,
     },
 
     // Gain Priority
@@ -2107,13 +2306,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
 
     // End organized.
 
-    
-
-
-
-
-
-
     [ABILITY_STURDY] =
     {
         .name = _("Sturdy"),
@@ -2216,8 +2408,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 8,
     },
 
-
-
     [ABILITY_TRACE] =
     {
         .name = _("Trace"),
@@ -2226,8 +2416,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeCopied = TRUE,
         .cantBeTraced = TRUE,
     },
-
-
 
     [ABILITY_SOUNDPROOF] =
     {
@@ -2350,8 +2538,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 5,
     },
 
-
-
     [ABILITY_WHITE_SMOKE] =
     {
         .name = _("White Smoke"),
@@ -2402,8 +2588,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Boosts power by 20%&\nSpeed by 50% on first turn."),
         .aiRating = 6,
     },
-
-
 
     [ABILITY_QUILL_RUSH] =
     {
@@ -2577,13 +2761,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 3,
     },
 
-    [ABILITY_RECKLESS] =
-    {
-        .name = _("Reckless"),
-        .description = COMPOUND_STRING("Boosts moves with recoil\nby 20%."),
-        .aiRating = 6,
-    },
-
     [ABILITY_BAD_DREAMS] =
     {
         .name = _("Bad Dreams"),
@@ -2634,17 +2811,12 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = -1,
     },
 
-
-
-
     [ABILITY_WEAK_ARMOR] =
     {
         .name = _("Weak Armor"),
         .description = COMPOUND_STRING("Being hit by phyiscal moves\ndrops Def but Raises Speed."),
         .aiRating = 2,
     },
-
-
 
     [ABILITY_OVERCOAT] =
     {
@@ -2723,18 +2895,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
     [ABILITY_AROMA_VEIL] =
     {
         .name = _("Aroma Veil"),
@@ -2771,21 +2931,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Gets +2 SpAtk when its\nstats are lowered."),
         .aiRating = 5,
     },
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
     [ABILITY_STAMINA] =
     {

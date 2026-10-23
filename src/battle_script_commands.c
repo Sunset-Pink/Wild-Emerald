@@ -4872,6 +4872,8 @@ static void RemoveAllWeather(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_SUN;
     else if (gBattleWeather & B_WEATHER_HAIL)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_HAIL;
+    else if (gBattleWeather & B_WEATHER_WIND)
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_WIND;
     else if (gBattleWeather & B_WEATHER_STRONG_WINDS)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_END_STRONG_WINDS;
     else if (gBattleWeather & B_WEATHER_SNOW)

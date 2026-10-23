@@ -1123,6 +1123,12 @@ static enum CancelerResult CancelerWeatherPrimal(struct BattleCalcValues *cv)
         else if (moveType == TYPE_FLYING && gBattleWeather & B_WEATHER_SANDSTORM_PRIMAL)
         {
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PRIMAL_WEATHER_CLOUDED_BY_SAND;
+            result = CANCELER_RESULT_FAILURE;
+        }
+        else if (moveType == TYPE_GRASS && gBattleWeather & B_WEATHER_SNOW_PRIMAL)
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PRIMAL_WEATHER_COULD_NOT_SURIVE_IN_SNOW;
+            result = CANCELER_RESULT_FAILURE;
         }
         if (result == CANCELER_RESULT_FAILURE)
         {

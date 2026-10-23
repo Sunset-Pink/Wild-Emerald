@@ -408,6 +408,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_STARTEDHAIL]                          = COMPOUND_STRING("It started to hail!"),
     [STRINGID_HAILCONTINUES]                        = COMPOUND_STRING("The hail is crashing down."),
     [STRINGID_HAILSTOPPED]                          = COMPOUND_STRING("The hail stopped."),
+    [STRINGID_WINDSTOPPED]                          = COMPOUND_STRING("The breeze subsided."),
     [STRINGID_STATCHANGESGONE]                      = COMPOUND_STRING("All stat changes were eliminated!"),
     [STRINGID_COINSSCATTERED]                       = COMPOUND_STRING("Coins were scattered everywhere!"),
     [STRINGID_TOOWEAKFORSUBSTITUTE]                 = COMPOUND_STRING("But it does not have enough HP left to make a substitute!"),
@@ -724,6 +725,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_EXTREMESUNLIGHTFADED]                 = COMPOUND_STRING("The extremely harsh sunlight faded!"),
     [STRINGID_MOVEEVAPORATEDINTHEHARSHSUNLIGHT]     = COMPOUND_STRING("The Water-type attack evaporated in the extremely harsh sunlight!"),
     [STRINGID_MOVECLOUDEDINTHEHARSHSAND]            = COMPOUND_STRING("The Flying-type attack could not push through the extremely harsh sandstorm!"),
+    [STRING_MOVEDIEDINFRIDGEDCOLD]                  = COMPOUND_STRING("The Grass-type attack could't survive against the frigid cold!"),
     [STRINGID_EXTREMELYHARSHSUNLIGHTWASNOTLESSENED] = COMPOUND_STRING("The extremely harsh sunlight was not lessened at all!"),
     [STRINGID_HEAVYRAIN]                            = COMPOUND_STRING("A heavy rain began to fall!"),
     [STRINGID_HEAVYRAINLIFTED]                      = COMPOUND_STRING("The heavy rain has lifted!"),
@@ -1099,6 +1101,7 @@ const u16 gWeatherEndsStringIds[B_MSG_WEATHER_END_COUNT] =
     [B_MSG_WEATHER_END_HAIL]                       = STRINGID_HAILSTOPPED,
     [B_MSG_WEATHER_END_SNOW]                       = STRINGID_SNOWSTOPPED,
     [B_MSG_WEATHER_END_FOG]                        = STRINGID_FOGLIFTED,
+    [B_MSG_WEATHER_END_WIND]                       = STRINGID_WINDSTOPPED,
     [B_MSG_WEATHER_END_EXTREMELY_HARSH_SUNLIGHT]   = STRINGID_EXTREMESUNLIGHTFADED,
     [B_MSG_WEATHER_END_HEAVY_RAIN]                 = STRINGID_HEAVYRAINLIFTED,
     [B_MSG_WEATHER_END_STRONG_WINDS]               = STRINGID_STRONGWINDSDISSIPATED,
@@ -1367,9 +1370,10 @@ const u16 gTerrainStartsStringIds[] =
 
 const u16 gPrimalWeatherBlocksStringIds[] =
 {
-    [B_MSG_PRIMAL_WEATHER_FIZZLED_BY_RAIN]      = STRINGID_MOVEFIZZLEDOUTINTHEHEAVYRAIN,
-    [B_MSG_PRIMAL_WEATHER_EVAPORATED_IN_SUN]    = STRINGID_MOVEEVAPORATEDINTHEHARSHSUNLIGHT,
-    [B_MSG_PRIMAL_WEATHER_CLOUDED_BY_SAND]      = STRINGID_MOVECLOUDEDINTHEHARSHSAND,
+    [B_MSG_PRIMAL_WEATHER_FIZZLED_BY_RAIN]          = STRINGID_MOVEFIZZLEDOUTINTHEHEAVYRAIN,
+    [B_MSG_PRIMAL_WEATHER_EVAPORATED_IN_SUN]        = STRINGID_MOVEEVAPORATEDINTHEHARSHSUNLIGHT,
+    [B_MSG_PRIMAL_WEATHER_CLOUDED_BY_SAND]          = STRINGID_MOVECLOUDEDINTHEHARSHSAND,
+    [B_MSG_PRIMAL_WEATHER_COULD_NOT_SURIVE_IN_SNOW] = STRING_MOVEDIEDINFRIDGEDCOLD
 };
 
 const u16 gInobedientStringIds[] =

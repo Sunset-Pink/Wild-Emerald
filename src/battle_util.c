@@ -294,13 +294,25 @@ const struct BattleWeatherInfo gBattleWeatherInfo[BATTLE_WEATHER_COUNT] = {
         .type = BATTLE_WEATHER_FOG,
     },
 
+    [BATTLE_WEATHER_WIND] =
+    {
+        .flag = B_WEATHER_WIND_NORMAL,
+        .rock = HOLD_EFFECT_BREEZY_ROCK,
+        .abilityStartMessage = B_MSG_STARTED_WIND,
+        .moveStartMessage = B_MSG_STARTED_WIND, // Placeholder
+        .endMessage = B_MSG_WEATHER_END_STRONG_WINDS,
+        .continuesMessage = B_MSG_WEATHER_TURN_STRONG_WINDS,
+        .animation = B_ANIM_STRONG_WINDS,
+        .type = BATTLE_WEATHER_STRONG_WINDS,
+    },
+
     [BATTLE_WEATHER_STRONG_WINDS] =
     {
         .flag = B_WEATHER_STRONG_WINDS,
         .rock = HOLD_EFFECT_NONE,
         .abilityStartMessage = B_MSG_STARTED_STRONG_WINDS,
         .moveStartMessage = B_MSG_STARTED_RAIN, // Placeholder
-        .endMessage = B_MSG_WEATHER_END_STRONG_WINDS,
+        .endMessage = B_MSG_WEATHER_END_WIND,
         .continuesMessage = B_MSG_WEATHER_TURN_STRONG_WINDS,
         .animation = B_ANIM_STRONG_WINDS,
         .type = BATTLE_WEATHER_STRONG_WINDS,
@@ -2125,15 +2137,19 @@ bool32 TryChangeWeatherWithAbility(enum BattlerId battler, u32 battleWeather, en
 enum WeatherFailure TryChangeBattleWeather(enum BattlerId battler, u32 battleWeatherId, enum Ability ability)
 {
     if (gBattleWeather & gBattleWeatherInfo[battleWeatherId].flag)
+    {
+        
         return WEATHER_FAILURE_SAME_WEATHER;
-
+    }
     if (gBattleStruct->overworldWeatherPresent)
         return WEATHER_FAILURE_OVERWORLD;
 
     if (gBattleWeather & B_WEATHER_PRIMAL_ANY
           && ability != ABILITY_DESOLATE_LAND
           && ability != ABILITY_PRIMORDIAL_SEA
-          && ability != ABILITY_DELTA_STREAM)
+          && ability != ABILITY_DELTA_STREAM
+          && ability != ABILITY_FIMBULWINTER
+          && ability != ABILITY_PREHISTORIC_DUST)
     {
         return WEATHER_FAILURE_PRIMAL;
     }
@@ -3572,7 +3588,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         case ABILITY_SUMMON_WIND:
         case ABILITY_WIND_PLUS:
-            if (shouldAbilityTrigger && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_WINDS, gLastUsedAbility))
+            if (shouldAbilityTrigger && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_WIND, gLastUsedAbility))
                 effect++;
             break;
         case ABILITY_ELECTRIC_SURGE:
@@ -3716,6 +3732,14 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         case ABILITY_DELTA_STREAM:
             if (shouldAbilityTrigger && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_STRONG_WINDS, gLastUsedAbility))
+                effect++;
+            break;
+        case ABILITY_FIMBULWINTER:
+            if (shouldAbilityTrigger && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_SNOW_PRIMAL, gLastUsedAbility))
+                effect++;
+            break;
+        case ABILITY_PREHISTORIC_DUST:
+            if (shouldAbilityTrigger && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_SANDSTORM_PRIMAL, gLastUsedAbility))
                 effect++;
             break;
         case ABILITY_VESSEL_OF_RUIN:
@@ -4490,6 +4514,10 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         case ABILITY_SAND_SPIT:
             if (IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES) && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_SANDSTORM, gLastUsedAbility))
+                effect++;
+            break;
+        case ABILITY_FROST_DUST:
+            if (IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES) && TryChangeWeatherWithAbility(battler, BATTLE_WEATHER_SNOW, gLastUsedAbility))
                 effect++;
             break;
         case ABILITY_PERISH_BODY:
@@ -6939,7 +6967,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (moveType == TYPE_NORMAL && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-    case ABILITY_PULVERIZE:
+    case ABILITY_EXERCIZE:
         if (moveType == TYPE_FIGHTING && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
@@ -6967,11 +6995,11 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         if (moveType == TYPE_STEEL && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-    case ABILITY_EMOLATE:
+    case ABILITY_CONFLAGRATE:
         if (moveType == TYPE_FIRE && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
-    case ABILITY_IRRIGATE:
+    case ABILITY_MOISTURIZE:
         if (moveType == TYPE_WATER && gBattleStruct->battlerState[battlerAtk].ateBoost)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
@@ -7363,7 +7391,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         else if (!IsVanillaMode())
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_OVERCHARGE:
+    case ABILITY_VOLT:
         if (moveType != TYPE_ELECTRIC)
             break;
         if(gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
@@ -7371,7 +7399,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         else if (!IsVanillaMode())
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_TREMOR:
+    case ABILITY_FAULT_LINE:
         if (moveType != TYPE_GROUND)
             break;
         if(gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
@@ -7411,7 +7439,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         else if (!IsVanillaMode())
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_SUB_ZERO:
+    case ABILITY_SUBZERO:
         if (moveType != TYPE_ICE)
             break;
         if(gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
@@ -7427,7 +7455,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         else if (!IsVanillaMode())
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_ENLIGHTEN:
+    case ABILITY_REVELATION:
         if (moveType != TYPE_PSYCHIC)
             break;
         if(gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
@@ -7577,7 +7605,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         break;
     case ABILITY_WIND_PLUS:
         if(
-            ctx->weather & B_WEATHER_WINDY 
+            ctx->weather & B_WEATHER_WIND
             && IsBattleMoveSpecial(move)
             && ctx->holdEffects[ctx->battlerAtk] != HOLD_EFFECT_UTILITY_UMBRELLA
         ) {
@@ -11012,7 +11040,7 @@ bool32 CanMoveSkipAccuracyCalc(struct BattleCalcValues *cv, u32 weather, enum Re
             effect = TRUE;
         else if ((attackerWeather & B_WEATHER_ICY_ANY) && MoveAlwaysHitsInHailSnow(cv->move))
             effect = TRUE;
-        else if ((attackerWeather & B_WEATHER_WINDY) && MoveAlwaysHitsInWind(cv->move))
+        else if ((attackerWeather & B_WEATHER_WIND) && MoveAlwaysHitsInWind(cv->move))
             effect = TRUE;
 
         if (effect)

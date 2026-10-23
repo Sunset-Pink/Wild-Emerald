@@ -946,7 +946,7 @@ static void HandleSetEffectWeather(struct BattleCalcValues *cv, struct SetEffect
         }
         break;
     case MOVE_EFFECT_WIND:
-        weather = BATTLE_WEATHER_WINDS;
+        weather = BATTLE_WEATHER_WIND;
         msg = B_MSG_STARTED_WIND;
         break;
     default:

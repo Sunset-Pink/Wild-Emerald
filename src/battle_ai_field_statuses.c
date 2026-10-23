@@ -86,8 +86,6 @@ bool32 WeatherChecker(enum BattlerId battler, u32 weather, enum FieldEffectOutco
             result[sideBattlers] = BenefitsFromSandstorm(battlerIndex);
         else if (weather & B_WEATHER_ICY_ANY)
             result[sideBattlers] = BenefitsFromHailOrSnow(battlerIndex, weather);
-        else if (weather & B_WEATHER_WINDY)
-            result[sideBattlers] = BenefitsFromWind(battlerIndex);
         sideBattlers = PARTNER;
     }
 
@@ -193,7 +191,7 @@ static bool32 DoesAbilityBenefitFromWeather(enum Ability ability, u32 weather)
         return (weather & B_WEATHER_SUN);
     case ABILITY_WIND_PLUS:
     case ABILITY_JET_STREAM:
-        return (weather & B_WEATHER_WINDY);
+        return (weather & B_WEATHER_WIND);
     default:
         break;
     }
@@ -210,11 +208,13 @@ static bool32 DoesAbilityBenefitFromTerrain(enum Ability ability, enum BattleTer
     case ABILITY_QUARK_DRIVE:
     case ABILITY_SURGE_SURFER:
         return terrain == B_TERRAIN_ELECTRIC;
+    case ABILITY_GRASSY_GALLOP:
     case ABILITY_GRASS_PELT:
         return terrain == B_TERRAIN_GRASSY;
-    // no abilities inherently benefit from Misty or Psychic Terrains
-    // return terrain == B_TERRAIN_MISTY;
-    // return terrain == B_TERRAIN_PSYCHIC;
+    case ABILITY_SYNAPSE_SURGE:
+        return terrain == B_TERRAIN_PSYCHIC;
+    case ABILITY_MIST_WALKER:
+        return terrain == B_TERRAIN_MISTY;
     default:
         break;
     }
@@ -348,7 +348,7 @@ static enum FieldEffectOutcome BenefitsFromWind(enum BattlerId battler)
         return FIELD_EFFECT_NEUTRAL;
 
     if(
-        DoesAbilityBenefitFromWeather(gAiLogicData->abilities[battler], B_WEATHER_WINDY)
+        DoesAbilityBenefitFromWeather(gAiLogicData->abilities[battler], B_WEATHER_WIND)
         || HasMoveWithFlag(battler, MoveAlwaysHitsInWind)
         || HasDamagingMoveOfType(battler, TYPE_FLYING)
         || HasMoveWithEffect(battler, EFFECT_WEATHER_BALL)
@@ -648,8 +648,8 @@ s32 CalcWeatherScore(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum 
                 score += WEAK_EFFECT;
         }
         break;
-    case BATTLE_WEATHER_WINDS:
-        if(ShouldSetWeather(battlerAtk, B_WEATHER_WINDY))
+    case BATTLE_WEATHER_WIND:
+        if(ShouldSetWeather(battlerAtk, B_WEATHER_WIND))
         {
             score += DECENT_EFFECT;
             if(HasBattlerSideMoveWithEffect(battlerAtk, EFFECT_WEATHER_BALL))

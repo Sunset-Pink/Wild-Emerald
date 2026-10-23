@@ -102,6 +102,7 @@ PlayersHouse_2F_EventScript_CheckWallClock::
 	releaseall
 	end
 
+
 PlayersHouse_2F_EventScript_SetWallClock::
 	fadescreen FADE_TO_BLACK
 	special StartWallClock

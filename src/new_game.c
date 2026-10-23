@@ -53,7 +53,6 @@
 #include "constants/items.h"
 #include "difficulty.h"
 #include "follower_npc.h"
-#include "quests.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
@@ -230,7 +229,6 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
-    QuestMenu_ResetMenuSaveData();
     gSaveBlock2Ptr->autoRun = TRUE;
     gSaveBlock3Ptr->whiteOuts = 0;
 }

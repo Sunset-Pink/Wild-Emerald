@@ -184,7 +184,7 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
         }
         break;
     case BATTLE_WEATHER_STRONG_WINDS:
-    case BATTLE_WEATHER_WINDS:
+    case BATTLE_WEATHER_WIND:
     case BATTLE_WEATHER_NONE:
     case BATTLE_WEATHER_COUNT:
         break;

@@ -4405,7 +4405,7 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed *= 2;
     else if (
         ability == ABILITY_JET_STREAM
-        && weather & B_WEATHER_WINDY
+        && weather & B_WEATHER_WIND
     )
         speed *= 2;
     else if (
@@ -4418,6 +4418,10 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY)
         speed *= 2;
     else if (ability == ABILITY_SURGE_SURFER && gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
+        speed *= 2;
+    else if (ability == ABILITY_SYNAPSE_SURGE && gFieldTimers.terrain == B_TERRAIN_PSYCHIC)
+        speed *= 2;
+    else if (ability == ABILITY_GRASSY_GALLOP && gFieldTimers.terrain == B_TERRAIN_GRASSY)
         speed *= 2;
     else if (ability == ABILITY_SLOW_START && gBattleMons[battler].volatiles.slowStartTimer != 0)
         speed /= 2;
@@ -5556,10 +5560,10 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
     case ABILITY_POLLINATE:
         ateType = TYPE_GRASS;
         break;
-    case ABILITY_IRRIGATE:
+    case ABILITY_MOISTURIZE:
         ateType = TYPE_WATER;
         break;
-    case ABILITY_EMOLATE:
+    case ABILITY_CONFLAGRATE:
         ateType = TYPE_FIRE;
         break;
     case ABILITY_METALLICIZE:
@@ -5580,7 +5584,7 @@ enum Type TrySetAteType(enum Move move, enum BattlerId battlerAtk, enum Ability 
     case ABILITY_CONTAMINATE:
         ateType = TYPE_POISON;
         break;
-    case ABILITY_PULVERIZE:
+    case ABILITY_EXERCIZE:
         ateType = TYPE_FIGHTING;
         break;
     default:
@@ -5637,15 +5641,45 @@ enum Type GetDynamicMoveType(
             u32 weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
 
             if(ability == ABILITY_FORECAST) {
-                if(holdEffect == HOLD_EFFECT_ICY_ROCK && !(weather & B_WEATHER_SNOW)) {
-                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
-                } else if(holdEffect == HOLD_EFFECT_SMOOTH_ROCK && !(weather & B_WEATHER_SANDSTORM)) {
-                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
-                } else if(holdEffect == HOLD_EFFECT_HEAT_ROCK && !(weather & B_WEATHER_SUN)) {
-                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
-                } else if(holdEffect == HOLD_EFFECT_DAMP_ROCK && !(weather & B_WEATHER_RAIN)) {
-                    TryChangeWeatherWithAbility(battler, B_WEATHER_SNOW, gLastUsedAbility);
-                }
+                switch(holdEffect)
+                {
+                    case HOLD_EFFECT_ICY_ROCK:
+                    {
+                        if(weather & B_WEATHER_ICY_ANY)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, GetConfig(B_PREFERRED_ICE_WEATHER), ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_SMOOTH_ROCK:
+                    {
+                        if(weather & B_WEATHER_SANDSTORM)
+                           gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_SANDSTORM, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_DAMP_ROCK:
+                    {
+                        if(weather & B_WEATHER_RAIN)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_RAIN_NORMAL, ability);
+                        break;
+                    }
+                    case HOLD_EFFECT_HEAT_ROCK:
+                    {
+                        if(weather & B_WEATHER_SUN)
+                            gBattleStruct->weatherDuration = 8;
+                        else
+                            TryChangeWeatherWithAbility(battler, B_WEATHER_RAIN_NORMAL, ability);
+                        break;
+                    }
+                    default:
+                        break;
+                
+                }   
+                // Re-get weather incase forecast changed it.
                 weather =  GetAttackerWeather(holdEffect, ability, GetWeather());
             }
             if (weather & B_WEATHER_SUN)
@@ -5656,7 +5690,7 @@ enum Type GetDynamicMoveType(
                 return TYPE_ROCK;
             else if (weather & B_WEATHER_ICY_ANY)
                 return TYPE_ICE;
-            else if (weather & B_WEATHER_WINDY)
+            else if (weather & B_WEATHER_WIND)
                 return TYPE_FLYING;
             else
                 return moveType;

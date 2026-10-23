@@ -1925,7 +1925,7 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
         else if (effect == HOLD_EFFECT_ICY_ROCK)
             return B_WEATHER_SNOW;
         else if (effect == HOLD_EFFECT_BREEZY_ROCK)
-            return B_WEATHER_WINDS;
+            return B_WEATHER_WIND;
         return gBattleWeather;
     case ABILITY_DELUGE:
     case ABILITY_DRIZZLE:
@@ -1939,7 +1939,7 @@ u32 AI_GetSwitchinWeather(enum BattlerId battler)
         return B_WEATHER_SNOW;
     case ABILITY_SUMMON_WIND:
     case ABILITY_WIND_PLUS:
-        return B_WEATHER_WINDS;
+        return B_WEATHER_WIND;
     default:
         return gBattleWeather;
     }

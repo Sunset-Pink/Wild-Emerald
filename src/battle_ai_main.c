@@ -2040,8 +2040,8 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             if (weather & (B_WEATHER_ICY_ANY | B_WEATHER_PRIMAL_ANY))
                 ADJUST_SCORE(-8);
             break;
-        case BATTLE_WEATHER_WINDS:
-            if(weather & B_WEATHER_WINDY)
+        case BATTLE_WEATHER_WIND:
+            if(weather & B_WEATHER_WIND)
                 ADJUST_SCORE(-8);
             break;
         default:
